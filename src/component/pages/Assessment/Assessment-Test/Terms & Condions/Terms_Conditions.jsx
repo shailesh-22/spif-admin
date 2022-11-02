@@ -2,6 +2,8 @@ import React from 'react'
 import './rules.css';
 import { Link} from 'react-router-dom';
 import { useState } from 'react';
+import Header2 from '../../../../Sidebar/Header2';
+
 
 const TermsConditions = () => {
 
@@ -16,6 +18,8 @@ const TermsConditions = () => {
 
 
   return (
+    <div>
+     <Header2/>
     <div className='main' >
       <div className='terms_condition'>
         <div className='test-rules'>
@@ -49,6 +53,7 @@ const TermsConditions = () => {
 
         </div>
       </div>
+    </div>
     </div>
   )
 }

@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import MenuIcon from '@mui/icons-material/Menu';
-
-const Header = () => {
+import '../Sidebar/header2.css'
+const Header2 = () => {
   
        
       const handleLogout = ()=>{
@@ -14,19 +14,13 @@ const Header = () => {
     }
        
     return (
-      <div>
-  <nav className="main-header navbar  navbar-expand">
+      <div className='header2'>
+  <nav class='navbar navbar-expand-lg'  >
     {/* Left navbar links */}
     <ul className="navbar-nav d-flex ">
-      <li className="nav-item ">
-        <a className="nav-link " data-widget="pushmenu" >
-          {/* <i className="fas fa-bars" /> */}
-          <MenuIcon/>
-          </a>
-      </li>
-      <li className=" nav-item d-flex align-item-center ">
+      <li className=" nav-item d-flex align-item-center mx-4">
         
-            <img src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png" alt="logo" width={105}  />
+            <img src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png" alt="logo" width={130}  />
       
       </li>
     </ul>
@@ -71,4 +65,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header2
