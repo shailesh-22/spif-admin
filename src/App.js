@@ -1,23 +1,22 @@
 
 import './App.css';
-
-import { BrowserRouter as Router , NavLink, Route , Switch } from 'react-router-dom'
+import { BrowserRouter as Router , Route , Switch } from 'react-router-dom'
 import Accounts from './component/pages/Manage-Account/Accounts';
-
 import Statements from './component/pages/Settings/Statements';
-
 import Login from './component/Login/Login';
 import Signup from './component/Signup/Signup'
 import Dashboard from './component/pages/Dashboard/Dashboard';
 import Clients from './component/pages/Manage-Account/Clients';
 import ImportExport from './component/pages/Manage-Account/ImportExport';
 import Report from './component/pages/Reports/Report';
-
 import AssessmentTest from './component/pages/Assessment/Assessment-Test/MainAssesment/AssessmentTest';
 import TermsConditions from './component/pages/Assessment/Assessment-Test/Terms & Condions/Terms_Conditions';
 import AdminStatement from './component/pages/Assessment/Admin-Statement/AdminStatement';
 import TestResult from './component/pages/Assessment/Assessment-Test/TestCompletionPage/TestResult/TestResult';
 import CertificationPage from './component/pages/Assessment/Assessment-Test/TestCompletionPage/Certification/CertificationPage';
+import Register from './component/Registration/Register'
+import Register2 from './component/Registration/Register2';
+
 
 function App() {
 
@@ -29,13 +28,20 @@ function App() {
       <div class="wrapper">
 
           {/* <Home/> */}
-
-          
+     
 
         <Switch>
             
         <Route exact path="/">
             <Login />
+          </Route>
+          
+          <Route path="/register">
+            <Register/>
+          </Route>
+          
+          <Route path="/register2">
+            <Register2/>
           </Route>
 
           <Route path="/dashboard">

@@ -10,6 +10,7 @@ import useFetch from "../../Custom Hook/useFetch";
 // import ReactPaginate from 'react-paginate'
 import CircularProgress from '@mui/material/CircularProgress';
 import Header from "../../../../Sidebar/Header";
+import Header2 from "../../../../Sidebar/Header2";
 
 
 const AssessmentTest = () => {
@@ -53,7 +54,8 @@ const AssessmentTest = () => {
 
   return (
     
-   
+   <div>
+    <Header2/>
     <div className=" assessment-test">
         <div className='header w-100'>
             <h1>Assesment Test</h1>
@@ -74,6 +76,7 @@ const AssessmentTest = () => {
 
         </div>
     
+    </div>
     </div>
   )
 }

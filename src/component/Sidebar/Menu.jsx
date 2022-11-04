@@ -18,6 +18,7 @@ const Menu = () => {
 
 
   return (
+    
     <div>
       <aside className="main-sidebar ">
         {/* Brand Logo */}
@@ -86,7 +87,7 @@ const Menu = () => {
               <li className="nav-item">
                 <a className="nav-link">
                   <AssessmentIcon />
-                  <p><Link to="/terms_conditions">Assesements</Link></p>
+                  <p><Link to="/register2">Assesements</Link></p>
                 </a>
               </li>
 

@@ -18,7 +18,7 @@ i{
     float:right;
 }
 
-/* [id^=btn]:checked .dropdown {
+[id^=btn]:checked .dropdown {
     display: block !important;
-} */
+}
 

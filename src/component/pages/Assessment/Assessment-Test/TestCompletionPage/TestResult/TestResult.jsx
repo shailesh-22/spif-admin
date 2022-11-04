@@ -3,10 +3,13 @@ import './testResult.css'
 import Tooltip from '@mui/material/Tooltip';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import Header2 from '../../../../../Sidebar/Header2';
 
 
 const TestResult = () => {
   return (
+    <div>
+      <Header2/>
     <div className='test-result'>
       <div className="card test-card" >
         <div className="card-body">
@@ -34,6 +37,7 @@ const TestResult = () => {
           </Tooltip>
         </div>
       </div>
+    </div>
     </div>
   )
 }
