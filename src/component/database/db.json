@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "firstName": "Rohit",
+      "lastName": "Sharma",
+      "email": "rohit@gmail.com",
+      "phone": "9988547854",
+      "gender": "male",
+      "date_of_birth": "2022-05-05",
+      "profession": "Employed",
+      "street": "abcd",
+      "city": "abcd",
+      "state": "abcd",
+      "country": "abcd",
+      "pincode": "abcd",
+      "id": 1
+    },
+    {
+      "firstName": "vikram",
+      "lastName": "Kumar",
+      "email": "vikas@gmail.com",
+      "phone": "7474747474",
+      "gender": "male",
+      "date_of_birth": "2017-05-19",
+      "profession": "Business Owners",
+      "street": "Devinagar",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "country": "India",
+      "pincode": "515004",
+      "id": 2
+    },
+    {
+      "firstName": "Vikas",
+      "lastName": "Kumar",
+      "email": "vikas@gmail.com",
+      "phone": "9988556688",
+      "gender": "male",
+      "date_of_birth": "2007-06-13",
+      "profession": "Student",
+      "street": "Devinagar",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "country": "India",
+      "pincode": "515004",
+      "id": 3
+    }
+  ]
+}
