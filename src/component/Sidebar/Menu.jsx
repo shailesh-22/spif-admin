@@ -18,6 +18,7 @@ const Menu = () => {
 
 
   return (
+    
     <div>
       <aside className="main-sidebar ">
         {/* Brand Logo */}
@@ -27,7 +28,7 @@ const Menu = () => {
 
           {/* Sidebar Menu */}
           <nav className="mt-5">
-            <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" >
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" >
               {/* Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library */}
               <li className="nav-item has-treeview  menu-open">
@@ -86,7 +87,7 @@ const Menu = () => {
               <li className="nav-item">
                 <a className="nav-link">
                   <AssessmentIcon />
-                  <p><Link to="/terms_conditions">Assesements</Link></p>
+                  <p><Link to="/register2">Assesements</Link></p>
                 </a>
               </li>
 

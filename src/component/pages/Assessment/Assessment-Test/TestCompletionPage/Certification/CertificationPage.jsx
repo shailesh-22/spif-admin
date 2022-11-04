@@ -3,6 +3,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { Button } from '@material-ui/core';
 import {saveAs} from 'file-saver'
 import { useHistory } from 'react-router-dom';
+import Header2 from '../../../../../Sidebar/Header2';
 
 const CertificationPage = () => {
 
@@ -20,6 +21,8 @@ const CertificationPage = () => {
     
 
   return (
+    <div>
+        <Header2/>
     <div className='container certification'>
         <div className='d-flex flex-column align-items-center justify-content-center '>
             <div className='certificate'>
@@ -34,6 +37,7 @@ const CertificationPage = () => {
             </div>
         </div>
        
+    </div>
     </div>
   )
 }
