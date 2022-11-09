@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useNavigate } from 'react-router-dom';
 
 const Timer = () => {
 
     const[seconds,setSeconds] = useState(0);
     const[minutes,setMinutes] = useState(0);
 
-   
-    const history = useHistory();
+    const navigate = useHistory();
 
     useEffect(()=>{
         var timer = setInterval(()=>{
@@ -28,7 +27,7 @@ const Timer = () => {
     let secs = (seconds < 10 ? '0' : '') + seconds;
 
     if (minutes===10) {
-        history('/test-result');
+        navigate('/test-result');
     }
 
   return (

@@ -16,7 +16,7 @@ const Pagination = ( {questionPerPage, totalQuestions, setCurrentPage, currentPa
         <div className='pagination'>
             
             { currentPage==pageNumber[0] ? null :
-                <button id='previous-btn' onClick={( ()=>{ setCurrentPage(currentPage-1) })}  >
+                <button id='previous-btn' onClick={( ()=>{ setCurrentPage(currentPage-1); localStorage.getItem("item") })}  >
                     Previous
                 </button>
             }

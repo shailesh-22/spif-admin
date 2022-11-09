@@ -1,5 +1,6 @@
 .main-header {
-    background-color: #00d084 !important;
+    /* background-color: #00AD53!important; */
+    background-image: linear-gradient(to right, #00AD53 , #007A3E);
 }
 a{
     color: black !important;
@@ -13,9 +14,9 @@ a.dropdown-item{
     padding: 0% !important;  
    justify-content: center;
 }
-a.nav-link svg{
+/* a.nav-link svg{
    margin-right: 10px;
-}
+} */
 a.nav-link:hover{
-background-color: #0aae72;
+background-color: #0e9a51;
 }

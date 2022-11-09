@@ -9,8 +9,7 @@ import Timer from "./Timer";
 import useFetch from "../../Custom Hook/useFetch";
 // import ReactPaginate from 'react-paginate'
 import CircularProgress from '@mui/material/CircularProgress';
-import Header from "../../../../Sidebar/Header";
-import Header2 from "../../../../Sidebar/Header2";
+import Header3 from "../../../../Sidebar/Header3";
 
 
 const AssessmentTest = () => {
@@ -53,10 +52,9 @@ const AssessmentTest = () => {
   
 
   return (
-    
-   <div>
-    <Header2/>
-    <div className=" assessment-test">
+    <div>
+      <Header3/>
+    <div className="assessment-test">
         <div className='header w-100'>
             <h1>Assesment Test</h1>
             <div className='pageNo-Timer'>
@@ -64,7 +62,7 @@ const AssessmentTest = () => {
                 <Timer/>
             </div>
         </div>
-        <div className="questionWithOption" >
+        <div className="row questionWithOption" >
           <Questions questions={currentQueston} loading={loading} />
 
           <Pagination 
@@ -75,7 +73,6 @@ const AssessmentTest = () => {
           />
 
         </div>
-    
     </div>
     </div>
   )

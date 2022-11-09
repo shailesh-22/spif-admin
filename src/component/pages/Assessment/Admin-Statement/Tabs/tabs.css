@@ -1,0 +1,67 @@
+
+.tabTypeQuestion .tab button{
+    padding: 5px;
+    border: none;
+    border-bottom: 0.5px solid rgba(55, 59, 59, 0.247);
+    background-color: rgba(240, 248, 255, 0);
+    color: rgba(55, 59, 59, 0.685) ;
+}
+.tabTypeQuestion .tab button:disabled{
+    border-bottom: 1px solid #00ad53;
+    border-top: 0.5px solid #57C272;
+    border-right: 0.5px solid #57C272;
+    border-radius: 10px;
+}
+
+.tabTypeQuestion .content{
+    border: 1px solid rgba(55, 59, 59, 0.5);
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px 1px grey;
+    margin: 10px 0;
+    padding: 10px;
+}
+.tabTypeQuestion .content h5{
+    color:  #00ad53 ;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+.tab-body-btns button{
+    margin: 10px 5px;
+}
+.content .options-container{
+    border: 3px solid rgba(55, 59, 59, 0.5);
+    border-radius: 10px;
+    width: 75%;
+    padding: 20px;
+}
+.option-add-btn:hover{
+    border: 1px solid #00ad53;
+    color:  #00ad53 ;
+}
+.options-container .option-field{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.options-container .option-field button{
+    width: 50px;
+    margin: 0 5px;
+    border: 0.5px solid rgba(55, 59, 59, 0.5);
+    border-radius: 5px;
+    font-weight: bolder;
+    background-color: #57C272;
+    color: antiquewhite;
+}
+.draggable-tab{
+    display: inline-flex;
+    width: 70px;
+    position: relative;
+}
+.prompt-field{
+    border: #57C272 1px dotted;
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+}

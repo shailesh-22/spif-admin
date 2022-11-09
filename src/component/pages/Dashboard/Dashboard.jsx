@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+
 import Header from '../../Sidebar/Header'
-import Menu from '../../Sidebar/Menu'
+import Menu2 from '../../Sidebar/Menu2'
 
 
 
@@ -9,8 +9,8 @@ const Dasboard = () => {
   return (
 
     <div>
-      <Header />
-      <Menu />
+      <Header/>
+      <Menu2/>
       <div className="content-wrapper">
 
 
@@ -37,7 +37,7 @@ const Dasboard = () => {
               </div>{/* /.col */}
               <div className="col-sm-6">
                 <ol className="breadcrumb float-sm-right">
-                  <li className="breadcrumb-item"><a href="#">Home</a></li>
+                  <li className="breadcrumb-item"><div>Home</div></li>
                   <li className="breadcrumb-item active">Dashboard v1</li>
                 </ol>
               </div>{/* /.col */}
@@ -46,6 +46,7 @@ const Dasboard = () => {
         </div>
         {/* /.content-header */}
         {/* Main content */}
+        
         <section className="content">
           <div className="container-fluid">
             {/* Small boxes (Stat box) */}
@@ -60,7 +61,7 @@ const Dasboard = () => {
                   <div className="icon">
                     <i className="ion ion-bag" />
                   </div>
-                  <a href="#" className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
+                  <div className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></div>
                 </div>
               </div>
               {/* ./col */}
@@ -74,7 +75,7 @@ const Dasboard = () => {
                   <div className="icon">
                     <i className="ion ion-stats-bars" />
                   </div>
-                  <a href="#" className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
+                  <div className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></div>
                 </div>
               </div>
               {/* ./col */}
@@ -88,7 +89,7 @@ const Dasboard = () => {
                   <div className="icon">
                     <i className="ion ion-person-add" />
                   </div>
-                  <a href="#" className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
+                  <div className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></div>
                 </div>
               </div>
               {/* ./col */}
@@ -102,7 +103,7 @@ const Dasboard = () => {
                   <div className="icon">
                     <i className="ion ion-pie-graph" />
                   </div>
-                  <a href="#" className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></a>
+                  <div className="small-box-footer">More info <i className="fas fa-arrow-circle-right" /></div>
                 </div>
               </div>
               {/* ./col */}
@@ -122,10 +123,10 @@ const Dasboard = () => {
                     <div className="card-tools">
                       <ul className="nav nav-pills ml-auto">
                         <li className="nav-item">
-                          <a className="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                          <div className="nav-link active"  data-toggle="tab">Area</div>
                         </li>
                         <li className="nav-item">
-                          <a className="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
+                          <div className="nav-link"  data-toggle="tab">Donut</div>
                         </li>
                       </ul>
                     </div>
@@ -170,7 +171,7 @@ const Dasboard = () => {
                           <span className="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                         </div>
                         {/* /.direct-chat-infos */}
-                        <img className="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image" />
+                        <img className="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user" />
                         {/* /.direct-chat-img */}
                         <div className="direct-chat-text">
                           Is this template really for free? That's unbelievable!
@@ -185,7 +186,7 @@ const Dasboard = () => {
                           <span className="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                         </div>
                         {/* /.direct-chat-infos */}
-                        <img className="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image" />
+                        <img className="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user " />
                         {/* /.direct-chat-img */}
                         <div className="direct-chat-text">
                           You better believe it!
@@ -200,7 +201,7 @@ const Dasboard = () => {
                           <span className="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
                         </div>
                         {/* /.direct-chat-infos */}
-                        <img className="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image" />
+                        <img className="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user " />
                         {/* /.direct-chat-img */}
                         <div className="direct-chat-text">
                           Working with AdminLTE on a great new app! Wanna join?
@@ -215,7 +216,7 @@ const Dasboard = () => {
                           <span className="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
                         </div>
                         {/* /.direct-chat-infos */}
-                        <img className="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image" />
+                        <img className="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user " />
                         {/* /.direct-chat-img */}
                         <div className="direct-chat-text">
                           I would love to.
@@ -229,8 +230,8 @@ const Dasboard = () => {
                     <div className="direct-chat-contacts">
                       <ul className="contacts-list">
                         <li>
-                          <a href="#">
-                            <img className="contacts-list-img" src="dist/img/user1-128x128.jpg" />
+                          <div>
+                            <img className="contacts-list-img" src="dist/img/user1-128x128.jpg" alt='##' />
                             <div className="contacts-list-info">
                               <span className="contacts-list-name">
                                 Count Dracula
@@ -239,12 +240,12 @@ const Dasboard = () => {
                               <span className="contacts-list-msg">How have you been? I was...</span>
                             </div>
                             {/* /.contacts-list-info */}
-                          </a>
+                          </div>
                         </li>
                         {/* End Contact Item */}
                         <li>
-                          <a href="#">
-                            <img className="contacts-list-img" src="dist/img/user7-128x128.jpg" />
+                          <div>
+                            <img className="contacts-list-img" src="dist/img/user7-128x128.jpg" alt='##' />
                             <div className="contacts-list-info">
                               <span className="contacts-list-name">
                                 Sarah Doe
@@ -253,12 +254,12 @@ const Dasboard = () => {
                               <span className="contacts-list-msg">I will be waiting for...</span>
                             </div>
                             {/* /.contacts-list-info */}
-                          </a>
+                          </div>
                         </li>
                         {/* End Contact Item */}
                         <li>
-                          <a href="#">
-                            <img className="contacts-list-img" src="dist/img/user3-128x128.jpg" />
+                          <div>
+                            <img className="contacts-list-img" src="dist/img/user3-128x128.jpg" alt='##'  />
                             <div className="contacts-list-info">
                               <span className="contacts-list-name">
                                 Nadia Jolie
@@ -267,12 +268,12 @@ const Dasboard = () => {
                               <span className="contacts-list-msg">I'll call you back at...</span>
                             </div>
                             {/* /.contacts-list-info */}
-                          </a>
+                          </div>
                         </li>
                         {/* End Contact Item */}
                         <li>
-                          <a href="#">
-                            <img className="contacts-list-img" src="dist/img/user5-128x128.jpg" />
+                          <div>
+                            <img className="contacts-list-img" src="dist/img/user5-128x128.jpg" alt='##' />
                             <div className="contacts-list-info">
                               <span className="contacts-list-name">
                                 Nora S. Vans
@@ -281,12 +282,12 @@ const Dasboard = () => {
                               <span className="contacts-list-msg">Where is your new...</span>
                             </div>
                             {/* /.contacts-list-info */}
-                          </a>
+                          </div>
                         </li>
                         {/* End Contact Item */}
                         <li>
-                          <a href="#">
-                            <img className="contacts-list-img" src="dist/img/user6-128x128.jpg" />
+                          <div>
+                            <img className="contacts-list-img" src="dist/img/user6-128x128.jpg" alt='##' />
                             <div className="contacts-list-info">
                               <span className="contacts-list-name">
                                 John K.
@@ -295,12 +296,12 @@ const Dasboard = () => {
                               <span className="contacts-list-msg">Can I take a look at...</span>
                             </div>
                             {/* /.contacts-list-info */}
-                          </a>
+                          </div>
                         </li>
                         {/* End Contact Item */}
                         <li>
-                          <a href="#">
-                            <img className="contacts-list-img" src="dist/img/user8-128x128.jpg" />
+                          <div>
+                            <img className="contacts-list-img" src="dist/img/user8-128x128.jpg" alt='##' />
                             <div className="contacts-list-info">
                               <span className="contacts-list-name">
                                 Kenneth M.
@@ -309,7 +310,7 @@ const Dasboard = () => {
                               <span className="contacts-list-msg">Never mind I found...</span>
                             </div>
                             {/* /.contacts-list-info */}
-                          </a>
+                          </div>
                         </li>
                         {/* End Contact Item */}
                       </ul>
@@ -340,11 +341,11 @@ const Dasboard = () => {
                     </h3>
                     <div className="card-tools">
                       <ul className="pagination pagination-sm">
-                        <li className="page-item"><a href="#" className="page-link">«</a></li>
-                        <li className="page-item"><a href="#" className="page-link">1</a></li>
-                        <li className="page-item"><a href="#" className="page-link">2</a></li>
-                        <li className="page-item"><a href="#" className="page-link">3</a></li>
-                        <li className="page-item"><a href="#" className="page-link">»</a></li>
+                        <li className="page-item"><div className="page-link">«</div></li>
+                        <li className="page-item"><div className="page-link">1</div></li>
+                        <li className="page-item"><div className="page-link">2</div></li>
+                        <li className="page-item"><div className="page-link">3</div></li>
+                        <li className="page-item"><div className="page-link">»</div></li>
                       </ul>
                     </div>
                   </div>
@@ -565,10 +566,10 @@ const Dasboard = () => {
                         <button type="button" className="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
                           <i className="fas fa-bars" /></button>
                         <div className="dropdown-menu float-right" role="menu">
-                          <a href="#" className="dropdown-item">Add new event</a>
-                          <a href="#" className="dropdown-item">Clear events</a>
+                          <div className="dropdown-item">Add new event</div>
+                          <div className="dropdown-item">Clear events</div>
                           <div className="dropdown-divider" />
-                          <a href="#" className="dropdown-item">View calendar</a>
+                          <div className="dropdown-item">View calendar</div>
                         </div>
                       </div>
                       <button type="button" className="btn btn-success btn-sm" data-card-widget="collapse">
