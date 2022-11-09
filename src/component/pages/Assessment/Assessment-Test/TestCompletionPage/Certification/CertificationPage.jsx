@@ -3,12 +3,10 @@ import Tooltip from '@mui/material/Tooltip';
 import { Button } from '@material-ui/core';
 import {saveAs} from 'file-saver'
 import { useHistory } from 'react-router-dom';
-import Header2 from '../../../../../Sidebar/Header2';
 
 const CertificationPage = () => {
 
-    
-    const history = useHistory();
+    let navigate = useHistory();
 
 //    To Download image ----Have to install package
 //           npm install file-saver --save
@@ -16,13 +14,11 @@ const CertificationPage = () => {
 
     const downloadImage = () => {
         saveAs('image_url', 'Creative Photography Participation Certificate Template-1.jpeg'); // Put your image url here.
-        history.push('/dashboard')
+        navigate('/')
     }
     
 
   return (
-    <div>
-        <Header2/>
     <div className='container certification'>
         <div className='d-flex flex-column align-items-center justify-content-center '>
             <div className='certificate'>
@@ -32,12 +28,12 @@ const CertificationPage = () => {
             </div>
             <div className='certificate-btn'>
                 <Tooltip title="To Download Certificate" placement='right'>
+                    
                     <Button onClick={downloadImage} variant='contained' color='primary' className="card-link">Download!</Button>            
                 </Tooltip>
             </div>
         </div>
        
-    </div>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import '../Sidebar/header.css'
 import { Link } from 'react-router-dom'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
-import MenuIcon from '@mui/icons-material/Menu';
+
 import '../Sidebar/header2.css'
 const Header2 = () => {
 

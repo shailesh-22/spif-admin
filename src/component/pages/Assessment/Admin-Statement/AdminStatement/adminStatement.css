@@ -6,13 +6,14 @@
     background: linear-gradient(to right, rgb(240, 235, 235), rgb(247, 244, 244));
     padding: 20px;
     font-family: 'Times New Roman', Times, serif;
+    width: 100%;
 }
 .admin-statement .header{
     background: linear-gradient(to right, rgba(255, 255, 255, 0.726), rgba(236, 229, 229, 0.267));
     margin: 10px 0;
 }
 .admin-statement .header h1{
-    color: rgb(45, 45, 150);
+    color: #346BFF;
     padding: 10px;
     margin: 10px 0;
 }
@@ -26,22 +27,24 @@
     gap: 30px;
 }
 .admin-statement .question-container .adding-part{
-    gap: 20px;
-    justify-content: start;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
 }
 .admin-statement .question-container .adding-part h3{
-    color: rgb(45, 45, 150);
+    color: #4b5266;
 }
-.admin-statement .question-container .search-field{
+/* .admin-statement .question-container .search-field{
     margin: 25px 0;
     width: 60%;
     font-size: 30px;
-}
+} */
 .dialog-box{
     background-color: rgba(240, 248, 255, 0);
 }
 .create-question-header, .create-option-header{
-    color: rgb(45, 45, 150);
+    color: #346BFF;
 }
 

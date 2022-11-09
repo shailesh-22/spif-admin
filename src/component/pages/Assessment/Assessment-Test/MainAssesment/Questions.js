@@ -7,10 +7,10 @@ const Questions = ({ questions, loading }) => {
 
   const [answers, setAnswers] = useState("");
 
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   // const [score, setScore] = useState(0);
   useEffect(()=>{
-    if(localStorage.getItem("item")==null)  //if wish array is not presnt before 
+    if(localStorage.getItem("item")==null)  //if item array is not present before 
     {
         localStorage.setItem("item","[]")   //then add the wish
     }
@@ -30,7 +30,7 @@ const Questions = ({ questions, loading }) => {
 
   return (
     // <div className='row px-3 '>
-    <form className='px-3 question-form ' >
+    <form className='content-wrapper px-3 question-form ' >
       {
         questions.map((question, i) => {
           return (
@@ -48,11 +48,7 @@ const Questions = ({ questions, loading }) => {
 
                 }
                 {
-                  question.options.map((option) => { 
-                    
-                    question.options.forEach( (x)=>{
-                      if( x.id != option.id ) x.selected = false;
-                    } )
+                  question.options.map((option) => {                    
                     
                     const openPopover = (event) =>{
                       if (option.isAnswer === false) {
@@ -70,21 +66,25 @@ const Questions = ({ questions, loading }) => {
 
                     const open = Boolean(anchor);
 
-                    // const onSelect = ( ) =>{
+                    const onSelect = () =>{
 
-                    //   let LinalArray = [] ;  let arrayUniqueByKey = [];
+                      
 
-                    //   LinalArray = LinalArray.push( { 'stid': question.sStatementID, 'answers': option.text } );
+                      let newArrays = JSON.parse(localStorage.getItem("item") || '[]' )
+                      
+                      let newArray = {'stid': question.sStatementID, 'answers': option.text,}
 
-                    //   let Key = 'stid';
+                      newArrays.push( newArray);
 
-                    //   arrayUniqueByKey = [ ...new Map( LinalArray.map( item=> [item[Key],item])).values() ]
+                      // let Key = 'stid';
 
-                    //   localStorage.setItem("item", JSON.stringify(arrayUniqueByKey));
+                      // arrayUniqueByKey = [ ...new Map( LinalArray.map( item=> [item[Key],item])).values() ]
+                      
+                      localStorage.setItem("item", JSON.stringify(newArrays));
 
-                    //   localStorage.getItem("item");
+                      
 
-                    // }
+                    }
 
                     return (
                       <div className="question-options">
@@ -92,9 +92,8 @@ const Questions = ({ questions, loading }) => {
                         <input type="radio"
                           name={question.sStatementID}
                           value={option.text}
-                          onChange={ (e)=>{ setAnswers(e.target.value) } }
+                          onChange={ (e)=>{ setAnswers(e.target.value); onSelect() } }
                           onClick={openPopover}
-                          onClose={handleClose}
                         />
                         <label className='px-1 question-label' > {option.text} </label>
                         
@@ -114,13 +113,13 @@ const Questions = ({ questions, loading }) => {
                             padding:"10px"
                           }} 
                           open={open}
-                          anchorEl={anchor} 
+                          anchorEl={anchor}
                         >
                           <div className='option-popper-title'>    
                             <Typography variant='h5'  >  The Reason for wrong answer </Typography>
                           </div>
                           <hr />
-                          <Typography variant='h6' className='option-popper' >  {option.isPrompt} </Typography>
+                          <Typography variant='h6' className='option-popper' > {option.isPrompt} </Typography>
                           <div className='popper-btn'>
                             
                             <Button onClick={handleClose} variant="contained" color='primary' >OK</Button>

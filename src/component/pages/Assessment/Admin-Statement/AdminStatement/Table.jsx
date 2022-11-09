@@ -149,7 +149,7 @@ export default function CustomPaginationActionsTable( {questions, totalQuestions
               <TableCell component="th" scope="row" >
                 {question.sDescription}
               </TableCell>
-              <TableCell style={{ width: 200, height:100 }} align="center" className='d-flex justify-content-evenly align-items-center' >
+              <TableCell style={{ width: 200, height:120 }} align="center" className='d-flex justify-content-evenly align-items-center' >
                   <Button variant='contained' onClick={handleClickOpen} style={{ width: "30%" }} > <EditIcon/> </Button>
                   <Button variant='contained' style={{ width: "30%" }} > <DeleteIcon/> </Button>
 

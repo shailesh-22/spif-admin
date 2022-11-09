@@ -1,16 +1,39 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../Sidebar/header.css'
 import {Link} from 'react-router-dom'
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import MenuIcon from '@mui/icons-material/Menu';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import Avatar from '@mui/material/Avatar';
+import Tooltip from '@mui/material/Tooltip';
+import LogoutIcon from '@mui/icons-material/Logout'
+import MenuItem from '@mui/material/MenuItem';
+
+const settings = ['Logout'];
 
 const Header = () => {
+
+
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
   
        
       const handleLogout = ()=>{
         localStorage.removeItem("token");
-        // window.location.reload();
+        window.location('./login');
     }
        
     return (
@@ -19,10 +42,10 @@ const Header = () => {
     {/* Left navbar links */}
     <ul className="navbar-nav d-flex ">
       <li className="nav-item ">
-        <a className="nav-link " data-widget="pushmenu" >
+        <div className="nav-link " data-widget="pushmenu" >
           {/* <i className="fas fa-bars" /> */}
           <MenuIcon/>
-          </a>
+          </div>
       </li>
       <li className=" nav-item d-flex align-item-center ">
         
@@ -35,9 +58,10 @@ const Header = () => {
     <ul className="navbar-nav ml-auto">
       
       {/* Notifications Dropdown Menu */}
-      <li className="nav-item dropdown">
+
+      {/* <li className="nav-item dropdown">
         <a className="nav-link" data-toggle="dropdown" >
-        {/* <i class="bi bi-person-circle"></i> */}
+    
         <AccountCircleIcon/>
         </a>
         <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -52,11 +76,42 @@ const Header = () => {
          
          
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" role="button">
+         </li> */}
+
+      <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                 <Link to=""> <Typography textAlign="center" width={100} onClick={handleLogout}> <LogoutIcon style={{margin:"0 8px"}}/>{setting}</Typography></Link>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+
+          <li class="nav-item">
+        <div class="nav-link" data-widget="fullscreen" role="button">
           <AspectRatioIcon/>
-        </a>
+        </div>
       </li>
       
     </ul>

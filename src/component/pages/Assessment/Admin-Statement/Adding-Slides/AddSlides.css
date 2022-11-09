@@ -1,0 +1,72 @@
+.addSlides .tab button{
+    padding: 5px;
+    border: none;
+    border-bottom: 0.5px solid rgba(55, 59, 59, 0.247);
+    background-color: aliceblue;
+    color: rgba(55, 59, 59, 0.685) ;
+}
+.addSlides .tab button:disabled{
+    border-bottom: 1px solid #00ad53;
+}
+
+.addSlides .content{
+    border: 1px solid rgba(55, 59, 59, 0.5);
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px 1px grey;
+    margin: 10px 0;
+    padding: 10px;
+}
+.content .slide-summary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+.addSlides .content h5{
+    color:  #00ad53 ;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+.tab-body-btns button{
+    margin: 10px 5px;
+}
+.content .options-container{
+    border: 3px solid rgba(55, 59, 59, 0.5);
+    border-radius: 10px;
+    width: 75%;
+    padding: 20px;
+}
+.option-add-btn:hover{
+    border: 1px solid #00ad53;
+    color:  #00ad53 ;
+}
+.slide-summary .select-slides{
+    width: 300px;
+    color: #00ad53;
+}
+.file-input-img, .file-input-vdo{
+    border: #00ad53 1px dotted;
+    height: 200px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.file-input-img input{
+    width: 100%;
+    margin-left: 20px;
+}
+.file-input-vdo input{
+    width: 100%;
+    margin-left: 20px;
+}
+.para-stmt h5{
+    color: #00ad53;
+}
+.para-img,.para-vdo label{
+    color: #00ad53;
+}
+.para-img, .para-vdo{
+    text-align: center;
+}
