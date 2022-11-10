@@ -10,15 +10,15 @@ import Clients from './component/pages/Manage-Account/Clients';
 import ImportExport from './component/pages/Manage-Account/ImportExport';
 import Report from './component/pages/Reports/Report';
 import Register from './component/Registration/Register'
+import Register2 from './component/Registration/Register2'
+import Register3 from './component/Registration/Register3'
 import Header3 from './component/Sidebar/Header3';
 import Menu2 from './component/Sidebar/Menu2';
-import AssessmentTest from './component/pages/assessment/Assessment-Test/MainAssesment/AssessmentTest';
-import AdminStatement from './component/pages/assessment/Admin-Statement/AdminStatement/AdminStatement';
-import TestResult from './component/pages/assessment/Assessment-Test/TestCompletionPage/TestResult/TestResult'
-import TermsConditions from './component/pages/assessment/Assessment-Test/Terms & Condions/TermsConditions';
-
-
-
+import AdminStatement from './component/pages/Assessment/Admin-Statement/AdminStatement/AdminStatement'
+import TestResult from './component/pages/Assessment/Assessment-Test/TestCompletionPage/TestResult/TestResult'
+import CertificationPage from './component/pages/Assessment/Assessment-Test/TestCompletionPage/Certification/CertificationPage';
+import AssessmentTest from './component/pages/Assessment/Assessment-Test/MainAssesment/AssessmentTest'
+import TermsConditions from './component/pages/Assessment/Assessment-Test/Terms & Condions/TermsConditions'
 
 function App() {
 
@@ -40,6 +40,14 @@ function App() {
           
           <Route path="/register">
             <Register/>
+          </Route>
+
+          <Route path="/register2">
+            <Register2/>
+          </Route>
+           
+          <Route path="/register3">
+            <Register3/>
           </Route>
 
           <Route path="/dashboard">
@@ -92,7 +100,7 @@ function App() {
           </Route>
 
           <Route path="/certification-page">
-          
+          <CertificationPage/>
           </Route>
 
         {user &&  <Route path="/header3">

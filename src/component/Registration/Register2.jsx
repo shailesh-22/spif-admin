@@ -14,6 +14,7 @@ import { useHistory } from "react-router-dom";
 // import { ClassNames } from '@emotion/react';
 import swal from 'sweetalert';
 import '../Registration/register.css'
+import { useForm , Controller } from 'react-hook-form'
 
 import { addUser } from './api'
 import Header3 from '../Sidebar/Header3';
@@ -43,7 +44,8 @@ const initialValues = {
 
 const Register = () => {
 
-
+ const { inputRegister , handleSubmit , control } = useForm()
+ const onSubmit = (data) => console.log(data);
 
 
   const [user, setUser] = useState(initialValues);
@@ -115,7 +117,7 @@ const Register = () => {
         <Card style={{ maxWidth: 1500, margin: "0 auto", padding: "0 12px"}} elevation={10} >
           <CardContent>
             <Typography gutterbutton variant="h5">Fill out your Basic details</Typography>
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
 
               <Typography variant="body2" align="left" style={{ padding: "20px 0px" }} gutterbutton >Personal info :</Typography>
 
@@ -130,7 +132,8 @@ const Register = () => {
                     fullWidth
                     required
                     name='firstName'
-                    onChange={(e) => onValueChange(e)}
+                    inputRef={inputRegister}
+                    // onChange={(e) => onValueChange(e)}
                   />
 
                 </Grid>
@@ -144,8 +147,8 @@ const Register = () => {
                     fullWidth
                     required
                     name='lastName'
-                    onChange={(e) => onValueChange(e)}
-                  // inputRef={inputregister}
+                    inputRef={inputRegister}
+                    // onChange={(e) => onValueChange(e)}
                   />
                 </Grid>
 
@@ -159,8 +162,8 @@ const Register = () => {
                     fullWidth
                     required
                     name='email'
-                    onChange={(e) => onValueChange(e)}
-                  // inputRef={inputregister}
+                    inputRef={inputRegister}
+                    // onChange={(e) => onValueChange(e)}
                   />
                 </Grid>
 
@@ -174,8 +177,8 @@ const Register = () => {
                     fullWidth
                     required
                     name='phone'
-                    onChange={(e) => onValueChange(e)}
-                  // inputRef={inputregister}
+                    inputRef={inputRegister}
+                    // onChange={(e) => onValueChange(e)}
                   />
                 </Grid>
 
@@ -188,9 +191,9 @@ const Register = () => {
                     required
                     name="gender"
                   >
-                    <FormControlLabel value="female" control={<Radio onChange={(e) => onValueChange(e)} />} label="Female" />
-                    <FormControlLabel value="male" control={<Radio onChange={(e) => onValueChange(e)} />} label="Male" />
-                    <FormControlLabel value="other" control={<Radio onChange={(e) => onValueChange(e)} />} label="Other" />
+                    <FormControlLabel value="female" control={<Radio inputRef={inputRegister}/>} label="Female" />
+                    <FormControlLabel value="male" control={<Radio inputRef={inputRegister}/>} label="Male" />
+                    <FormControlLabel value="other" control={<Radio inputRef={inputRegister}/>} label="Other" />
                   </RadioGroup>
                 </Grid>
 
@@ -207,27 +210,34 @@ const Register = () => {
                         shrink: true,
                       }}
                       name="date_of_birth"
-                      onChange={(e) => onValueChange(e)}
+                      inputRef={inputRegister}
                     />
                   </Stack>
                 </Grid>
 
 
                 <Grid xs={12} sm={4} item >
-                  <FormControl fullWidth required variant="standard" >
+                  <FormControl fullWidth required variant="standard" inputRef={inputRegister} >
                     <InputLabel id="demo-simple-select-label" >Profession</InputLabel>
-
-                    <Select name="profession" onChange={(e) => onValueChange(e)}   >
-                    {/* <MenuItem value="Choose Your Profession" >Choose Your Profession</MenuItem> */}
-                      <MenuItem value="Employed" >Employed</MenuItem>
-                      <MenuItem value="Business Owners" >Business Owners</MenuItem>
-                      <MenuItem value="Seeking Employement" >Seeking Employement</MenuItem>
-                      <MenuItem value="Student"  >Student</MenuItem>
-                      <MenuItem value="Parent" >Parent</MenuItem>
-                      <MenuItem value="Others" >Others</MenuItem>
-
-                    </Select>
-                  
+                    <Controller
+                    render={
+                        (props) => (
+                            <Select name="profession" value={props.value} onChange={props.onChange}>
+                            <MenuItem value="" >Choose Your Profession</MenuItem>
+                              <MenuItem value="Employed" >Employed</MenuItem>
+                              <MenuItem value="Business Owners" >Business Owners</MenuItem>
+                              <MenuItem value="Seeking Employement" >Seeking Employement</MenuItem>
+                              <MenuItem value="Student"  >Student</MenuItem>
+                              <MenuItem value="Parent" >Parent</MenuItem>
+                              <MenuItem value="Others" >Others</MenuItem>
+        
+                            </Select>
+                        )
+                    }
+                  name="course"
+                  control={control}
+                  defaultValue=""
+                  /> 
                   </FormControl>
                 </Grid>
 
@@ -238,19 +248,19 @@ const Register = () => {
               <Grid container spacing={4}>
 
                 <Grid xs={12} sm={4} item>
-                  <TextField label="Street" placeholder='Enter street' variant="standard" name="street" onChange={(e) => onValueChange(e)} fullWidth required />
+                  <TextField label="Street" placeholder='Enter street' variant="standard" inputRef={inputRegister} name="street"  fullWidth required />
                 </Grid>
                 <Grid xs={12} sm={4} item>
-                  <TextField label="City" placeholder='Enter city name' variant="standard" name="city" onChange={(e) => onValueChange(e)} fullWidth required  />
+                  <TextField label="City" placeholder='Enter city name' variant="standard" inputRef={inputRegister} name="city"  fullWidth required  />
                 </Grid>
                 <Grid xs={12} sm={4} item>
-                  <TextField label="State" placeholder='Enter State' variant="standard" name="state" onChange={(e) => onValueChange(e)} fullWidth required />
+                  <TextField label="State" placeholder='Enter State' variant="standard" inputRef={inputRegister} name="state"  fullWidth required />
                 </Grid>
                 <Grid xs={12} sm={4} item>
-                  <TextField label="Country" placeholder='Enter Country Name' variant="standard" name="country" onChange={(e) => onValueChange(e)} fullWidth required />
+                  <TextField label="Country" placeholder='Enter Country Name' variant="standard" inputRef={inputRegister} name="country"  fullWidth required />
                 </Grid>
                 <Grid xs={12} sm={4} item>
-                  <TextField label="Pincode" placeholder='Enter pincode number' variant="standard" name="pincode" onChange={(e) => onValueChange(e)} fullWidth required />
+                  <TextField label="Pincode" placeholder='Enter pincode number' variant="standard" inputRef={inputRegister} name="pincode"  fullWidth required />
                 </Grid>
 
 
@@ -258,7 +268,7 @@ const Register = () => {
                 <Grid xs={12} align="center" item>
 
                   <Button style={reset} type='reset' variant="contained" color="primary"  >Reset</Button>
-                  <Button  onClick={() => addUserDetails()}   variant="contained" style={submit} >Submit</Button>
+                  <Button  variant="contained" style={submit} type="submit" >Submit</Button>
                 </Grid>
 
               </Grid>
