@@ -34,6 +34,10 @@
     width: 75%;
     padding: 20px;
 }
+.option-add-btn{
+    background-color: #346BFF;
+    color: #FBF9EC ;
+}
 .option-add-btn:hover{
     border: 1px solid #00ad53;
     color:  #00ad53 ;
@@ -54,7 +58,7 @@
 }
 .draggable-tab{
     display: inline-flex;
-    width: 70px;
+    width: 80px;
     position: relative;
 }
 .prompt-field{

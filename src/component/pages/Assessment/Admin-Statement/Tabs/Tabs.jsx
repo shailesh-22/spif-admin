@@ -7,6 +7,13 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import { Button, Typography } from '@material-ui/core'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 const Tabs = ({ questions }) => {
 
@@ -58,7 +65,7 @@ const Tabs = ({ questions }) => {
     }
 
     return (
-        <div className='container tabTypeQuestion'>
+        <div className='tabTypeQuestion'>
             <div className="tab">
                 <DragDropContext onDragEnd={onEnd} >
                     <Droppable
@@ -89,7 +96,7 @@ const Tabs = ({ questions }) => {
                                                                 <button
                                                                     key={index} id={question.sStatementID}
                                                                     disabled={currentTab === `${question.sStatementID}`}
-                                                                    onClick={handleTabClick}                                                         
+                                                                    onClick={handleTabClick}
                                                                 >
                                                                     Slide <span> {index + 1} </span>
                                                                 </button>
@@ -135,77 +142,99 @@ const Tabs = ({ questions }) => {
                                         />
                                     </div>
                                     <hr />
-                                    { tab.options.length != 0 &&
-                                    <div>
-                                        <h5> Options </h5>
-                                        <div className='options-container'>
-                                            {
-                                                tab.options.map((option, i) =>
-                                                <div>
-                                                    <div className='option-field'>
-                                                        <TextareaAutosize
-                                                            maxRows={4}
-                                                            aria-label="maximum height"
-                                                            defaultValue={option.text}
-                                                            style={{ width: '100%', padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
-                                                            />
-                                                        <div className='d-flex'>
-                                                            {
-                                                                option.isAnswer === false &&
-                                                                <div className='prompt-field'>
-                                                                    <Typography style={ { color:"#62C2CF" } }>Prompt For Wrong Answer</Typography>
+                                    {tab.options.length != 0 &&
+                                        <div>
+                                            <h5> Option Details </h5>
+                                            <TableContainer component={Paper}>
+                                                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                                                    <TableHead >
+                                                        <TableRow sx={{ fontSize: 40 }} >
+                                                            <TableCell align="center" sx={{ fontSize: 20, color:"#007A3E" }} > Options </TableCell>
+                                                            <TableCell align="center" sx={{ fontSize: 20, color:"#007A3E" }}>Correct(Yes/No)</TableCell>
+                                                            <TableCell align="center" sx={{ fontSize: 20, color:"#007A3E" }}>Prompt(Wrong Answer)</TableCell>
+                                                            <TableCell align="center" sx={{ fontSize: 20, color:"#007A3E" }}>Action</TableCell>
+                                                        </TableRow>
+                                                    </TableHead>
+                                                    <TableBody>
+                                                        {tab.options.map((option, i) => (
+                                                            <TableRow
+                                                                key={i}
+                                                                sx={{ '&:last-child td, &:last-child th': { border: 0 }, }}
+                                                            >
+                                                                <TableCell component="th" scope="row">
                                                                     <TextareaAutosize
-                                                                    maxRows={4}
-                                                                    aria-label="maximum height"
-                                                                    defaultValue={option.isPrompt}
-                                                                    style={{ width: '100%', padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
+                                                                        maxRows={4}
+                                                                        aria-label="maximum height"
+                                                                        defaultValue={option.text}
+                                                                        style={{ width: '100%', fontSize:17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
                                                                     />
-                                                                </div>                                           
-                                                            }
-                                                            <button style={{ height:"50px" }} onClick={() => { handleDelete(i) }} >
-                                                                <DeleteIcon />
-                                                            </button>
-                                                        </div>
+                                                                </TableCell>
+                                                                <TableCell align="center" style={{ fontSize:17 }}> Yes or NO </TableCell>
+                                                                <TableCell align="center">
+                                                                    <TextareaAutosize
+                                                                        maxRows={4}
+                                                                        aria-label="maximum height"
+                                                                        defaultValue={option.isPrompt}
+                                                                        style={{ width: '100%', fontSize:17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
+                                                                    />
+                                                                </TableCell>
+                                                                <TableCell align="center">
+                                                                    <button style={{ height: "50px" }} onClick={() => { handleDelete(i) }} >
+                                                                        <DeleteIcon />
+                                                                    </button>
+                                                                </TableCell>
+                                                            </TableRow>
+                                                        ))}
+                                                        {
+                                                            textField.map((data, i) =>
+                                                                <TableRow
+                                                                    key={i}
+                                                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                                                >
+                                                                    <TableCell component="th" scope="row">
+                                                                        <TextareaAutosize
+                                                                            maxRows={4}
+                                                                            aria-label="maximum height"
+                                                                            defaultValue={data}
+                                                                            style={{ width: '100%', fontSize:17,  padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
+                                                                        />
+                                                                    </TableCell>
+                                                                    <TableCell align="center" style={{ fontSize:17 }}> Yes or NO </TableCell>
+                                                                    <TableCell align="center">
+                                                                        
+                                                                        <TextareaAutosize
+                                                                            maxRows={4}
+                                                                            aria-label="maximum height"
+                                                                            defaultValue={data}
+                                                                            style={{ width: '100%', fontSize:17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
+                                                                        />
+                                                                        
+                                                                    </TableCell>
+                                                                    <TableCell align="center">
+                                                                        <button style={{ height: "50px" }} onClick={() => { handleDelete(i) }} >
+                                                                            <DeleteIcon />
+                                                                        </button>
+                                                                    </TableCell>
+                                                                </TableRow>
+                                                            )
+                                                        }
+                                                    </TableBody>
+                                                    <div style={ {margin:" 20px "} }>
+                                                        <Button className=' btn btn-outline-success' style={{ width: "auto", height: "40px" }}    
+                                                            onClick={() => handleAdd()}
+                                                        >
+                                                            <IconButton>
+                                                                <AddIcon fontSize='small' style={{ color: "#A6D2AD" }} />
+                                                            </IconButton>
+                                                            Add Option
+                                                        </Button>
                                                     </div>
-                                                    
-                                                </div>
-                                                )
+                                                </Table>
+                                            </TableContainer>
 
-                                            }
-                                            { 
-                                                textField.map((data, i) =>
-                                                    <div>
-                                                        <div className='option-field'>
-                                                            <TextareaAutosize
-                                                                maxRows={4}
-                                                                aria-label="maximum height"
-                                                                defaultValue={data}
-                                                                placeholder='Enter a Value'
-                                                                style={{ width: '100%', padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
-                                                                onChange={e => handleChange(e, i)}
-                                                                tabIndex={i}
-                                                                />
-                                                            <button onClick={() => { handleDelete(i) }} >
-                                                                <DeleteIcon />
-                                                            </button>
-                                                        </div>
 
-                                                    </div>
-                                                )
-                                            }
-                                            <div>
-                                                <Button className='option-add-btn' style={{ width: "150px", height: "40px" }}
-                                                    variant="outlined" color='success'
-                                                    onClick={() => handleAdd()}
-                                                >
-                                                    <IconButton>
-                                                        <AddIcon fontSize='small' style={{ color: "gray" }} />
-                                                    </IconButton>
-                                                    Add Option
-                                                </Button>
-                                            </div>
+
                                         </div>
-                                    </div>
                                     }
                                     <div className='tab-body-btns'>
                                         <button className='btn btn-primary' >
