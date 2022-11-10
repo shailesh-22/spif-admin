@@ -37,7 +37,7 @@ function Header3() {
 
   return (
     <AppBar position="static" >
-      <Container maxWidth="x2" style={{background:"#00AD53"}}>
+      <Container maxWidth="x2" style={{background: "linear-gradient(to right, #00AD53 , #007A3E)"}}>
         <Toolbar disableGutters style={{display:"flex" , justifyContent:"space-between", alignContent:"center"}} >
 
           
