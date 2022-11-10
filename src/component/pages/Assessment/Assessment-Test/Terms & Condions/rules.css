@@ -14,7 +14,7 @@
     align-items: center;
 } */
 .terms_condition{
-    display: grid;
+    display: flex;
     height: 98.5vh;
     justify-content: center;
     align-items: center; 
@@ -22,6 +22,9 @@
     /* -webkit-box-shadow: 1px 4px 6px 6px rgba(199,183,199,1);
     -moz-box-shadow: 1px 4px 6px 6px rgba(199,183,199,1);
     box-shadow: 1px 4px 6px 6px rgba(199,183,199,1); */
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAd8lJSRgaKJgrftwVZ9LdGP0g4mPCMyeGb_1mux9g2lnvhuMkPPwEzqH6lLMCuiQ_4TA&usqp=CAU");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 .terms_condition .test-rules{
     display: grid;
@@ -38,13 +41,15 @@
     text-align: center;
     opacity: 0.6;
     font-weight: bolder;
+    color: #00ad53;
 }
 .terms_condition .test-rules .test-rule-list{
     -webkit-box-shadow: 1px 4px 6px 6px rgba(199,183,199,1);
     -moz-box-shadow: 1px 4px 6px 6px rgba(199,183,199,1);
-    box-shadow: 1px 4px 6px 6px rgba(199,183,199,1);
+    box-shadow: inset 1px 4px 6px 6px rgba(199,183,199,1);
     padding: 20px;
     border-radius: 20px;
+
 }
 .terms_condition .test-rules .test-rule-list h4{
     text-align: start;
@@ -55,7 +60,7 @@
     font-weight: bolder;
     font-size: 23px;
     margin: 20px 0;
-    opacity: 0.7;
+    opacity: 1;
 }
 .terms_condition .test-rules .test-rule-list h2{
     color: black;

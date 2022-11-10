@@ -74,7 +74,7 @@ const QuestionAnswer = ({ setOpen, setOpenQA, setTitle }) => {
                                                 style={{ width: '100%', fontSize: 17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
                                             />
                                         </TableCell>
-                                        <TableCell align="center" style={{ fontSize: 17 }}> Yes or NO </TableCell>
+                                        <TableCell align="center" style={{ fontSize: 17 }}> Yes or No </TableCell>
                                         <TableCell align="center">
 
                                             <TextareaAutosize

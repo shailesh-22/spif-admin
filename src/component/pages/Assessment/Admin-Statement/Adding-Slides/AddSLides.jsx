@@ -55,8 +55,8 @@ const AddSLides = ({ setOpen, setOpenQA, setTitle }) => {
         <div className='row p-0'>
             <div className="col-12  content">
                 <div className='slide-summary'>
-                    <h4>Choose Your Slide</h4>
-                    <Select className='select-slides' 
+                    {/* <h4>Choose Your Slide</h4> */}
+                    <Select className='col-12 select-slides' 
                             options={slideComponents} 
                             onChange={ handleChange }
                             placeholder={slideComponents[0].label}
