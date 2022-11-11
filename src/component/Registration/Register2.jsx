@@ -11,19 +11,17 @@ import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import { useHistory } from "react-router-dom";
-<<<<<<< HEAD
+
 // import { ClassNames } from '@emotion/react';
 import swal from 'sweetalert';
 import '../Registration/register.css'
 import { useForm , Controller } from 'react-hook-form'
-=======
 import * as Yup from 'yup'
-
 import { Formik, Form , Field , ErrorMessage} from 'formik';
 // import { ClassNames } from '@emotion/react';
 import swal from 'sweetalert';
 import '../Registration/register.css'
->>>>>>> ab459815307e433768304837036ce4098c06c113
+
 
 import { addUser } from './api'
 import Header3 from '../Sidebar/Header3';
@@ -35,12 +33,9 @@ import Header3 from '../Sidebar/Header3';
 //   },
 // }));
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> ab459815307e433768304837036ce4098c06c113
 const initialValues = {
   firstName: "",
   lastName: "",
@@ -59,12 +54,10 @@ const initialValues = {
 
 const Register = () => {
 
-<<<<<<< HEAD
+
  const { inputRegister , handleSubmit , control } = useForm()
  const onSubmit = (data) => console.log(data);
-=======
 
->>>>>>> ab459815307e433768304837036ce4098c06c113
 
 
   const [user, setUser] = useState(initialValues);
@@ -111,10 +104,7 @@ const Register = () => {
     //   history.push('/terms_conditions')
     // }
       
-<<<<<<< HEAD
-   
-      
-=======
+
 
     const validationSchema=Yup.object().shape({
       firstName:Yup.string('Invalid input'),
@@ -124,7 +114,6 @@ const Register = () => {
   const onSubmit=(values,props)=>{
     console.log(values);
   }  
->>>>>>> ab459815307e433768304837036ce4098c06c113
       
 
 
@@ -148,7 +137,7 @@ const Register = () => {
         <Card style={{ maxWidth: 1500, margin: "0 auto", padding: "0 12px"}} elevation={10} >
           <CardContent>
             <Typography gutterbutton variant="h5">Fill out your Basic details</Typography>
-<<<<<<< HEAD
+
             <form onSubmit={handleSubmit(onSubmit)}>
 
               <Typography variant="body2" align="left" style={{ padding: "20px 0px" }} gutterbutton >Personal info :</Typography>
@@ -462,7 +451,7 @@ const Register = () => {
              </Form>
             )}
            </Formik>
->>>>>>> ab459815307e433768304837036ce4098c06c113
+
           </CardContent>
         </Card>
         

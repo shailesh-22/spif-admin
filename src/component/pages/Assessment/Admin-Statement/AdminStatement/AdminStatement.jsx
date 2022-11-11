@@ -75,7 +75,7 @@ const AdminStatement = () => {
 
                         {/* <CustomPaginationActionsTable questions={questions} totalQuestions={questions.length} /> */}
                         { 
-                            open && <AddSLides setOpen={setOpen} setOpenQA={setOpenQA} setTitle={ setTitle } /> 
+                            open && <AddSLides questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={ setTitle } /> 
                         }
                         {
                             openQA && <AdminQuestionDetails questions={questions} />

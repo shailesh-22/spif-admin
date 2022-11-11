@@ -50,6 +50,7 @@ const TermsConditions = () => {
           </div>
 
         </div>
+        
       </div>
     </div>
   )
