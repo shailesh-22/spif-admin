@@ -1,8 +1,6 @@
 import React from 'react'
 import TextareaAutosize from '@mui/material/TextareaAutosize';
-import IconButton from '@mui/material/IconButton';
-import AddIcon from '@mui/icons-material/Add';
-import { Button, Typography } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import { useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Table from '@mui/material/Table';
@@ -12,11 +10,48 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Switch, FormControlLabel } from '@material-ui/core'
 
 
-const QuestionAnswer = ({ setOpen, setOpenQA, setTitle }) => {
+const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
+
+    let[ sDescription, setDescription ] = useState("");
+    let[ sText  ] = useState(null);
+    let[ sImage  ] = useState(null);
+    let[ sVideo  ] = useState(null);
 
     let [textField, setTextField] = useState([])
+
+    let [checked, setChecked] = useState(false)
+
+    let handleAnswer = (event) => {
+        setChecked(event.target.checked)
+    }
+
+    let handleSubmit = (e)=>{
+
+        
+
+        let newStatement = { sDescription, sText, sImage, sVideo  };
+
+        var duplicate = questions.some((m)=>{return m.sDescription === sDescription}) ;
+
+        if(duplicate===false)
+        {
+            fetch("http://localhost:3004/questions",
+             {  method:"POST",
+                headers:{"Content-Type" : "application/json"},
+                body:JSON.stringify(newStatement)
+            })
+        }
+        else{
+            alert("Statement Already Exist, Please add new Statement")
+        }
+
+        e.preventDefault();
+
+        console.log( newStatement );
+}
 
 
     const handleAdd = () => {
@@ -35,15 +70,19 @@ const QuestionAnswer = ({ setOpen, setOpenQA, setTitle }) => {
         delVal.splice(i, 1);
         setTextField(delVal)
     }
+
     return (
         <div className='questionWithAns'>
+            <form onSubmit={handleSubmit} >
             <div className='para-stmt' >
                 <h5> Statement </h5>
                 <TextareaAutosize
                     maxRows={4}
+                    value={ sDescription }
                     aria-label="maximum height"
                     placeholder='Enter Your Statement'
                     style={{ width: '100%', height: "150px", padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
+                    onChange={ (e)=>{ setDescription( e.target.value ) } }
                 />
             </div>
             <hr />
@@ -74,7 +113,14 @@ const QuestionAnswer = ({ setOpen, setOpenQA, setTitle }) => {
                                                 style={{ width: '100%', fontSize: 17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
                                             />
                                         </TableCell>
-                                        <TableCell align="center" style={{ fontSize: 17 }}> Yes or No </TableCell>
+                                        <TableCell align="center" style={{ fontSize: 17 }}>
+                                            <FormControlLabel
+                                                control={<Switch checked={checked}
+                                                    onChange={handleAnswer}
+                                                    color='primary'
+                                                />}
+                                            />
+                                        </TableCell>
                                         <TableCell align="center">
 
                                             <TextareaAutosize
@@ -86,7 +132,7 @@ const QuestionAnswer = ({ setOpen, setOpenQA, setTitle }) => {
 
                                         </TableCell>
                                         <TableCell align="center">
-                                            <button style={{ height: "50px" }} onClick={() => { handleDelete(i) }} >
+                                            <button style={{ height: "50px", width:"50px", borderRadius:"10px" }} onClick={() => { handleDelete(i) }} >
                                                 <DeleteIcon />
                                             </button>
                                         </TableCell>
@@ -98,9 +144,6 @@ const QuestionAnswer = ({ setOpen, setOpenQA, setTitle }) => {
                             <Button className=' btn btn-outline-success' style={{ width: "auto", height: "40px" }}
                                 onClick={() => handleAdd()}
                             >
-                                <IconButton>
-                                    <AddIcon fontSize='small' style={{ color: "#A6D2AD" }} />
-                                </IconButton>
                                 Add Option
                             </Button>
                         </div>
@@ -108,13 +151,14 @@ const QuestionAnswer = ({ setOpen, setOpenQA, setTitle }) => {
                 </TableContainer>
             </div>
             <div className='tab-body-btns'>
-                <Button className='btn btn-primary' 
-                        onClick={() => { setOpen(false); setOpenQA(true); setTitle("Statement Manager") }}
-                        style={{ width: "100px", height: "40px" }}
+                <button className='btn btn-primary' type='submit'
+                    onClick={() => { setOpen(false); setOpenQA(true); setTitle("Statement Manager") }}
+                    style={{ width: "100px", height: "40px" }}
                 >
                     ADD
-                </Button>
+                </button>
             </div>
+            </form>
         </div>
     )
 }

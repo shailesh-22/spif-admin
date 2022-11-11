@@ -2,10 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import './tabs.css'
 import TextareaAutosize from '@mui/material/TextareaAutosize';
-import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
-import { Button, Typography } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -14,10 +12,24 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import {Switch, FormControlLabel} from '@material-ui/core'
+
 
 const Tabs = ({ questions }) => {
 
     let [currentTab, setCurrentTab] = useState('1');
+
+    let[ checked, setChecked ] = useState(false)
+
+    let handleAnswer = (event) =>{
+
+        // if ( questions.options.isAnswer ) {
+        //     setChecked( true )
+        // } else {
+        //     setChecked( false )
+        // }
+        setChecked( event.target.checked );
+    }
 
     let handleTabClick = (e) => {
         setCurrentTab(e.target.id)
@@ -149,10 +161,10 @@ const Tabs = ({ questions }) => {
                                                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                                                     <TableHead >
                                                         <TableRow sx={{ fontSize: 40 }} >
-                                                            <TableCell align="center" sx={{ fontSize: 20, color:"#007A3E" }} > Options </TableCell>
-                                                            <TableCell align="center" sx={{ fontSize: 20, color:"#007A3E" }}>Correct(Yes/No)</TableCell>
-                                                            <TableCell align="center" sx={{ fontSize: 20, color:"#007A3E" }}>Prompt(Wrong Answer)</TableCell>
-                                                            <TableCell align="center" sx={{ fontSize: 20, color:"#007A3E" }}>Action</TableCell>
+                                                            <TableCell align="center" sx={{ fontSize: 20, color: "#007A3E" }} > Options </TableCell>
+                                                            <TableCell align="center" sx={{ fontSize: 20, color: "#007A3E" }}>Correct(Yes/No)</TableCell>
+                                                            <TableCell align="center" sx={{ fontSize: 20, color: "#007A3E" }}>Prompt(Wrong Answer)</TableCell>
+                                                            <TableCell align="center" sx={{ fontSize: 20, color: "#007A3E" }}>Action</TableCell>
                                                         </TableRow>
                                                     </TableHead>
                                                     <TableBody>
@@ -166,20 +178,27 @@ const Tabs = ({ questions }) => {
                                                                         maxRows={4}
                                                                         aria-label="maximum height"
                                                                         defaultValue={option.text}
-                                                                        style={{ width: '100%', fontSize:17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
+                                                                        style={{ width: '100%', fontSize: 17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
                                                                     />
                                                                 </TableCell>
-                                                                <TableCell align="center" style={{ fontSize:17 }}> Yes or No </TableCell>
+                                                                <TableCell align="center">
+                                                                    <FormControlLabel
+                                                                        control={ <Switch checked={checked}
+                                                                                          onChange={handleAnswer}
+                                                                                          color='primary'   
+                                                                                /> }
+                                                                    />
+                                                                </TableCell>
                                                                 <TableCell align="center">
                                                                     <TextareaAutosize
                                                                         maxRows={4}
                                                                         aria-label="maximum height"
                                                                         defaultValue={option.isPrompt}
-                                                                        style={{ width: '100%', fontSize:17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
+                                                                        style={{ width: '100%', fontSize: 17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
                                                                     />
                                                                 </TableCell>
                                                                 <TableCell align="center">
-                                                                    <button style={{ height: "50px" }} onClick={() => { handleDelete(i) }} >
+                                                                    <button style={{ height: "50px", width:"50px", borderRadius:"10px" }} onClick={() => { handleDelete(i) }} >
                                                                         <DeleteIcon />
                                                                     </button>
                                                                 </TableCell>
@@ -196,22 +215,29 @@ const Tabs = ({ questions }) => {
                                                                             maxRows={4}
                                                                             aria-label="maximum height"
                                                                             defaultValue={data}
-                                                                            style={{ width: '100%', fontSize:17,  padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
+                                                                            style={{ width: '100%', fontSize: 17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
                                                                         />
                                                                     </TableCell>
-                                                                    <TableCell align="center" style={{ fontSize:17 }}> Yes or No </TableCell>
+                                                                    <TableCell align="center" style={{ fontSize: 17 }}> 
+                                                                        <FormControlLabel
+                                                                            control={ <Switch checked={checked}
+                                                                                            onChange={handleAnswer}
+                                                                                            color='primary'   
+                                                                                    /> }
+                                                                        />
+                                                                    </TableCell>
                                                                     <TableCell align="center">
-                                                                        
+
                                                                         <TextareaAutosize
                                                                             maxRows={4}
                                                                             aria-label="maximum height"
                                                                             defaultValue={data}
-                                                                            style={{ width: '100%', fontSize:17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
+                                                                            style={{ width: '100%', fontSize: 17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
                                                                         />
-                                                                        
+
                                                                     </TableCell>
                                                                     <TableCell align="center">
-                                                                        <button style={{ height: "50px" }} onClick={() => { handleDelete(i) }} >
+                                                                        <button style={{ height: "50px", width:"50px", borderRadius:"10px" }} onClick={() => { handleDelete(i) }} >
                                                                             <DeleteIcon />
                                                                         </button>
                                                                     </TableCell>
@@ -219,13 +245,13 @@ const Tabs = ({ questions }) => {
                                                             )
                                                         }
                                                     </TableBody>
-                                                    <div style={ {margin:" 20px "} }>
-                                                        <Button className=' btn btn-outline-success' style={{ width: "auto", height: "40px" }}    
+                                                    <div style={{ margin: " 20px " }}>
+                                                        <Button className=' btn btn-outline-success' style={{ textAlign:"center", width: "auto", height: "40px" }}
                                                             onClick={() => handleAdd()}
                                                         >
-                                                            <IconButton>
-                                                                <AddIcon fontSize='small' style={{ color: "#A6D2AD" }} />
-                                                            </IconButton>
+                                                            {/* <IconButton>
+                                                                <AddIcon fontSize='large' style={{ color: "#A6D2AD" }} />
+                                                            </IconButton> */}
                                                             Add Option
                                                         </Button>
                                                     </div>

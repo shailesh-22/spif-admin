@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button, TextField } from '@material-ui/core'
 import './AddSlides.css'
 import { useState } from 'react';
 import Select from 'react-select'
@@ -10,7 +9,7 @@ import OnlyImage from './SlideComponents/OnlyImage';
 import OnlyVideo from './SlideComponents/OnlyVideo';
 import OnlyAudio from './SlideComponents/OnlyAudio';
 
-const AddSLides = ({ setOpen, setOpenQA, setTitle }) => {
+const AddSLides = ({questions, setOpen, setOpenQA, setTitle }) => {
 
     
     
@@ -34,19 +33,19 @@ const AddSLides = ({ setOpen, setOpenQA, setTitle }) => {
 
         switch (dropDownVal) 
         {
-            case 1: return  <QuestionAnswer setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
+            case 1: return  <QuestionAnswer questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
                 break;
-            case 2: return  <OnlyParagraph setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
+            case 2: return  <OnlyParagraph questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
                 break;
-            case 3: return  <ParaWithImage setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
+            case 3: return  <ParaWithImage questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
                 break;
-            case 4: return  <OnlyImage setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
+            case 4: return  <OnlyImage questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
                 break;
-            case 5: return  <OnlyVideo setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
+            case 5: return  <OnlyVideo questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
                 break;
-            case 6: return  <OnlyAudio setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
+            case 6: return  <OnlyAudio questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
                 break;       
-            default: return <QuestionAnswer setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ; 
+            default: return <QuestionAnswer questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ; 
                 break;
         }
     }
