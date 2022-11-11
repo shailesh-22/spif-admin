@@ -225,7 +225,7 @@ const Register = () => {
                     <InputLabel id="demo-simple-select-label" >Profession</InputLabel>
 
                     <Select name="profession" onChange={(e) => onValueChange(e)}   >
-                    <MenuItem value="Choose Your Profession" >Choose Your Profession</MenuItem>
+                    {/* <MenuItem value="Choose Your Profession" >Choose Your Profession</MenuItem> */}
                       <MenuItem value="Employed" >Employed</MenuItem>
                       <MenuItem value="Business Owners" >Business Owners</MenuItem>
                       <MenuItem value="Seeking Employement" >Seeking Employement</MenuItem>
