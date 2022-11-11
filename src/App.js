@@ -13,12 +13,20 @@ import Register from './component/Registration/Register'
 import Register2 from './component/Registration/Register2'
 import Register3 from './component/Registration/Register3'
 import Header3 from './component/Sidebar/Header3';
+import AssessmentTest from './component/pages/Assessment/Assessment-Test/MainAssesment/AssessmentTest'
 import Menu2 from './component/Sidebar/Menu2';
 import AdminStatement from './component/pages/Assessment/Admin-Statement/AdminStatement/AdminStatement'
 import TestResult from './component/pages/Assessment/Assessment-Test/TestCompletionPage/TestResult/TestResult'
+<<<<<<< HEAD
 import CertificationPage from './component/pages/Assessment/Assessment-Test/TestCompletionPage/Certification/CertificationPage';
 import AssessmentTest from './component/pages/Assessment/Assessment-Test/MainAssesment/AssessmentTest'
 import TermsConditions from './component/pages/Assessment/Assessment-Test/Terms & Condions/TermsConditions'
+=======
+import TermsConditions from './component/pages/Assessment/Assessment-Test/Terms & Condions/TermsConditions'
+import CertificationPage from './component/pages/Assessment/Assessment-Test/TestCompletionPage/Certification/CertificationPage'
+
+
+>>>>>>> ab459815307e433768304837036ce4098c06c113
 
 function App() {
 
@@ -64,11 +72,11 @@ function App() {
 
           
           <Route path="/terms_conditions">
-        <TermsConditions/>
+            <TermsConditions/>
           </Route>
            
           <Route path="/admin-statement">
-           <AdminStatement/>
+            <AdminStatement/>
           </Route>
 
           <Route path="/dashboard">
@@ -96,11 +104,15 @@ function App() {
           </Route>
 
           <Route path="/test-result">
-          <TestResult/>
+            <TestResult/>
           </Route>
 
           <Route path="/certification-page">
+<<<<<<< HEAD
           <CertificationPage/>
+=======
+            <CertificationPage/>
+>>>>>>> ab459815307e433768304837036ce4098c06c113
           </Route>
 
         {user &&  <Route path="/header3">

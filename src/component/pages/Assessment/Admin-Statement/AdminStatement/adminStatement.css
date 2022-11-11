@@ -6,7 +6,7 @@
     background: linear-gradient(to right, rgb(240, 235, 235), rgb(247, 244, 244));
     padding: 20px;
     font-family: 'Times New Roman', Times, serif;
-    width: 100%;
+    width: auto ;
 }
 .admin-statement .header{
     background: linear-gradient(to right, rgba(255, 255, 255, 0.726), rgba(236, 229, 229, 0.267));
