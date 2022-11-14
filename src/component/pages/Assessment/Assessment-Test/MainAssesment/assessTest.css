@@ -63,6 +63,7 @@
 }
 .question-label{
     opacity: 0.9;
+    width: auto;
 }
 /* .question-form{
     position: static;

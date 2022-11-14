@@ -1,4 +1,16 @@
-.certification{
-    background-color: rgb(85, 79, 71);
-    border: 5px solid black;
+
+.certification .certificate-body{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+    background: url("https://www.spif.in/wp-content/uploads/2021/08/about1-1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.certificate-body .certificate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -6,7 +6,7 @@
     background-color: rgba(240, 248, 255, 0);
     color: rgba(55, 59, 59, 0.685) ;
 }
-.tabTypeQuestion .tab button:disabled{
+.tabTypeQuestion .tab button:focus{
     border-bottom: 1px solid #00ad53;
     border-top: 0.5px solid #57C272;
     border-right: 0.5px solid #57C272;
