@@ -11,7 +11,7 @@ import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import { useHistory } from "react-router-dom";
-
+import swal from "sweetalert";
 // import { ClassNames } from '@emotion/react';
 import '../Registration/register.css'
 import { useForm , Controller } from 'react-hook-form'
@@ -54,7 +54,7 @@ const Register = () => {
 
 
  const { inputRegister , handleSubmit , control } = useForm()
-//  const onSubmit = (data) => console.log(data);
+ const onSubmit = (data) => console.log(data);
 
 
 
