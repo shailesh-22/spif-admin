@@ -41,9 +41,11 @@ function Header3() {
         <Toolbar disableGutters style={{display:"flex" , justifyContent:"space-between", alignContent:"center"}} >
 
           
+           <Link to="/dashboard">
            <Box >
             <img src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png" alt="logo" width={105}/>
             </Box>
+            </Link>
          
          
           <Box sx={{ flexGrow: 0 }}>

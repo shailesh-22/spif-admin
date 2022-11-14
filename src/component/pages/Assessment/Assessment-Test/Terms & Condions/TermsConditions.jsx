@@ -2,6 +2,8 @@ import React from 'react'
 import './rules.css';
 import { Link} from 'react-router-dom';
 import { useState } from 'react';
+import Header3 from '../../../../Sidebar/Header3';
+import { Paper } from '@material-ui/core';
 
 const TermsConditions = () => {
 
@@ -17,13 +19,17 @@ const TermsConditions = () => {
 
   return (
     <div  >
+      <div>
+        <Header3/>
+      </div>
       <div className='terms_condition'>
         <div className='test-rules'>
           <h2>Welcome To Our Online Assesment</h2>
 
           <h4>This Test will contains 10 questions.</h4>
-
+        <Paper elevation={5}>
           <div className='test-rule-list'>
+            
 
             <h4>Rules:</h4>
 
@@ -48,6 +54,7 @@ const TermsConditions = () => {
             </div>
 
           </div>
+        </Paper>
 
         </div>
         

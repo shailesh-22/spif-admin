@@ -30,18 +30,18 @@ const Register3 = () => {
   const history = useHistory();
 
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required("First name is required"),
-    lastName: Yup.string().required("Last name is required"),
-    email: Yup.string().required("Email is required").email("Email is invalid"),
-    number: Yup.number()
-      .typeError("number is required")
-      .min(10, "minimum value 10."),
+    // acceptTerms: Yup.bool().oneOf([true], "Accept Terms is required"),
     street: Yup.string().required("street name is required"),
     city: Yup.string().required("City name is required"),
     state: Yup.string().required("State name is required"),
     country: Yup.string().required("Country name is required"),
     pincode: Yup.number().typeError("Pincode is required"),
-    acceptTerms: Yup.bool().oneOf([true], "Accept Terms is required"),
+    number: Yup.number()
+      .typeError("number is required")
+      .min(10, "minimum value 10."),
+    email: Yup.string().required("Email is required").email("Email is invalid"),
+    lastName: Yup.string().required("Last name is required"),
+    firstName: Yup.string().required("First name is required"),
   });
 
   const {
@@ -54,15 +54,15 @@ const Register3 = () => {
   });
 
   const onSubmit = (data) => {
-      console.log(JSON.stringify(data, null, 2));
+
+    console.log(JSON.stringify(data, null, 2));
       swal({
         title: "Done!",
         text: "Profile created successfully!",
         icon: "success",
         button: "Ok",
       });
-      history.push("/terms_conditions");
- 
+      history.push("/terms_conditions");  
   };
   const reset = { margin: "20px 5px", background: "#00AD53", color: "white" };
   const submit = { background: "#346BFF", color: "white" };
@@ -75,14 +75,14 @@ const Register3 = () => {
     <div>
       <Typography
         gutterbutton
-        variant="h5"
+        variant="h4"
         align="center"
-        style={{ background: "#62C2CF", maxWidth: 1500, margin: "0 auto" }}
+        style={{ background: "#62C2CF", maxWidth: 1000, margin: "0 auto" }}
       >
         User Profile Details
       </Typography>
       <Card
-        style={{ maxWidth: 1500, margin: "0 auto", padding: "0 12px" }}
+        style={{ maxWidth: 1000, margin: "0 auto", padding: "0 auto" }}
         elevation={10}
       >
         <CardContent>
@@ -168,44 +168,70 @@ const Register3 = () => {
                 <FormLabel id="demo-row-radio-buttons-group-label">
                   Gender
                 </FormLabel>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  required
-                  name="gender"
-                >
-                  <FormControlLabel
-                    value="female"
-                    control={<Radio />}
-                    label="Female"
-                  />
-                  <FormControlLabel
-                    value="male"
-                    control={<Radio />}
-                    label="Male"
-                  />
-                  <FormControlLabel
-                    value="other"
-                    control={<Radio />}
-                    label="Other"
-                  />
-                </RadioGroup>
+                
+
+                 <Controller
+                      control={control}
+                      inputRef={register()}
+                      name="gender"
+                      render={({ field: { onChange } }) => ( 
+                       <RadioGroup
+                        row
+                        aria-labelledby="demo-row-radio-buttons-group-label"
+                        required
+                        
+                        onChange={(e) => onChange(e.target.value)}
+                      >
+                        <FormControlLabel
+                          value="female"
+                          control={<Radio />}
+                          label="Female"
+                        />
+                        <FormControlLabel
+                          value="male"
+                          control={<Radio />}
+                          label="Male"
+                        />
+                        <FormControlLabel
+                          value="other"
+                          control={<Radio />}
+                          label="Other"
+                        />
+                      </RadioGroup>  
+                      )}
+                    />
+
+               
               </Grid>
 
               <Grid xs={12} sm={4} item>
                 <Stack component="form" noValidate spacing={3}>
-                  <TextField
-                    id="date"
-                    label="Date-of-Birth"
-                    type="date"
-                    defaultValue="2017-05-24"
-                    required
-                    sx={{ width: 220 }}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    name="date_of_birth"
-                  />
+                
+
+                <Controller
+                      control={control}
+                       name="date_of_birth"
+                      defaultValue="false"
+                      inputRef={register()}
+                      render={({ field: { onChange } }) => (
+                        <TextField
+                        id="date"
+                        label="Date-of-Birth"
+                        type="date"
+                        defaultValue="2017-05-24"
+                        required
+                        sx={{ width: 220 }}
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        onChange={(e) => onChange(e.target.value)}
+                        
+                      />
+                      )}
+                    />
+
+
+       
                 </Stack>
               </Grid>
 
@@ -214,8 +240,15 @@ const Register3 = () => {
                   <InputLabel id="demo-simple-select-label">
                     Profession
                   </InputLabel>
-
-                  <Select name="profession">
+                  
+                  <Controller
+                      control={control}
+                      name="profession"
+                      defaultValue=""
+                      inputRef={register()}
+                      render={({ field: { onChange } }) => (
+                         
+                     <Select name="profession" onChange={(e) => onChange(e.target.value)}>
                     {/* <MenuItem value="Choose Your Profession" >Choose Your Profession</MenuItem> */}
                     <MenuItem value="Employed">Employed</MenuItem>
                     <MenuItem value="Business Owners">Business Owners</MenuItem>
@@ -225,7 +258,10 @@ const Register3 = () => {
                     <MenuItem value="Student">Student</MenuItem>
                     <MenuItem value="Parent">Parent</MenuItem>
                     <MenuItem value="Others">Others</MenuItem>
-                  </Select>
+                  </Select>     
+                      )}
+                    />
+                  
                 </FormControl>
               </Grid>
             </Grid>
@@ -320,7 +356,7 @@ const Register3 = () => {
                 </Typography>
               </Grid>
 
-              <Grid item xs={12} align="center">
+              {/* <Grid item xs={12} align="center">
                 <FormControlLabel
                   control={
                     <Controller
@@ -351,7 +387,7 @@ const Register3 = () => {
                     ? "(" + errors.acceptTerms.message + ")"
                     : ""}
                 </Typography>
-              </Grid>
+              </Grid> */}
 
               <Grid xs={12} align="center" item>
                 <Button

@@ -47,11 +47,11 @@ const Header = () => {
           <MenuIcon/>
           </div>
       </li>
-      <li className=" nav-item d-flex align-item-center ">
+      {/* <li className=" nav-item d-flex align-item-center ">
         
             <img src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png" alt="logo" width={105}  />
       
-      </li>
+      </li> */}
     </ul>
    
     {/* Right navbar links */}

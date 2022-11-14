@@ -31,15 +31,21 @@ const Menu2 = () => {
 
         <div >
 
-            <aside className="main-sidebar ">
+            <aside className="main-sidebar">
                 {/* Brand Logo */}
+              <Link to="/dashboard"> <div className="nav-link" style={{ marginLeft:"72px" , marginBottom:"0px"}}>
+               <img src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png" alt="logo" style={{ width:"140px" }}  />                               
+                </div></Link>
+                
 
                 {/* Sidebar */}
                 <div className="sidebar">
 
-                    <nav className="d-flex align-items-center mt-5">
+                    <nav className="d-flex align-items-center">
+                        
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" >
-
+                            
+            
                             <Accordion style={background}>
                             <Link to="/dashboard">
                                 <li className="nav-item">
@@ -109,7 +115,7 @@ const Menu2 = () => {
                             </li>
 
                             <Accordion style={background}>
-                            <Link to="/register">
+                            <Link to="/register3">
                                 <li className="nav-item">
                                     <div className="nav-link m-1">
                                         <AssessmentIcon />

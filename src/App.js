@@ -22,6 +22,7 @@ import CertificationPage from './component/pages/Assessment/Assessment-Test/Test
 
 
 
+
 function App() {
 
   const user = localStorage.getItem("token");
@@ -104,6 +105,8 @@ function App() {
           <Route path="/certification-page">
             <CertificationPage/>
           </Route>
+
+          
 
         {user &&  <Route path="/header3">
             <Header3/>
