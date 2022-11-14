@@ -5,7 +5,6 @@
     margin: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-
 }
 /* .main{
     display: grid;
@@ -15,16 +14,17 @@
 } */
 .terms_condition{
     display: flex;
-    height: 98.5vh;
+   
     justify-content: center;
     align-items: center; 
-    width: auto;
+    
     /* -webkit-box-shadow: 1px 4px 6px 6px rgba(199,183,199,1);
     -moz-box-shadow: 1px 4px 6px 6px rgba(199,183,199,1);
     box-shadow: 1px 4px 6px 6px rgba(199,183,199,1); */
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAd8lJSRgaKJgrftwVZ9LdGP0g4mPCMyeGb_1mux9g2lnvhuMkPPwEzqH6lLMCuiQ_4TA&usqp=CAU");
+    background-image: url("https://www.spif.in/wp-content/uploads/2021/08/about1-1.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    
 }
 .terms_condition .test-rules{
     display: grid;
@@ -35,18 +35,18 @@
     opacity: 0.6;
     text-align: center;
     font-weight: bolder;
-    color: #00ad53;
+    color: #346BFF;
 }
 .terms_condition .test-rules h4{
     text-align: center;
     opacity: 0.6;
     font-weight: bolder;
-    color: #00ad53;
+    color: #007A3E;
 }
 .terms_condition .test-rules .test-rule-list{
-    -webkit-box-shadow: 1px 4px 6px 6px rgba(199,183,199,1);
+    /* -webkit-box-shadow: 1px 4px 6px 6px rgba(199,183,199,1);
     -moz-box-shadow: 1px 4px 6px 6px rgba(199,183,199,1);
-    box-shadow: inset 1px 4px 6px 6px rgba(199,183,199,1);
+    box-shadow: inset 1px 4px 6px 6px rgba(199,183,199,1); */
     padding: 20px;
     border-radius: 20px;
 }
@@ -54,6 +54,8 @@
     text-align: start;
     font-weight: bolder;
     opacity: 0.7;
+    color: #007A3E;
+
 }
 .terms_condition .test-rules .test-rule-list ol{
     font-weight: bolder;
@@ -62,14 +64,14 @@
     opacity: 1;
 }
 .terms_condition .test-rules .test-rule-list h2{
-    color: black;
+    color: #007A3E;
     font-weight: bolder;
     opacity: 0.7;
     text-align: center;
     margin: 20px 0;
 }
 .terms_condition .test-rules .test-rule-list button{
-    background-color: #00ad53;
+    background-color: #346BFF;
     color: white;
     width: auto;
     height: 50px;

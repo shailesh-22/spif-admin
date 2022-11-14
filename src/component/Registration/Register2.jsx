@@ -13,7 +13,6 @@ import FormControl from '@mui/material/FormControl';
 import { useHistory } from "react-router-dom";
 
 // import { ClassNames } from '@emotion/react';
-import swal from 'sweetalert';
 import '../Registration/register.css'
 import { useForm , Controller } from 'react-hook-form'
 import * as Yup from 'yup'
@@ -111,9 +110,9 @@ const Register = () => {
       email:Yup.string().email('please enter valid emai').required('Required')
     })
    
-  const onSubmit=(values,props)=>{
-    console.log(values);
-  }  
+  // const onSubmit=(values,props)=>{
+  //   console.log(values);
+  // }  
       
 
 
