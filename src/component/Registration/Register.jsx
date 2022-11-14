@@ -11,6 +11,8 @@ import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import { useHistory } from "react-router-dom";
+
+import { Formik } from 'formik';
 // import { ClassNames } from '@emotion/react';
 import swal from 'sweetalert';
 import '../Registration/register.css'
@@ -24,6 +26,9 @@ import Header3 from '../Sidebar/Header3';
 //     margin: theme.spacing(1, 0),
 //   },
 // }));
+
+
+
 
 const initialValues = {
   firstName: "",
@@ -105,17 +110,18 @@ const Register = () => {
   const submit = { background: "#346BFF", color:"white"}
 
   return (
-    <div>
+    <div >
       {/* <Header2 /> */}
       <Header3/>
       <div>
-        <Typography gutterbutton variant="h4" align="center" style={{background:"#62C2CF" , maxWidth:1500, margin:"0 auto"}}>
+        <Typography gutterbutton variant="h4" align="center" style={{background:"#62C2CF" , maxWidth:1000, margin:"0 auto"}}>
           User Profile Details
         </Typography>
-        <Card style={{ maxWidth: 1500, margin: "0 auto", padding: "0 12px"}} elevation={10} >
+        
+        <Card style={{ maxWidth: 1000, margin: "0 auto", padding: "0 5px"}} elevation={10} >
           <CardContent>
             <Typography gutterbutton variant="h5">Fill out your Basic details</Typography>
-            <form>
+            <form action="/action_page.php" class="was-validated">
 
               <Typography variant="body2" align="left" style={{ padding: "20px 0px" }} gutterbutton >Personal info :</Typography>
 
@@ -131,6 +137,7 @@ const Register = () => {
                     required
                     name='firstName'
                     onChange={(e) => onValueChange(e)}
+                    
                   />
 
                 </Grid>
@@ -218,7 +225,7 @@ const Register = () => {
                     <InputLabel id="demo-simple-select-label" >Profession</InputLabel>
 
                     <Select name="profession" onChange={(e) => onValueChange(e)}   >
-                    <MenuItem value="Choose Your Profession" >Choose Your Profession</MenuItem>
+                    {/* <MenuItem value="Choose Your Profession" >Choose Your Profession</MenuItem> */}
                       <MenuItem value="Employed" >Employed</MenuItem>
                       <MenuItem value="Business Owners" >Business Owners</MenuItem>
                       <MenuItem value="Seeking Employement" >Seeking Employement</MenuItem>
@@ -265,7 +272,7 @@ const Register = () => {
             </form>
           </CardContent>
         </Card>
-        
+      
       </div>
     
     </div>

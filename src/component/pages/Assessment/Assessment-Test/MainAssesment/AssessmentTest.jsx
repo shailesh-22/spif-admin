@@ -54,7 +54,7 @@ const AssessmentTest = () => {
   return (
     <div>
       <Header3/>
-    <div className="assessment-test">
+    <div className=" assessment-test">
         <div className='header w-100'>
             <h1>Assesment Test</h1>
             <div className='pageNo-Timer'>

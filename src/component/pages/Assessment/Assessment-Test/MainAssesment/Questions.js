@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Dialog, DialogActions, DialogContent, Popper, Typography } from '@material-ui/core'
+import { Button, Popper, Typography } from '@material-ui/core'
 
 
 const Questions = ({ questions, loading }) => {
@@ -9,12 +9,12 @@ const Questions = ({ questions, loading }) => {
 
   // const [open, setOpen] = useState(false);
   // const [score, setScore] = useState(0);
-  useEffect(()=>{
-    if(localStorage.getItem("item")==null)  //if item array is not present before 
-    {
-        localStorage.setItem("item","[]")   //then add the wish
-    }
-  },[]) 
+  // useEffect(()=>{
+  //   if(localStorage.getItem("item")==null)  //if item array is not present before 
+  //   {
+  //       localStorage.setItem("item","[]")   //then add the wish
+  //   }
+  // },[]) 
 
   // const handleSubmit = (e) =>{
   //   e.preventDefault();
@@ -30,7 +30,7 @@ const Questions = ({ questions, loading }) => {
 
   return (
     // <div className='row px-3 '>
-    <form className='content-wrapper px-3 question-form ' >
+    <form className=' px-3 question-form ' >
       {
         questions.map((question, i) => {
           return (
@@ -66,25 +66,25 @@ const Questions = ({ questions, loading }) => {
 
                     const open = Boolean(anchor);
 
-                    const onSelect = () =>{
+                    // const onSelect = () =>{
 
                       
 
-                      let newArrays = JSON.parse(localStorage.getItem("item") || '[]' )
+                    //   let newArrays = JSON.parse(localStorage.getItem("item") || '[]' )
                       
-                      let newArray = {'stid': question.sStatementID, 'answers': option.text,}
+                    //   let newArray = {'stid': question.sStatementID, 'answers': option.text,}
 
-                      newArrays.push( newArray);
+                    //   newArrays.push( newArray);
 
-                      // let Key = 'stid';
+                    //   // let Key = 'stid';
 
-                      // arrayUniqueByKey = [ ...new Map( LinalArray.map( item=> [item[Key],item])).values() ]
+                    //   // arrayUniqueByKey = [ ...new Map( LinalArray.map( item=> [item[Key],item])).values() ]
                       
-                      localStorage.setItem("item", JSON.stringify(newArrays));
+                    //   localStorage.setItem("item", JSON.stringify(newArrays));
 
                       
 
-                    }
+                    // }
 
                     return (
                       <div className="question-options">
@@ -92,8 +92,9 @@ const Questions = ({ questions, loading }) => {
                         <input type="radio"
                           name={question.sStatementID}
                           value={option.text}
-                          onChange={ (e)=>{ setAnswers(e.target.value); onSelect() } }
+                          onChange={ (e)=>{ setAnswers(e.target.value); } }
                           onClick={openPopover}
+                          
                         />
                         <label className='px-1 question-label' > {option.text} </label>
                         
