@@ -1,7 +1,6 @@
 import React from 'react'
 import './testResult.css'
 import Tooltip from '@mui/material/Tooltip';
-import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 
@@ -10,8 +9,9 @@ const TestResult = () => {
     <div className='test-result'>
       <div className="card test-card" >
         <div className="card-body">
-            <h2 className="card-title"> Test Has Been Completed Successfully </h2>
-            <hr />
+          <div className='card-header'>
+            <h3> Test Has Been Completed Successfully </h3>
+          </div>
           <div className='card-result'>
             <p className="card-text"> Correct Anwsers : 12 </p>
             <p className="card-text"> Wrong Anwsers : 4 </p>
@@ -25,13 +25,13 @@ const TestResult = () => {
           </div>
           <hr />
 
-          <Tooltip title="To Collect Your Certificate" placement='right'>
-            <a>
-              <Link to='/certification-page'>
-                <Button variant='contained' color='primary' className="card-link">Click here...</Button>
-              </Link>
-            </a>         
-          </Tooltip>
+          <div className='certi-btn'>
+            <Tooltip title="To Collect Your Certificate" placement='right'>
+                <Link to='/certification-page'>
+                  <button className="btn btn-primary card-link">Click here...</button>
+                </Link>
+            </Tooltip>
+          </div>
         </div>
       </div>
     </div>

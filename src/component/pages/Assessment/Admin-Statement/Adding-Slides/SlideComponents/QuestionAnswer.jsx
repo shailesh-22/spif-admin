@@ -11,26 +11,21 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Switch, FormControlLabel } from '@material-ui/core'
+import { useHistory } from 'react-router-dom';
 
 
 const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
+
+     let history = useHistory();
 
     let[ sDescription, setDescription ] = useState("");
     let[ sText  ] = useState(null);
     let[ sImage  ] = useState(null);
     let[ sVideo  ] = useState(null);
 
-    let [textField, setTextField] = useState([])
-
-    let [checked, setChecked] = useState(false)
-
-    let handleAnswer = (event) => {
-        setChecked(event.target.checked)
-    }
-
     let handleSubmit = (e)=>{
 
-        
+        e.preventDefault();
 
         let newStatement = { sDescription, sText, sImage, sVideo  };
 
@@ -43,16 +38,27 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
                 headers:{"Content-Type" : "application/json"},
                 body:JSON.stringify(newStatement)
             })
+            .then(()=>{history.push("/admin-statement")})
         }
         else{
             alert("Statement Already Exist, Please add new Statement")
         }
 
-        e.preventDefault();
-
         console.log( newStatement );
-}
+    }
 
+//----------------------------------------------------------------------
+
+
+    let [checked, setChecked] = useState(false)
+
+    let handleAnswer = (event) => {
+        setChecked(event.target.checked)
+    }
+
+//------------------------------------------------------------
+
+    let [textField, setTextField] = useState([])
 
     const handleAdd = () => {
         const abc = [...textField, []];
@@ -71,9 +77,10 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
         setTextField(delVal)
     }
 
+//----------------------------------------------------------
+
     return (
         <div className='questionWithAns'>
-            <form onSubmit={handleSubmit} >
             <div className='para-stmt' >
                 <h5> Statement </h5>
                 <TextareaAutosize
@@ -141,7 +148,7 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
                             }
                         </TableBody>
                         <div style={{ margin: " 20px " }}>
-                            <Button className=' btn btn-outline-success' style={{ width: "auto", height: "40px" }}
+                            <Button className=' btn btn-outline-success' style={{textAlign:"center", width: "auto", height: "40px" }}
                                 onClick={() => handleAdd()}
                             >
                                 Add Option
@@ -151,14 +158,13 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
                 </TableContainer>
             </div>
             <div className='tab-body-btns'>
-                <button className='btn btn-primary' type='submit'
-                    onClick={() => { setOpen(false); setOpenQA(true); setTitle("Statement Manager") }}
+                <button className='btn btn-primary'
+                    onClick={() => { setOpen(false); setOpenQA(true); setTitle("Statement Manager"); handleSubmit() }}
                     style={{ width: "100px", height: "40px" }}
                 >
                     ADD
                 </button>
             </div>
-            </form>
         </div>
     )
 }

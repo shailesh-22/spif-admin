@@ -107,7 +107,7 @@ const Tabs = ({ questions }) => {
                                                             >
                                                                 <button
                                                                     key={index} id={question.sStatementID}
-                                                                    disabled={currentTab === `${question.sStatementID}`}
+                                                                    // disabled={currentTab === `${question.sStatementID}`}
                                                                     onClick={handleTabClick}
                                                                 >
                                                                     Slide <span> {index + 1} </span>
@@ -142,7 +142,7 @@ const Tabs = ({ questions }) => {
                     questions.map((tab, i) =>
                         <div key={i} >
                             {
-                                currentTab === `${tab.sStatementID}` &&
+                                currentTab === `${tab.sStatementID}` && 
                                 <div>
                                     <div>
                                         <h5> Statement </h5>
@@ -178,6 +178,7 @@ const Tabs = ({ questions }) => {
                                                                         maxRows={4}
                                                                         aria-label="maximum height"
                                                                         defaultValue={option.text}
+                                                                        onChange={ handleChange }
                                                                         style={{ width: '100%', fontSize: 17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
                                                                     />
                                                                 </TableCell>
@@ -264,10 +265,10 @@ const Tabs = ({ questions }) => {
                                     }
                                     <div className='tab-body-btns'>
                                         <button className='btn btn-primary' >
-                                            SAVE
+                                            UPDATE
                                         </button>
                                         <button className='btn btn-primary' >
-                                            RESET
+                                            DELELTE
                                         </button>
                                     </div>
                                 </div>

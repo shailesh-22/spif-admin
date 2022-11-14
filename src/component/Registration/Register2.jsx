@@ -19,7 +19,6 @@ import { useForm , Controller } from 'react-hook-form'
 import * as Yup from 'yup'
 import { Formik, Form , Field , ErrorMessage} from 'formik';
 // import { ClassNames } from '@emotion/react';
-import swal from 'sweetalert';
 import '../Registration/register.css'
 
 
@@ -56,7 +55,7 @@ const Register = () => {
 
 
  const { inputRegister , handleSubmit , control } = useForm()
- const onSubmit = (data) => console.log(data);
+//  const onSubmit = (data) => console.log(data);
 
 
 

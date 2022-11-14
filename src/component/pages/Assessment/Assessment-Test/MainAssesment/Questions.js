@@ -94,6 +94,7 @@ const Questions = ({ questions, loading }) => {
                           value={option.text}
                           onChange={ (e)=>{ setAnswers(e.target.value); } }
                           onClick={openPopover}
+                          
                         />
                         <label className='px-1 question-label' > {option.text} </label>
                         
