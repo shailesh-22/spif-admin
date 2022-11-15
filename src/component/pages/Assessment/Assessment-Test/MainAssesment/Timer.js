@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory, useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Timer = () => {
 
@@ -27,7 +27,7 @@ const Timer = () => {
     let secs = (seconds < 10 ? '0' : '') + seconds;
 
     if (minutes===10) {
-        navigate('/test-result');
+        navigate.push('/test-result');
     }
 
   return (

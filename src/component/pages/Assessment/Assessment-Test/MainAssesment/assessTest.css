@@ -1,20 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&family=Noto+Serif&family=Playfair+Display&family=Roboto&family=Rubik+Dirt&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&family=Inter+Tight:wght@200&family=Noto+Serif&family=Playfair+Display&family=Roboto&family=Rubik+Dirt&display=swap');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 .assessment-test{
     /* display: grid; */
     justify-content: center;
     padding: 0%;
+    
 }
 .assessment-test .header{
     background-color: #448ACA;
     color: aliceblue;
     padding: 10px 0;
     height: 100px;
+    position: relative;
     
 }
 .assessment-test .header h1{
@@ -33,22 +35,20 @@
     text-align: start;
     opacity: 0.9;
 }
-.question span{
-    padding: 3px 10px;
-    margin-right: 10px;
-    color: rgb(90, 121, 148);
-    text-align: center;
+.question h3{
+    margin-bottom: 15px;
 }
 .question-options{
-    display: grid;
-    grid-template-columns: 30px 1000px;
+    display: flex;
     justify-content: start;
-    margin: 30px 70px;
-    font-size: x-large;
+    align-items: center;
+    padding: 1px 20px;
 }
 .question-options input{
-    font-size: 10px;
+    
     margin-right: 10px;
+    width: 20px !important;
+    height: 20px !important;
 }
 .questionWithOption{
     display: grid;
@@ -60,21 +60,31 @@
     box-shadow: 3px 3px 5px 4px rgba(153,137,153,1);
     height: 700px;
     position: relative;
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 100;
 }
 .question-label{
     opacity: 0.9;
     width: auto;
+    font-size: 25px;
+    font-weight: lighter;
 }
-/* .question-form{
-    position: static;
-} */
+.question-form{
+    width: auto;
+}
 .question-form .btn{
-    position: absolute;
+    position: absolute ;
     width: 200px;
     font-size: x-large;
-    right: 40px;
-    cursor: pointer;
-    bottom: 20px;
+    right: 30px;
+    bottom: 40px;
+    /* display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-right: auto;
+    position: absolute;
+    bottom: 30px;
+    left: 0%; */
 }
 .question-form .btn:hover{
     cursor: pointer;
@@ -85,10 +95,11 @@
 .option-popper-title{
     display: flex;
     justify-content: center;
-    color: black;
+    color:#007A3E;
 }
 .popper-btn{
     display: flex;
     justify-content: flex-end;
-    margin: 5px 5px;
+    margin: 5px 10px;
+    
 }

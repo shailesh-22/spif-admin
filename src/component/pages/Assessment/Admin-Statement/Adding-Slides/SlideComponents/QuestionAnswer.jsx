@@ -13,7 +13,6 @@ import Paper from '@mui/material/Paper';
 import { Switch, FormControlLabel } from '@material-ui/core'
 import { useHistory } from 'react-router-dom';
 
-
 const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
 
      let history = useHistory();
