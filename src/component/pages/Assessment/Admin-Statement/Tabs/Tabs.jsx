@@ -53,6 +53,7 @@ const Tabs = ({ questions }) => {
         delVal.splice(i, 1);
         setTextField(delVal)
     }
+//--------------------------------------------------------
 
     const [list, setList] = useState(questions)
 
@@ -154,7 +155,7 @@ const Tabs = ({ questions }) => {
                                         />
                                     </div>
                                     <hr />
-                                    {tab.options.length != 0 &&
+                                    {tab.options.length !== 0 &&
                                         <div>
                                             <h5> Option Details </h5>
                                             <TableContainer component={Paper}>
@@ -184,9 +185,10 @@ const Tabs = ({ questions }) => {
                                                                 </TableCell>
                                                                 <TableCell align="center">
                                                                     <FormControlLabel
-                                                                        control={ <Switch checked={checked}
+                                                                        control={ <Switch checked= { option.isAnswer }
                                                                                           onChange={handleAnswer}
-                                                                                          color='primary'   
+                                                                                          color='primary'
+                                                                                             
                                                                                 /> }
                                                                     />
                                                                 </TableCell>

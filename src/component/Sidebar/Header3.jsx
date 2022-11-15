@@ -43,7 +43,7 @@ function Header3() {
           
            <Link to="/dashboard">
            <Box >
-            <img src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png" alt="logo" width={105}/>
+            <img src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png" alt="logo" width={110} style={ { backgroundColor:"white"} }  />
             </Box>
             </Link>
          
