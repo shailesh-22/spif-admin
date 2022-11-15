@@ -41,7 +41,6 @@ const Menu = () => {
                   <DashboardIcon />
                   <p>
                     <Link to="/dashboard"> Dashboard</Link>
-
                   </p>
                 </div>
                 

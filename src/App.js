@@ -121,10 +121,6 @@ function App() {
             <Menu2/>
           </Route>
 
-
-
-        
-
     </Switch>
 
         {/* <Dashboard/>
