@@ -5,6 +5,7 @@
 }
 .nav-pills .nav-link{
     color: black;
+  
 }
 .nav-sidebar .nav-link p{
     white-space: inherit;
@@ -21,7 +22,7 @@ a{
 
 
 div.nav-link:hover{
-    background-color: #0e9a51;
+    background-color:#0e9a51;
     color:black;
     }
 

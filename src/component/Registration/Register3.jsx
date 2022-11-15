@@ -27,6 +27,7 @@ import Header3 from "../Sidebar/Header3";
 
 
 const Register3 = () => {
+  
   const history = useHistory();
 
   const validationSchema = Yup.object().shape({

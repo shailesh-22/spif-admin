@@ -100,8 +100,7 @@ const AdminStatement = () => {
                 setTitle={setTitle}
               />
             )}
-            {openQA && <AdminQuestionDetails questions={questions} />}
-           
+            {openQA && <AdminQuestionDetails questions={questions} />}  
           </div>
         </div>
       </div>

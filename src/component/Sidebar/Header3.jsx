@@ -38,13 +38,11 @@ function Header3() {
   return (
     <AppBar position="static" >
       <Container maxWidth="x2" style={{background: "linear-gradient(to right, #00AD53 , #007A3E)"}}>
-        <Toolbar disableGutters style={{display:"flex" , justifyContent:"space-between", alignContent:"center"}} >
+        <Toolbar disableGutters style={{display:"flex" , justifyContent:"space-between", alignContent:"center", }} >
 
           
-           <Link to="/dashboard">
-           <Box >
-            <img src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png" alt="logo" width={105}/>
-            </Box>
+           <Link to="/dashboard" style={{ backgroundColor:""}}> 
+            <img src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png" alt="logo" width={105}  />
             </Link>
          
          
