@@ -13,8 +13,14 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Switch, FormControlLabel } from "@material-ui/core";
+import { useHistory, useParams } from "react-router-dom";
+import { useEffect } from "react";
+
 
 const Tabs = ({ questions }) => {
+
+const history = useHistory();
+
     let [currentTab, setCurrentTab] = useState("1");
 
     let [checked, setChecked] = useState(false);
@@ -80,8 +86,35 @@ const Tabs = ({ questions }) => {
         setList(reorder(list, sourceIndex, destinationIndex));
     };
 
+
+
+    const { sStatementID } = useParams();
+
+   const handleSubmit = (e)=>{
+    
+    console.log("hello");
+    e.preventDefault();
+
+    const questionDetails = {  }
+     
+    fetch("http://localhost:3004/questions"+sStatementID ,{
+      methode:"PUT",
+      headers:{"content-type":"application/json"},
+      body:JSON.stringify(questionDetails)
+    })
+    .then((res)=>{
+      alert('saved successfuly.')
+      history.push('/dashboard');
+    })
+    .catch((err)=>{
+      console.log(err.message);
+    })
+   }
+
+
     return (
         <div className="tabTypeQuestion">
+          <form onSubmit={handleSubmit}>
             <div className="tab">
                 <DragDropContext onDragEnd={onEnd}>
                     <Droppable droppableId="12345" direction="horizontal">
@@ -149,6 +182,7 @@ const Tabs = ({ questions }) => {
                                             maxRows={4}
                                             aria-label="maximum height"
                                             defaultValue={tab.sDescription}
+                                            value={tab.sDescription}
                                             style={{ width: '100%', height: "150px", padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
                                         />
                                     </div>
@@ -186,7 +220,6 @@ const Tabs = ({ questions }) => {
                                                                         control={<Switch checked={option.isAnswer}
                                                                             onChange={handleAnswer}
                                                                             color='primary'
-
                                                                         />}
                                                                     />
                                                                 </TableCell>
@@ -258,7 +291,7 @@ const Tabs = ({ questions }) => {
                                         </div>
                                     }
                                     <div className="tab-body-btns">
-                                        <button className="btn btn-primary">UPDATE</button>
+                                        <button className="btn btn-primary" type="submit" >UPDATE</button>
                                         <button className="btn btn-primary">DELELTE</button>
                                     </div>
                                 </div>
@@ -266,8 +299,38 @@ const Tabs = ({ questions }) => {
                         </div>
             )}
             </div>
+            </form>
         </div>
     );
 };
 
 export default Tabs;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
