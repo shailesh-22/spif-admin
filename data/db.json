@@ -354,7 +354,7 @@
     {
         "sStatementID": "STID00000011",
         "sDescription": "When talking with someone who has suicidal thoughts and feelings, its strongly recommended that you be sure to (select the most correct item):",
-        "sText": "",
+        "sText": null,
         "sImage": null,
         "sVideo": null,
         "options": [
@@ -393,7 +393,7 @@
     {
         "sStatementID": "STID00000012",
         "sDescription": "You are talking to a friend or family member who has been having a lot of personal problems lately and seems to be overwhelmed and hopeless. They say they can't sleep and can't stop feeling blue. During your conversation, the person sighs and says, I just can't go anymore. Life isn't worth living.” The best thing to say is:",
-        "sText": "",
+        "sText": null,
         "sImage": null,
         "sVideo": null,
         "options": [
@@ -432,7 +432,7 @@
     {
         "sStatementID": "STID00000013",
         "sDescription": "Someone you know admits that they have been thinking about suicide. To Persuade them to get help, very first thing to do is:",
-        "sText": "",
+        "sText": null,
         "sImage": null,
         "sVideo": null,
         "options": [

@@ -3,8 +3,12 @@
     background-image: linear-gradient(#00AD53, #007A3E)
     
 }
+/* .nav-pills{
+    margin: 10px 0;
+} */
 .nav-pills .nav-link{
     color: black;
+  
 }
 .nav-sidebar .nav-link p{
     white-space: inherit;
@@ -21,7 +25,7 @@ a{
 
 
 div.nav-link:hover{
-    background-color: #0e9a51;
+    background-color:#0e9a51;
     color:black;
     }
 

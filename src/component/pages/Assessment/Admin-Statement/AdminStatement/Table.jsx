@@ -110,12 +110,15 @@ export default function CustomPaginationActionsTable( {questions, totalQuestions
 
     const handleClose = () => {
         setOpen(false);
+        console.log(hello);
     };
+
+   
 
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 500, border: "4px solid gray", }} aria-label="custom pagination table">
+      <Table sx={{ minWidth: 500, border: "4px solid gray", }} aria-label="custom pagination table" >
       <TableHead>
           <TableRow sx={{
             backgroundColor: "darkblue",
@@ -214,7 +217,7 @@ export default function CustomPaginationActionsTable( {questions, totalQuestions
                                         style={{ width: 500, height:30, border:"none", 
                                                  borderBottom:"2px solid gray", 
                                                  outline:"none" }}
-                                    />
+                                />
                                 </div>
                             </div>
                             <hr />

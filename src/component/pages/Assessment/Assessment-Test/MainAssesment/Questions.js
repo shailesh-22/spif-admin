@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+// import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Popper, Typography } from '@material-ui/core'
+import { Popper, Typography } from '@material-ui/core'
 
 
-const Questions = ({ questions, loading }) => {
+const Questions = ({ questions, loading, currentPage }) => {
 
   const [answers, setAnswers] = useState("");
 
@@ -30,22 +31,21 @@ const Questions = ({ questions, loading }) => {
 
   return (
     // <div className='row px-3 '>
-    <form className=' px-3 question-form ' >
+    <form className='px-3 question-form ' >
       {
         questions.map((question, i) => {
           return (
-            <div key={question.sStatementID} className='col-md-6 col-sm-12 col-md-12 question'>
-              <div className='body px-3 w-100' >
-                <h3 className='w-100'> <span>{question.order}---</span>{question.sDescription}</h3>
+            <div key={question.sStatementID} className='d-flex question'>
+              <div className='body px-3'>
+                <h3 className='w-100'>{question.order}. {question.sDescription}</h3>
                 {
-                  question.order === null &&
+                  question.options.length === null &&
                   <div className='multi-q-details'>
                     <h3 className='w-100'>{question.sDescription1}</h3>
                     <p>{question.sText}</p>
                     <h3>{question.sPointsDesc}</h3>
                     <h3>{question.sPointsBrief}</h3>
                   </div>
-
                 }
                 {
                   question.options.map((option) => {                    
@@ -66,7 +66,7 @@ const Questions = ({ questions, loading }) => {
 
                     const open = Boolean(anchor);
 
-                    // const onSelect = () =>{
+                    // const onSelect = (question, option) =>{
 
                       
 
@@ -87,31 +87,33 @@ const Questions = ({ questions, loading }) => {
                     // }
 
                     return (
-                      <div className="question-options">
-                        
-                        <input type="radio"
-                          name={question.sStatementID}
-                          value={option.text}
-                          onChange={ (e)=>{ setAnswers(e.target.value); } }
-                          onClick={openPopover}
-                          
-                        />
-                        <label className='px-1 question-label' > {option.text} </label>
+                      <div className="question-options" key={option.id}>
+                
+                        <label className='px-3 question-label' htmlFor={option.id} >
+                          <input type="radio"
+                            id={option.id} checked={option.selected}
+                            name={question.sStatementID}
+                            value={option.text}
+                            onChange={ (e)=>{ setAnswers(e.target.value); } }
+                            onClick={openPopover}
+                          />
+                           {option.text} 
+                        </label>
                         
 
-                        {/* When user click the wrong Answer(input)-->The Prompt will display */}
+                        {/* When user click the wrong Answer(input)-->The Popup will display */}
 
                         <Popper
                           style={{ 
                             backgroundColor:"white",
-                            borderRadius:"20px",
+                            borderRadius:"10px",
                             width:"600px",
                             color:"black",
                             fontWeight:"bolder",
                             marginLeft:"250px",
                             marginTop:"2px",
-                            boxShadow:"4px 2px 1px 2px rgba(0,0,0,0.25), -4px 2px 1px 2px rgba(0,0,0,0.25)",
-                            padding:"10px"
+                            boxShadow:"3px 2px 1px 1px rgba(0,0,0,0.25), -3px 2px 1px 1px rgba(0,0,0,0.25)",
+                            padding:"10px",
                           }} 
                           open={open}
                           anchorEl={anchor}
@@ -123,7 +125,7 @@ const Questions = ({ questions, loading }) => {
                           <Typography variant='h6' className='option-popper' > {option.isPrompt} </Typography>
                           <div className='popper-btn'>
                             
-                            <Button onClick={handleClose} variant="contained" color='primary' >OK</Button>
+                            <button onClick={handleClose} className="btn btn-primary" >OK</button>
                           
                           </div>
                         </Popper>
@@ -136,9 +138,14 @@ const Questions = ({ questions, loading }) => {
           )
         })
       }
-      <Link to='/test-result'>
-        <button type="submit" class="btn btn-primary">Submit Test</button>
-      </Link>
+
+      {
+        
+          <Link to='/test-result'>
+            <button type="submit" class="btn btn-primary">Submit Test</button>
+          </Link>
+
+      }
     </form>
     // </div>
   )
