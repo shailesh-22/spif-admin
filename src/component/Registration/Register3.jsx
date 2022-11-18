@@ -65,15 +65,15 @@ const Register3 = () => {
       });
       history.push("/terms_conditions");  
   };
-  const reset = { margin: "20px 5px", background: "#00AD53", color: "white" };
-  const submit = { background: "#346BFF", color: "white" };
+  const reset = { margin: "20px 5px", background: "#00AD53", color: "white",};
+  const submit = { background: "#346BFF", color: "white", margin: "20px 5px" };
 
   return (
     <div>
         <div>
             <Header3/>
         </div>
-    <div>
+    <div style={{marginTop:"64px"}}>
       <Typography
         gutterbutton
         variant="h4"
@@ -390,7 +390,7 @@ const Register3 = () => {
                 </Typography>
               </Grid> */}
 
-              <Grid xs={12} align="center" item>
+              <Grid xs={12} align="center" style={{display:"flex" , justifyContent  :"center"}} >
                 <Button
                   style={reset}
                   type="reset"

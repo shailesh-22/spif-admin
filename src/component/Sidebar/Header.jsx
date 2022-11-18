@@ -38,7 +38,7 @@ const Header = () => {
        
     return (
       <div>
-  <nav className="main-header navbar  navbar-expand">
+  <nav className="main-header navbar  navbar-expand" >
     {/* Left navbar links */}
     <ul className="navbar-nav d-flex ">
       <li className="nav-item ">

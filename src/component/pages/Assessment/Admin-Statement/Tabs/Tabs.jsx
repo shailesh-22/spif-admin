@@ -18,7 +18,6 @@ import { useHistory, useParams } from "react-router-dom";
 
 const Tabs = ({ questions }) => {
 
-
 const history = useHistory();
 
     let [currentTab, setCurrentTab] = useState("1");
@@ -28,7 +27,7 @@ const history = useHistory();
     let handleAnswer = (event) => {
 
         // if ( questions.options.isAnswer ) {
-        //     setChecked( true )
+        //     setChecked(true)
         // } else {
         //     setChecked( false )
         // }
@@ -38,7 +37,11 @@ const history = useHistory();
 
     let handleTabClick = (e) => {
         setCurrentTab(e.target.id);
-        localStorage.setItem(e , e.target.id); 
+
+    let savelocal = localStorage.setItem(e , JSON.stringify(e.target.id)); 
+
+    console.log(savelocal);
+       
     };
 
     let [textField, setTextField] = useState([]);
@@ -93,7 +96,6 @@ const history = useHistory();
 
     const handleUpdate = () => {     
         
-
     fetch(`http://localhost:3004/questions}/${id}`,
     {
       method: "PUT" ,
@@ -103,7 +105,7 @@ const history = useHistory();
      },
       body : JSON.stringify()
     })
-
+    
     .then(()=>{ history.push('/dashboard') })
  
    }  
@@ -112,13 +114,14 @@ let {id} = useParams();
 
    let handleDeleteHole = (e)=>{
 
-    let id = localStorage.getItem(e , e.target.id);
+    let dltqstns = localStorage.getItem(e, e.target.id);
 
-    fetch(`http://localhost:3004/questions}/${id}` , {method:"DELETE"})
+    console.log("dltqstns");
+
+    fetch(`http://localhost:3004/questions}/${dltqstns}` , {method:"DELETE"})
      .then(()=>{ history.push("/dashboard")});
      alert("successfully deleted")
-     localStorage.removeItem(e);
-     console.log("deleted");
+     localStorage.removeItem(dltqstns);
 
    }
 
@@ -166,6 +169,7 @@ let {id} = useParams();
                         }}
                     </Droppable>
                 </DragDropContext>
+
                 {/* {
                     questions.map((tab, i) =>
                         <button
@@ -295,15 +299,14 @@ let {id} = useParams();
                                                         >
                                                             Add Option
                                                         </Button>
-                                                    </div>
-                                                    
+                                                    </div>  
                                                 </Table>
                                             </TableContainer>
                                         </div>
                                     }
                                     <div className="tab-body-btns">
                                         <button className="btn btn-primary" onClick={()=>{handleUpdate()}} >UPDATE</button>
-                                        <button className="btn btn-primary" onClick={()=>{handleDeleteHole(currentTab)}} >DELELTE</button>
+                                        <button className="btn btn-primary" onClick={()=>{handleDeleteHole()}} >DELELTE</button>
                                     </div>
                                 </div>
                             }

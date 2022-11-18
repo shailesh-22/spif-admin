@@ -10,6 +10,7 @@ import Header from "../../../../Sidebar/Header";
 import Menu2 from "../../../../Sidebar/Menu2";
 
 const AdminStatement = () => {
+
   let { data: questions } = useFetch("http://localhost:3004/questions");
 
   const [open, setOpen] = useState(false);
@@ -41,7 +42,7 @@ const AdminStatement = () => {
     <div>
       <div className="admin_sidebar">
         <Header />
-        <Menu2 />
+        <Menu2 className="menu"/>
       </div>
 
       <div className="content-wrapper admin-statement p-4">
