@@ -33,7 +33,7 @@ const Timer = () => {
   return (
     <div className='timer'>
         <div className='container'>
-            <h3> {mins}:{secs} / 10:00</h3>
+            <h4> {mins}:{secs} / 10:00 </h4>
                        
         </div>
     </div>
