@@ -13,23 +13,32 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Switch, FormControlLabel } from "@material-ui/core";
+import { useHistory, useParams } from "react-router-dom";
+
 
 const Tabs = ({ questions }) => {
+
+
+const history = useHistory();
+
     let [currentTab, setCurrentTab] = useState("1");
 
     let [checked, setChecked] = useState(false);
 
     let handleAnswer = (event) => {
+
         // if ( questions.options.isAnswer ) {
         //     setChecked( true )
         // } else {
         //     setChecked( false )
         // }
+
         setChecked(event.target.checked);
     };
 
     let handleTabClick = (e) => {
         setCurrentTab(e.target.id);
+        localStorage.setItem(e , e.target.id); 
     };
 
     let [textField, setTextField] = useState([]);
@@ -71,6 +80,7 @@ const Tabs = ({ questions }) => {
     };
 
     const onEnd = (result) => {
+
         // console.log(result);
 
         let sourceIndex = result.source.index;
@@ -80,7 +90,40 @@ const Tabs = ({ questions }) => {
         setList(reorder(list, sourceIndex, destinationIndex));
     };
 
+
+    const handleUpdate = () => {     
+        
+
+    fetch(`http://localhost:3004/questions}/${id}`,
+    {
+      method: "PUT" ,
+      headers: {
+         "Accept": "application/json",
+         "Content-Type":"application/json"
+     },
+      body : JSON.stringify()
+    })
+
+    .then(()=>{ history.push('/dashboard') })
+ 
+   }  
+
+let {id} = useParams();
+
+   let handleDeleteHole = (e)=>{
+
+    let id = localStorage.getItem(e , e.target.id);
+
+    fetch(`http://localhost:3004/questions}/${id}` , {method:"DELETE"})
+     .then(()=>{ history.push("/dashboard")});
+     alert("successfully deleted")
+     localStorage.removeItem(e);
+     console.log("deleted");
+
+   }
+
     return (
+        
         <div className="tabTypeQuestion">
             <div className="tab">
                 <DragDropContext onDragEnd={onEnd}>
@@ -149,6 +192,7 @@ const Tabs = ({ questions }) => {
                                             maxRows={4}
                                             aria-label="maximum height"
                                             defaultValue={tab.sDescription}
+                                            value={tab.sDescription}
                                             style={{ width: '100%', height: "150px", padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
                                         />
                                     </div>
@@ -186,7 +230,6 @@ const Tabs = ({ questions }) => {
                                                                         control={<Switch checked={option.isAnswer}
                                                                             onChange={handleAnswer}
                                                                             color='primary'
-
                                                                         />}
                                                                     />
                                                                 </TableCell>
@@ -253,21 +296,102 @@ const Tabs = ({ questions }) => {
                                                             Add Option
                                                         </Button>
                                                     </div>
+                                                    
                                                 </Table>
                                             </TableContainer>
                                         </div>
                                     }
                                     <div className="tab-body-btns">
-                                        <button className="btn btn-primary">UPDATE</button>
-                                        <button className="btn btn-primary">DELELTE</button>
+                                        <button className="btn btn-primary" onClick={()=>{handleUpdate()}} >UPDATE</button>
+                                        <button className="btn btn-primary" onClick={()=>{handleDeleteHole(currentTab)}} >DELELTE</button>
                                     </div>
                                 </div>
                             }
                         </div>
             )}
             </div>
+           
         </div>
     );
 };
 
 export default Tabs;
+
+
+
+
+
+
+
+
+
+
+// {
+//   "sStatementID": "STID00000018",
+//   "sDescription": "What are the protective factors in the above scenario?",
+//   "sText": null,
+//   "sImage": null,
+//   "sVideo": null,
+//   "options": [
+//     {
+//       "id": 11,
+//       "text": "He drinks alcohol",
+//       "value": 6,
+//       "isAnswer": true
+//     },
+//     {
+//       "id": 22,
+//       "text": "He’s working more",
+//       "value": 5,
+//       "isAnswer": false,
+//       "isPrompt": "Warning signs are usually verbal, behavioural or emotional signs that indicate a person may be distressed. Risk factors are usually things in a person’s environment, usually out of their control, that make them vulnerable."
+//     },
+//     {
+//       "id": 33,
+//       "text": "He’s a primary caregiver",
+//       "value": 4,
+//       "isAnswer": false,
+//       "isPrompt": "Warning signs are usually verbal, behavioural or emotional signs that indicate a person may be distressed. Risk factors are usually things in a person’s environment, usually out of their control, that make them vulnerable."
+//     },
+//     {
+//       "id": 44,
+//       "text": "He has sources of social support ",
+//       "value": 3,
+//       "isAnswer": true
+//     },
+//     {
+//       "id": 55,
+//       "text": "Access to mental health care",
+//       "value": 2,
+//       "isAnswer": true
+//     },
+//     {
+//       "id": 66,
+//       "text": "All of the above",
+//       "value": 1,
+//       "isAnswer": false,
+//       "isPrompt": "Warning signs are usually verbal, behavioural or emotional signs that indicate a person may be distressed. Risk factors are usually things in a person’s environment, usually out of their control, that make them vulnerable."
+//     }
+//   ],
+//   "sInactive": false,
+//   "media": false,
+//   "order": 18
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

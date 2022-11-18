@@ -217,7 +217,7 @@ export default function CustomPaginationActionsTable( {questions, totalQuestions
                                         style={{ width: 500, height:30, border:"none", 
                                                  borderBottom:"2px solid gray", 
                                                  outline:"none" }}
-                                    />
+                                />
                                 </div>
                             </div>
                             <hr />
