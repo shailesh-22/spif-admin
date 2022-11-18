@@ -1,463 +1,98 @@
-import { Typography, Card, Grid, TextField, Button } from '@material-ui/core'
-import { CardContent } from '@mui/material'
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormLabel from '@mui/material/FormLabel';
-import React, { useState } from 'react'
-import Stack from '@mui/material/Stack';
-import MenuItem from '@mui/material/MenuItem';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import FormControl from '@mui/material/FormControl';
-import { useHistory } from "react-router-dom";
-import swal from "sweetalert";
-// import { ClassNames } from '@emotion/react';
-import '../Registration/register.css'
-import { useForm , Controller } from 'react-hook-form'
-import * as Yup from 'yup'
-import { Formik, Form , Field , ErrorMessage} from 'formik';
-// import { ClassNames } from '@emotion/react';
-import '../Registration/register.css'
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import Row from "react-bootstrap/Row";
 
+const Register2 = () => {
+  const [validated, setValidated] = useState(false);
 
-import { addUser } from './api'
-import Header3 from '../Sidebar/Header3';
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
-// const useStyles = makeStyles((theme) => ({
-//   inputField: {
-//     width: "100%",
-//     margin: theme.spacing(1, 0),
-//   },
-// }));
-
-
-
-
-const initialValues = {
-  firstName: "",
-  lastName: "",
-  email : "",
-  phone: "",
-  gender: "",
-  date_of_birth: "",
-  profession :"",
-  street : "",
-  city:"",
-  state:"",
-  country: "",
-  pincode: ""
-}
-
-
-const Register = () => {
-
-
- const { inputRegister , handleSubmit , control } = useForm()
- const onSubmit = (data) => console.log(data);
-
-
-
-  const [user, setUser] = useState(initialValues);
-
-  const history = useHistory()
-
-  const onValueChange = (e) => {
-
-    setUser({...user, [e.target.name]: e.target.value })
-    console.log(user);
-  }
-
-  const addUserDetails = async () => {
-
-    await addUser(user)     
-      swal({
-        title: "Done!",
-        text: "Profile created successfully!",
-        icon: "success",
-        button: "Ok",
-      });
-    
-      history.push('/terms_conditions')
-      }
-
-
-    // if( addUser.required === false) 
-    // {
-    //   swal({
-    //     title: "Invalid input!",
-    //     text: "Please fill the input details!",
-    //     icon: "warning",
-    //     button: "Ok",
-    //   });
-    // }
-    // else{
-    //   await addUser(user)     
-    //   swal({
-    //     title: "Done!",
-    //     text: "Profile created successfully!",
-    //     icon: "success",
-    //     button: "Ok",
-    //   });
-    //   history.push('/terms_conditions')
-    // }
-      
-
-
-    const validationSchema=Yup.object().shape({
-      firstName:Yup.string('Invalid input'),
-      email:Yup.string().email('please enter valid emai').required('Required')
-    })
-   
-  // const onSubmit=(values,props)=>{
-  //   console.log(values);
-  // }  
-      
-
-
-
-
-
-  // const { inputregister, handleSubmit, control } = useForm();
-  // const onSubmit = (data) => console.log(data);
- 
-  const reset = { margin: "20px 5px", background:"#00AD53", color:"white",}
-  const submit = { background: "#346BFF", color:"white"}
+    setValidated(true);
+  };
 
   return (
     <div>
-      {/* <Header2 /> */}
-      <Header3/>
-      <div>
-        <Typography gutterbutton variant="h4" align="center" style={{background:"#62C2CF" , maxWidth:1500, margin:"0 auto"}}>
-          User Profile Details
-        </Typography>
-        <Card style={{ maxWidth: 1500, margin: "0 auto", padding: "0 12px"}} elevation={10} >
-          <CardContent>
-            <Typography gutterbutton variant="h5">Fill out your Basic details</Typography>
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-
-              <Typography variant="body2" align="left" style={{ padding: "20px 0px" }} gutterbutton >Personal info :</Typography>
-
-              <Grid container spacing={4}>
-
-                {/* Textfield */}
-                <Grid xs={12} sm={4} item>
-                  <TextField
-                    label="First Name"
-                    placeholder='Enter First Name'
-                    variant="standard"
-                    fullWidth
-                    required
-                    name='firstName'
-                    inputRef={inputRegister}
-                    // onChange={(e) => onValueChange(e)}
-                  />
-
-                </Grid>
-
-                {/* Textfield */}
-                <Grid xs={12} sm={4} item>
-                  <TextField
-                    label="Last Name"
-                    placeholder='Enter Last Name'
-                    variant="standard"
-                    fullWidth
-                    required
-                    name='lastName'
-                    inputRef={inputRegister}
-                    // onChange={(e) => onValueChange(e)}
-                  />
-                </Grid>
-
-                {/* Textfield */}
-                <Grid xs={12} sm={4} item>
-                  <TextField
-                    label="Email"
-                    type="Email"
-                    placeholder='Enter Email'
-                    variant="standard"
-                    fullWidth
-                    required
-                    name='email'
-                    inputRef={inputRegister}
-                    // onChange={(e) => onValueChange(e)}
-                  />
-                </Grid>
-
-                {/* Textfield */}
-                <Grid xs={12} sm={4} item>
-                  <TextField
-                    label="Phone Number"
-                    type="number"
-                    placeholder='Enter Phone Number'
-                    variant="standard"
-                    fullWidth
-                    required
-                    name='phone'
-                    inputRef={inputRegister}
-                    // onChange={(e) => onValueChange(e)}
-                  />
-                </Grid>
-
-                {/* Textfield */}
-                <Grid xs={12} sm={4} item>
-                  <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
-                  <RadioGroup
-                    row
-                    aria-labelledby="demo-row-radio-buttons-group-label"
-                    required
-                    name="gender"
-                  >
-                    <FormControlLabel value="female" control={<Radio inputRef={inputRegister}/>} label="Female" />
-                    <FormControlLabel value="male" control={<Radio inputRef={inputRegister}/>} label="Male" />
-                    <FormControlLabel value="other" control={<Radio inputRef={inputRegister}/>} label="Other" />
-                  </RadioGroup>
-                </Grid>
-
-                <Grid xs={12} sm={4} item>
-                  <Stack component="form" noValidate spacing={3}>
-                    <TextField
-                      id="date"
-                      label="Date-of-Birth"
-                      type="date"
-                      defaultValue="2017-05-24"
-                      required
-                      sx={{ width: 220 }}
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                      name="date_of_birth"
-                      inputRef={inputRegister}
-                    />
-                  </Stack>
-                </Grid>
-
-
-                <Grid xs={12} sm={4} item >
-                  <FormControl fullWidth required variant="standard" inputRef={inputRegister} >
-                    <InputLabel id="demo-simple-select-label" >Profession</InputLabel>
-                    <Controller
-                    render={
-                        (props) => (
-                            <Select name="profession" value={props.value} onChange={props.onChange}>
-                            <MenuItem value="" >Choose Your Profession</MenuItem>
-                              <MenuItem value="Employed" >Employed</MenuItem>
-                              <MenuItem value="Business Owners" >Business Owners</MenuItem>
-                              <MenuItem value="Seeking Employement" >Seeking Employement</MenuItem>
-                              <MenuItem value="Student"  >Student</MenuItem>
-                              <MenuItem value="Parent" >Parent</MenuItem>
-                              <MenuItem value="Others" >Others</MenuItem>
-        
-                            </Select>
-                        )
-                    }
-                  name="course"
-                  control={control}
-                  defaultValue=""
-                  /> 
-                  </FormControl>
-                </Grid>
-
-              </Grid>
-
-              <Typography variant="body2" gutterbutton style={{ padding: "30px 0px" }} >Address :</Typography>
-
-              <Grid container spacing={4}>
-
-                <Grid xs={12} sm={4} item>
-                  <TextField label="Street" placeholder='Enter street' variant="standard" inputRef={inputRegister} name="street"  fullWidth required />
-                </Grid>
-                <Grid xs={12} sm={4} item>
-                  <TextField label="City" placeholder='Enter city name' variant="standard" inputRef={inputRegister} name="city"  fullWidth required  />
-                </Grid>
-                <Grid xs={12} sm={4} item>
-                  <TextField label="State" placeholder='Enter State' variant="standard" inputRef={inputRegister} name="state"  fullWidth required />
-                </Grid>
-                <Grid xs={12} sm={4} item>
-                  <TextField label="Country" placeholder='Enter Country Name' variant="standard" inputRef={inputRegister} name="country"  fullWidth required />
-                </Grid>
-                <Grid xs={12} sm={4} item>
-                  <TextField label="Pincode" placeholder='Enter pincode number' variant="standard" inputRef={inputRegister} name="pincode"  fullWidth required />
-                </Grid>
-
-
-
-                <Grid xs={12} align="center" item>
-
-                  <Button style={reset} type='reset' variant="contained" color="primary"  >Reset</Button>
-                  <Button  variant="contained" style={submit} type="submit" >Submit</Button>
-                </Grid>
-
-              </Grid>
-            </form>
-=======
-           <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-            {(props)=>(
-               <Form>
-
-               <Typography variant="body2" align="left" style={{ padding: "20px 0px" }} gutterbutton >Personal info :</Typography>
- 
-               <Grid container spacing={4}>
- 
-                 {/* Textfield */}
-                 <Grid xs={12} sm={4} item>
-                   <Field as={TextField}
-                     label="First Name"
-                     placeholder='Enter First Name'
-                     variant="standard"
-                     fullWidth
-                     required
-                     name='firstName'
-                     helperText={<ErrorMessage name="firstName" />}
-                     onChange={(e) => onValueChange(e)}
-                    
-                   />
- 
-                 </Grid>
- 
-                 {/* Textfield */}
-                 <Grid xs={12} sm={4} item>
-                   <TextField
-                     label="Last Name"
-                     placeholder='Enter Last Name'
-                     variant="standard"
-                     fullWidth
-                     required
-                     name='lastName'
-                     onChange={(e) => onValueChange(e)}
-                   // inputRef={inputregister}
-                   />
-                 </Grid>
- 
-                 {/* Textfield */}
-                 <Grid xs={12} sm={4} item>
-                   <TextField
-                     label="Email"
-                     type="Email"
-                     placeholder='Enter Email'
-                     variant="standard"
-                     fullWidth
-                     required
-                     name='email'
-                     helperText={<ErrorMessage name="email" />}
-                     onChange={(e) => onValueChange(e)}
-                   // inputRef={inputregister}
-                   />
-                 </Grid>
- 
-                 {/* Textfield */}
-                 <Grid xs={12} sm={4} item>
-                   <TextField
-                     label="Phone Number"
-                     type="number"
-                     placeholder='Enter Phone Number'
-                     variant="standard"
-                     fullWidth
-                     required
-                     name='phone'
-                     onChange={(e) => onValueChange(e)}
-                   // inputRef={inputregister}
-                   />
-                 </Grid>
- 
-                 {/* Textfield */}
-                 <Grid xs={12} sm={4} item>
-                   <FormLabel id="demo-row-radio-buttons-group-label">Gender</FormLabel>
-                   <RadioGroup
-                     row
-                     aria-labelledby="demo-row-radio-buttons-group-label"
-                     required
-                     name="gender"
-                   >
-                     <FormControlLabel value="female" control={<Radio onChange={(e) => onValueChange(e)} />} label="Female" />
-                     <FormControlLabel value="male" control={<Radio onChange={(e) => onValueChange(e)} />} label="Male" />
-                     <FormControlLabel value="other" control={<Radio onChange={(e) => onValueChange(e)} />} label="Other" />
-                   </RadioGroup>
-                 </Grid>
- 
-                 <Grid xs={12} sm={4} item>
-                   <Stack component="form" noValidate spacing={3}>
-                     <TextField
-                       id="date"
-                       label="Date-of-Birth"
-                       type="date"
-                       defaultValue="2017-05-24"
-                       required
-                       sx={{ width: 220 }}
-                       InputLabelProps={{
-                         shrink: true,
-                       }}
-                       name="date_of_birth"
-                       onChange={(e) => onValueChange(e)}
-                     />
-                   </Stack>
-                 </Grid>
- 
- 
-                 <Grid xs={12} sm={4} item >
-                   <FormControl fullWidth required variant="standard" >
-                     <InputLabel id="demo-simple-select-label" >Profession</InputLabel>
- 
-                     <Select name="profession" onChange={(e) => onValueChange(e)}   >
-                     <MenuItem value="Choose Your Profession" >Choose Your Profession</MenuItem>
-                       <MenuItem value="Employed" >Employed</MenuItem>
-                       <MenuItem value="Business Owners" >Business Owners</MenuItem>
-                       <MenuItem value="Seeking Employement" >Seeking Employement</MenuItem>
-                       <MenuItem value="Student"  >Student</MenuItem>
-                       <MenuItem value="Parent" >Parent</MenuItem>
-                       <MenuItem value="Others" >Others</MenuItem>
- 
-                     </Select>
-                   
-                   </FormControl>
-                 </Grid>
- 
-               </Grid>
- 
-               <Typography variant="body2" gutterbutton style={{ padding: "30px 0px" }} >Address :</Typography>
- 
-               <Grid container spacing={4}>
- 
-                 <Grid xs={12} sm={4} item>
-                   <TextField label="Street" placeholder='Enter street' variant="standard" name="street" onChange={(e) => onValueChange(e)} fullWidth required />
-                 </Grid>
-                 <Grid xs={12} sm={4} item>
-                   <TextField label="City" placeholder='Enter city name' variant="standard" name="city" onChange={(e) => onValueChange(e)} fullWidth required  />
-                 </Grid>
-                 <Grid xs={12} sm={4} item>
-                   <TextField label="State" placeholder='Enter State' variant="standard" name="state" onChange={(e) => onValueChange(e)} fullWidth required />
-                 </Grid>
-                 <Grid xs={12} sm={4} item>
-                   <TextField label="Country" placeholder='Enter Country Name' variant="standard" name="country" onChange={(e) => onValueChange(e)} fullWidth required />
-                 </Grid>
-                 <Grid xs={12} sm={4} item>
-                   <TextField label="Pincode" placeholder='Enter pincode number' variant="standard" name="pincode" onChange={(e) => onValueChange(e)} fullWidth required />
-                 </Grid>
- 
- 
- 
-                 <Grid xs={12} align="center" item>
- 
-                   <Button style={reset} type='reset' variant="contained" color="primary"  >Reset</Button>
-                   <Button    variant="contained" style={submit} >Submit</Button>
-                   {/* onClick={() => addUserDetails()}  */}
-                 </Grid>
-       
-               </Grid>
-             </Form>
-            )}
-           </Formik>
-
-          </CardContent>
-        </Card>
-        
-      </div>
-    
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="3" controlId="validationCustom01">
+            <Form.Label>First name</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              placeholder="First name"
+              defaultValue="Mark"
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} md="3" controlId="validationCustom02">
+            <Form.Label>Last name</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              placeholder="Last name"
+              defaultValue="Otto"
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} md="3" controlId="validationCustomUsername">
+            <Form.Label>Username</Form.Label>
+            <InputGroup hasValidation>
+              <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+              <Form.Control
+                type="text"
+                placeholder="Username"
+                aria-describedby="inputGroupPrepend"
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                Please choose a username.
+              </Form.Control.Feedback>
+            </InputGroup>
+          </Form.Group>
+        </Row>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="3" controlId="validationCustom03">
+            <Form.Label>City</Form.Label>
+            <Form.Control type="text" placeholder="City" required />
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid city.
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} md="3" controlId="validationCustom04">
+            <Form.Label>State</Form.Label>
+            <Form.Control type="text" placeholder="State" required />
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid state.
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} md="3" controlId="validationCustom05">
+            <Form.Label>Zip</Form.Label>
+            <Form.Control type="text" placeholder="Zip" required />
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid zip.
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Row>
+        <Form.Group className="mb-3">
+          <Form.Check
+            required
+            label="Agree to terms and conditions"
+            feedback="You must agree before submitting."
+            feedbackType="invalid"
+          />
+        </Form.Group>
+        <Button type="submit">Submit form</Button>
+      </Form>
     </div>
-    
-  )
-}
+  );
+};
 
-export default Register
+export default Register2;

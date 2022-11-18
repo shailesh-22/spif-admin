@@ -22,7 +22,7 @@ const TermsConditions = () => {
       <div>
         <Header3/>
       </div>
-      <div className='terms_condition'>
+      <div className='terms_condition' style={{marginTop:"62px"}}>
         <div className='test-rules'>
           <h2>Welcome To Our Online Assesment</h2>
 

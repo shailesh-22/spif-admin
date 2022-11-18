@@ -9,9 +9,13 @@ const Dasboard = () => {
   return (
 
     <div>
-      <Header/>
+      <div className='header'>
+       
+      <Header/> 
+    
       <Menu2/>
-      <div className="content-wrapper">
+      </div>
+      <div className="content-wrapper" >
 
 
         {/* Content Header (Page header) */}
