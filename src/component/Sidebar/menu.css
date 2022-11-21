@@ -7,7 +7,7 @@
     margin: 10px 0;
 } */
 .nav-pills .nav-link{
-    color: black;
+    color: white;
   
 }
 .nav-sidebar .nav-link p{
@@ -26,12 +26,12 @@ a{
 
 div.nav-link:hover{
     background-color:#0e9a51;
-    color:black;
+    color:white;
     }
 
     
 .nav-pills .nav-link:hover{
-    color:black !important;
+    color:white !important;
     cursor: pointer;
     background: #0e9a51;
 }

@@ -44,7 +44,7 @@ const Header = () => {
       <li className="nav-item ">
         <div className="nav-link " data-widget="pushmenu" >
           {/* <i className="fas fa-bars" /> */}
-          <MenuIcon/>
+          <MenuIcon style={{color:"white"}}/>
           </div>
       </li>
       {/* <li className=" nav-item d-flex align-item-center ">
@@ -102,14 +102,14 @@ const Header = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                 <Link to=""> <Typography textAlign="center" width={100} onClick={handleLogout}> <LogoutIcon style={{margin:"0 8px"}}/>{setting}</Typography></Link>
+                 <Link to=""> <Typography textAlign="center" style={{color:"black"}} width={100} onClick={handleLogout}> <LogoutIcon style={{margin:"0 8px", color:"black"}}/>{setting}</Typography></Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
 
           <li class="nav-item">
-        <div class="nav-link" data-widget="fullscreen" role="button">
+        <div class="nav-link" data-widget="fullscreen" role="button" style={{color:"white"}}>
           <AspectRatioIcon/>
         </div>
       </li>

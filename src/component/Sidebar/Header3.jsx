@@ -72,7 +72,7 @@ function Header3() {
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                  <Link to=""> 
-                         <Typography textAlign="center" width={100} onClick={handleLogout} > <LogoutIcon style={{margin:"0 8px"}}/>{setting}</Typography>
+                         <Typography textAlign="center" style={{color:"black"}} width={100} onClick={handleLogout} > <LogoutIcon style={{margin:"0 8px"}}/>{setting}</Typography>
                  </Link>
                 </MenuItem>
               ))}

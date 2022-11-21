@@ -38,9 +38,7 @@ const history = useHistory();
     let handleTabClick = (e) => {
         setCurrentTab(e.target.id);
 
-    let savelocal = localStorage.setItem(e , JSON.stringify(e.target.id)); 
-
-    console.log(savelocal);
+    let savelocal = localStorage.setItem();
        
     };
 
@@ -56,6 +54,7 @@ const history = useHistory();
         const delVal = [...textField];
         delVal.splice(i, 1);
         setTextField(delVal)
+        console.log(delVal);
     }
 
     const handleChange = (onChangeValue, i) => {
@@ -74,6 +73,7 @@ const history = useHistory();
     const [list, setList] = useState(questions);
 
     const reorder = (list, startIndex, endIndex) => {
+
         const result = Array.from(list);
         const [removed] = result.splice(startIndex, 1);
 
@@ -96,32 +96,36 @@ const history = useHistory();
 
     const handleUpdate = () => {     
         
-    fetch(`http://localhost:3004/questions}/${id}`,
+    fetch(`http://localhost:3004/questions/${list}/${list.sStatementID}`,
     {
-      method: "PUT" ,
-      headers: {
+      method: "PUT",
+      headers:{
          "Accept": "application/json",
          "Content-Type":"application/json"
      },
-      body : JSON.stringify()
+      body:JSON.stringify(list)
     })
-    
+
     .then(()=>{ history.push('/dashboard') })
  
    }  
 
-let {id} = useParams();
+    let {id} = useParams();
 
-   let handleDeleteHole = (e)=>{
 
-    let dltqstns = localStorage.getItem(e, e.target.id);
 
-    console.log("dltqstns");
+   let handleDeleteHole = ()=>{
 
-    fetch(`http://localhost:3004/questions}/${dltqstns}` , {method:"DELETE"})
-     .then(()=>{ history.push("/dashboard")});
-     alert("successfully deleted")
-     localStorage.removeItem(dltqstns);
+   
+
+    // fetch(`http://localhost:3004/questions/${currentTab}` , {method:"DELETE"})
+    //  .then(()=>{ history.push("/dashboard")});
+    //  alert("successfully deleted")
+
+
+     
+    console.log();
+
 
    }
 

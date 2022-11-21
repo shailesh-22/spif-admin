@@ -1,19 +1,17 @@
 import {
   CardContent,
   Card,
-  Box,
   Grid,
   TextField,
   Typography,
   FormControlLabel,
-  Checkbox,
   Button,
 } from "@material-ui/core";
-import React, { Fragment } from "react";
+import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormLabel from "@mui/material/FormLabel";
@@ -84,7 +82,7 @@ const Register3 = () => {
       </Typography>
       <Card
         style={{ maxWidth: 1000, margin: "0 auto", padding: "0 auto" }}
-        elevation={10}
+        elevation={16}
       >
         <CardContent>
           <Typography gutterbutton variant="h5">

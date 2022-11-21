@@ -19,7 +19,7 @@ const Register2 = () => {
   };
 
   return (
-    <div>
+    <div class="">
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Form.Group as={Col} md="3" controlId="validationCustom01">
