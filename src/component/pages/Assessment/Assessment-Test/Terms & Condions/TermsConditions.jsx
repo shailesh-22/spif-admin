@@ -27,7 +27,7 @@ const TermsConditions = () => {
           <h2>Welcome To Our Online Assesment</h2>
 
           <h4>This Test will contains 10 questions.</h4>
-        <Paper elevation={5}>
+        <Paper elevation={16}>
           <div className='test-rule-list'>
             
 
