@@ -55,9 +55,16 @@ const AssessmentTest = () => {
 
   return (
     <div>
+<<<<<<< HEAD
       <Header3 />
       {/* <div className="assessment-test"> */}
       {/* <h1>Online Assesment Test</h1>
+=======
+      <Header3/>
+    <div className="assessment-test" style={{marginTop:"64px"}}>
+        <div className='header w-100'>
+            <h1>Online Assesment Test</h1>
+>>>>>>> c8dfec92070a89cb785de4429a6864e910396878
             <div className='pageNo-Timer'>
                 <h4> Question {indeOfFirstQues+1} of {questions.length}</h4>
                 <Timer/>
@@ -83,6 +90,12 @@ const AssessmentTest = () => {
 }
 
 export default AssessmentTest;
+
+
+
+
+
+
 
 
 

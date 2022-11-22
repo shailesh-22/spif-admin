@@ -36,13 +36,13 @@ function Header3() {
   };
 
   return (
-    <AppBar position="static" >
+    <AppBar position="fixed" >
       <Container maxWidth="x2" style={{background: "linear-gradient(to right, #00AD53 , #007A3E)"}}>
         <Toolbar disableGutters style={{display:"flex" , justifyContent:"space-between", alignContent:"center", }} >
 
           
 
-          <Link to="/dashboard" style={{ backgroundColor:""}}> 
+          <Link to="/dashboard" style={{ backgroundColor:"white"}}> 
             <img src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png" alt="logo" width={105}  />
             </Link>
          
@@ -72,7 +72,7 @@ function Header3() {
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                  <Link to=""> 
-                         <Typography textAlign="center" width={100} onClick={handleLogout} > <LogoutIcon style={{margin:"0 8px"}}/>{setting}</Typography>
+                         <Typography textAlign="center" style={{color:"black"}} width={100} onClick={handleLogout} > <LogoutIcon style={{margin:"0 8px"}}/>{setting}</Typography>
                  </Link>
                 </MenuItem>
               ))}

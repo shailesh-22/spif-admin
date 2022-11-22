@@ -18,7 +18,6 @@ import { useHistory, useParams } from "react-router-dom";
 
 const Tabs = ({ questions }) => {
 
-
 const history = useHistory();
 
     let [currentTab, setCurrentTab] = useState("1");
@@ -28,7 +27,7 @@ const history = useHistory();
     let handleAnswer = (event) => {
 
         // if ( questions.options.isAnswer ) {
-        //     setChecked( true )
+        //     setChecked(true)
         // } else {
         //     setChecked( false )
         // }
@@ -38,7 +37,9 @@ const history = useHistory();
 
     let handleTabClick = (e) => {
         setCurrentTab(e.target.id);
-        localStorage.setItem(e , e.target.id); 
+
+    let savelocal = localStorage.setItem();
+       
     };
 
     let [textField, setTextField] = useState([]);
@@ -53,6 +54,7 @@ const history = useHistory();
         const delVal = [...textField];
         delVal.splice(i, 1);
         setTextField(delVal)
+        console.log(delVal);
     }
 
     const handleChange = (onChangeValue, i) => {
@@ -71,6 +73,7 @@ const history = useHistory();
     const [list, setList] = useState(questions);
 
     const reorder = (list, startIndex, endIndex) => {
+
         const result = Array.from(list);
         const [removed] = result.splice(startIndex, 1);
 
@@ -93,32 +96,36 @@ const history = useHistory();
 
     const handleUpdate = () => {     
         
-
-    fetch(`http://localhost:3004/questions}/${id}`,
+    fetch(`http://localhost:3004/questions/${list}/${list.sStatementID}`,
     {
-      method: "PUT" ,
-      headers: {
+      method: "PUT",
+      headers:{
          "Accept": "application/json",
          "Content-Type":"application/json"
      },
-      body : JSON.stringify()
+      body:JSON.stringify(list)
     })
 
     .then(()=>{ history.push('/dashboard') })
  
    }  
 
-let {id} = useParams();
+    let {id} = useParams();
 
-   let handleDeleteHole = (e)=>{
 
-    let id = localStorage.getItem(e , e.target.id);
 
-    fetch(`http://localhost:3004/questions}/${id}` , {method:"DELETE"})
-     .then(()=>{ history.push("/dashboard")});
-     alert("successfully deleted")
-     localStorage.removeItem(e);
-     console.log("deleted");
+   let handleDeleteHole = ()=>{
+
+   
+
+    // fetch(`http://localhost:3004/questions/${currentTab}` , {method:"DELETE"})
+    //  .then(()=>{ history.push("/dashboard")});
+    //  alert("successfully deleted")
+
+
+     
+    console.log();
+
 
    }
 
@@ -166,6 +173,7 @@ let {id} = useParams();
                         }}
                     </Droppable>
                 </DragDropContext>
+
                 {/* {
                     questions.map((tab, i) =>
                         <button
@@ -295,15 +303,14 @@ let {id} = useParams();
                                                         >
                                                             Add Option
                                                         </Button>
-                                                    </div>
-                                                    
+                                                    </div>  
                                                 </Table>
                                             </TableContainer>
                                         </div>
                                     }
                                     <div className="tab-body-btns">
                                         <button className="btn btn-primary" onClick={()=>{handleUpdate()}} >UPDATE</button>
-                                        <button className="btn btn-primary" onClick={()=>{handleDeleteHole(currentTab)}} >DELELTE</button>
+                                        <button className="btn btn-primary" onClick={()=>{handleDeleteHole()}} >DELELTE</button>
                                     </div>
                                 </div>
                             }

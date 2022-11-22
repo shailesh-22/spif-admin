@@ -75,8 +75,9 @@ const Menu2 = () => {
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls="panel1a-content"
                       id="panel1a-header"
+                     
                     >
-                      <SwitchAccountIcon />
+                      <SwitchAccountIcon/>
                       <p>
                         <Typography style={marginIcon}>
                           Manage Accounts
