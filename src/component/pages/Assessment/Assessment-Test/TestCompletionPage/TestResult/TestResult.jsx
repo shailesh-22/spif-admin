@@ -21,7 +21,7 @@ const TestResult = () => {
           <hr />
           <div className='card-feedback'>
             <h4>Feedback</h4>
-            <p>You've eperienced how clean and professional your tests will look with SPIF </p>
+            <p>You've experienced how clean and professional your tests will look with SPIF </p>
           </div>
           <hr />
 

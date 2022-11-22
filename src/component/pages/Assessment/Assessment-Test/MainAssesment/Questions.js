@@ -56,8 +56,7 @@ const Questions = ({ questions, loading, currentPage }) => {
                       }
                       else{
                         setAnchor(null)
-                      }
-                        
+                      }      
                     }
 
                     const handleClose = () => {
