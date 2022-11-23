@@ -18,7 +18,7 @@ const AssessmentTest = () => {
   // const[questions,setQuestions] = useState(null);
   // const[loading,setLoading] = useState(false);
 
-  let { data: questions, loading } = useFetch("http://localhost:3004/questions")
+  let{data:questions, loading}  = useFetch("http://localhost:3004/questions")
 
   const [currentPage, setCurrentPage] = useState(1);
   const [questionPerPage] = useState(1);
@@ -35,11 +35,11 @@ const AssessmentTest = () => {
   //     setQuestions(res.data);
   //     setLoading(false);
   //   }
-
+    
   //   fetchQuestions();
   // },[]);
 
-  if (!questions) return <CircularProgress size="5rem" style={{ display: "flex", margin: "auto" }} />
+  if(!questions) return <CircularProgress size="5rem" style={{ display:"flex", margin:"auto" }}/>
 
   //Get Current Question
 

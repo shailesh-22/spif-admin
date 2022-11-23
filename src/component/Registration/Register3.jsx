@@ -76,7 +76,7 @@ const Register3 = () => {
         gutterbutton
         variant="h4"
         align="center"
-        style={{ background: "#62C2CF", maxWidth:"100%", margin: "0 auto" }}
+        style={{ background: "#62C2CF", maxWidth:"1000px", margin: "0 auto" }}
       >
         User Profile Details
       </Typography>
