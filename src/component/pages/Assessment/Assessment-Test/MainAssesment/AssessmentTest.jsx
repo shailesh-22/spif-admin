@@ -22,8 +22,8 @@ const AssessmentTest = () => {
 
   let { data: questions, loading } = useFetch("http://localhost:3004/questions")
 
-  // const[currentPage,setCurrentPage] = useState(1);
-  // const[questionPerPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [questionPerPage] = useState(1);
 
   // useEffect(()=>{
   //   const fetchQuestions = async () =>{
@@ -45,9 +45,9 @@ const AssessmentTest = () => {
 
   //Get Current Question
 
-  // const indeOfLastQues = currentPage * questionPerPage ;
-  // const indeOfFirstQues = indeOfLastQues - questionPerPage ;
-  // const currentQueston = questions.slice(indeOfFirstQues,indeOfLastQues);
+  const indeOfLastQues = currentPage * questionPerPage;
+  const indeOfFirstQues = indeOfLastQues - questionPerPage;
+  const currentQueston = questions.slice(indeOfFirstQues, indeOfLastQues);
 
   //--------------------------------------------------------------------------------------
 
@@ -55,36 +55,36 @@ const AssessmentTest = () => {
 
   return (
     <div>
-<<<<<<< HEAD
       <Header3 />
-      {/* <div className="assessment-test"> */}
-      {/* <h1>Online Assesment Test</h1>
-=======
-      <Header3/>
-    <div className="assessment-test" style={{marginTop:"64px"}}>
-        <div className='header w-100'>
-            <h1>Online Assesment Test</h1>
->>>>>>> c8dfec92070a89cb785de4429a6864e910396878
-            <div className='pageNo-Timer'>
-                <h4> Question {indeOfFirstQues+1} of {questions.length}</h4>
-                <Timer/>
-            </div> */}
-      {/* <div className="row questionWithOption" > */}
-      {/* <Questions questions={currentQueston} loading={loading} currentPage = {currentPage} />
+      <div className="assessment-test" style={{ marginTop: "64px" }}>
+        {/* <div className='header w-100'>
+          <h1>Online Assesment Test</h1>
+          <div className='pageNo-Timer'>
+            <h3> Question {indeOfFirstQues + 1} of {questions.length}</h3>
+            <Timer />
+          </div>
+        </div> */}
+        <div className="question-block" >
+          <Questions 
+            questions={currentQueston} 
+            loading={loading} 
+            currentPage={currentPage}
+            indeOfFirstQues={ indeOfFirstQues } 
+          />
 
-          <Pagination 
-              questionPerPage={questionPerPage} 
-              totalQuestions={questions.length} 
-              setCurrentPage={setCurrentPage}
-              currentPage = {currentPage}
-          /> */}
+          <Pagination
+            questionPerPage={questionPerPage}
+            totalQuestions={questions.length}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
 
-      {/* </div> */}
+        </div>
 
-      {/* </div> */}
-      <div className="question-block">
-        <Questions2 questions={questions} />
       </div>
+      {/* <div className="question-block">
+              <Questions2 questions={questions} />
+            </div> */}
     </div>
   )
 }
