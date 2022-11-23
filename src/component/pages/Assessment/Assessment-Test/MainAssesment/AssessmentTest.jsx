@@ -3,14 +3,12 @@ import React from "react";
 import { useState } from "react";
 // import { useEffect } from "react";
 import './assessTest.css'
-import Questions from "./Questions";
 import Pagination from "../PaginationFile/Pagination";
-import Timer from "./Timer";
 import useFetch from "../../Custom Hook/useFetch";
 // import ReactPaginate from 'react-paginate'
 import CircularProgress from '@mui/material/CircularProgress';
 import Header3 from "../../../../Sidebar/Header3";
-import Questions2 from "./Questions2";
+import Question1 from "./Question1";
 
 
 const AssessmentTest = () => {
@@ -65,7 +63,7 @@ const AssessmentTest = () => {
           </div>
         </div> */}
         <div className="question-block" >
-          <Questions 
+          <Question1
             questions={currentQueston} 
             loading={loading} 
             currentPage={currentPage}
