@@ -10,7 +10,6 @@ import useFetch from "../../Custom Hook/useFetch";
 // import ReactPaginate from 'react-paginate'
 import CircularProgress from '@mui/material/CircularProgress';
 import Header3 from "../../../../Sidebar/Header3";
-import Questions2 from "./Questions2";
 
 
 const AssessmentTest = () => {
@@ -20,10 +19,10 @@ const AssessmentTest = () => {
   // const[questions,setQuestions] = useState(null);
   // const[loading,setLoading] = useState(false);
 
-  let { data: questions, loading } = useFetch("http://localhost:3004/questions")
+  let{data:questions, loading}  = useFetch("http://localhost:3004/questions")
 
-  // const[currentPage,setCurrentPage] = useState(1);
-  // const[questionPerPage] = useState(1);
+  const[currentPage,setCurrentPage] = useState(1);
+  const[questionPerPage] = useState(1);
 
   // useEffect(()=>{
   //   const fetchQuestions = async () =>{
@@ -37,54 +36,44 @@ const AssessmentTest = () => {
   //     setQuestions(res.data);
   //     setLoading(false);
   //   }
-
+    
   //   fetchQuestions();
   // },[]);
 
-  if (!questions) return <CircularProgress size="5rem" style={{ display: "flex", margin: "auto" }} />
+  if(!questions) return <CircularProgress size="5rem" style={{ display:"flex", margin:"auto" }}/>
 
   //Get Current Question
 
-  // const indeOfLastQues = currentPage * questionPerPage ;
-  // const indeOfFirstQues = indeOfLastQues - questionPerPage ;
-  // const currentQueston = questions.slice(indeOfFirstQues,indeOfLastQues);
+  const indeOfLastQues = currentPage * questionPerPage ;
+  const indeOfFirstQues = indeOfLastQues - questionPerPage ;
+  const currentQueston = questions.slice(indeOfFirstQues,indeOfLastQues);
 
-  //--------------------------------------------------------------------------------------
-
-
+  //Change Page
+  
 
   return (
     <div>
-<<<<<<< HEAD
-      <Header3 />
-      {/* <div className="assessment-test"> */}
-      {/* <h1>Online Assesment Test</h1>
-=======
       <Header3/>
     <div className="assessment-test" style={{marginTop:"64px"}}>
         <div className='header w-100'>
-            <h1>Online Assesment Test</h1>
->>>>>>> c8dfec92070a89cb785de4429a6864e910396878
-            <div className='pageNo-Timer'>
-                <h4> Question {indeOfFirstQues+1} of {questions.length}</h4>
+            <h1>Online Assesment Test</h1>      
+        </div>
+        <div className="row questionWithOption">
+        <div className='pageNo-Timer'  >
+                <h3> Question {indeOfFirstQues+1} of {questions.length}</h3>
                 <Timer/>
-            </div> */}
-      {/* <div className="row questionWithOption" > */}
-      {/* <Questions questions={currentQueston} loading={loading} currentPage = {currentPage} />
+        </div>
+          <Questions questions={currentQueston} loading={loading} currentPage = {currentPage} />
 
           <Pagination 
               questionPerPage={questionPerPage} 
               totalQuestions={questions.length} 
               setCurrentPage={setCurrentPage}
               currentPage = {currentPage}
-          /> */}
+          />
 
-      {/* </div> */}
-
-      {/* </div> */}
-      <div className="question-block">
-        <Questions2 questions={questions} />
-      </div>
+        </div>
+    </div>
     </div>
   )
 }

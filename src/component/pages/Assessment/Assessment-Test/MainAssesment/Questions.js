@@ -31,7 +31,7 @@ const Questions = ({ questions, loading, currentPage }) => {
 
   return (
     // <div className='row px-3 '>
-    <form className='px-3 question-form ' >
+    <form className='px-3 question-form' >
       {
         questions.map((question, i) => {
           return (
