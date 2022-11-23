@@ -146,3 +146,11 @@
     margin: 5px 10px;
     
 }
+.quesInfo{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-transform: uppercase;
+    margin: 10px;
+    color: #448ACA;
+}

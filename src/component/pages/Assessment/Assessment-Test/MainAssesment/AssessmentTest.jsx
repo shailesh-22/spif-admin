@@ -57,15 +57,20 @@ const AssessmentTest = () => {
     <div>
       <Header3 />
       <div className="assessment-test" style={{ marginTop: "64px" }}>
-        <div className='header w-100'>
+        {/* <div className='header w-100'>
           <h1>Online Assesment Test</h1>
           <div className='pageNo-Timer'>
             <h3> Question {indeOfFirstQues + 1} of {questions.length}</h3>
             <Timer />
           </div>
-        </div>
-        <div className="row questionWithOption" >
-          <Questions questions={currentQueston} loading={loading} currentPage={currentPage} />
+        </div> */}
+        <div className="question-block" >
+          <Questions 
+            questions={currentQueston} 
+            loading={loading} 
+            currentPage={currentPage}
+            indeOfFirstQues={ indeOfFirstQues } 
+          />
 
           <Pagination
             questionPerPage={questionPerPage}
