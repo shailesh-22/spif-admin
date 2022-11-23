@@ -115,7 +115,7 @@
     width: 200px;
     font-size: x-large;
     right: 30px;
-    bottom: 40px;
+    bottom: 30px;
     /* display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
@@ -140,4 +140,12 @@
     justify-content: flex-end;
     margin: 5px 10px;
     
+}
+.quesInfo{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-transform: uppercase;
+    margin: 10px;
+    color: #448ACA;
 }
