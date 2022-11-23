@@ -122,9 +122,6 @@ const history = useHistory();
  
    }  
 
-   
-
-
 
    let handleDeleteHole = async (sStatementID)=>{
 
