@@ -1,0 +1,16 @@
+.question-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.question-header .title{
+    text-transform: uppercase;
+    font-size: 5vh;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #448ACA;
+}
+ .divider{
+    margin: 0 30px;
+    width: 100%;
+    background-color: #D6E9D7 ;
+}

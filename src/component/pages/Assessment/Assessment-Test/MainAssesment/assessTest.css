@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&family=Inter+Tight:wght@200&family=Noto+Serif&family=Playfair+Display&family=Roboto&family=Rubik+Dirt&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -12,20 +13,62 @@
     
 }
 .assessment-test .header{
-    background-color: #448ACA;
+    background-color: #346BFF;
     color: aliceblue;
     padding: 10px 0;
     height: 100px;
     position: relative;
     
 }
-.assessment-test .header h1{
+.assessment-test h1{
+    background-color: #346BFF;
+    color: aliceblue;
+    padding: 10px 0;
     text-align: center;
     font-weight: bolder;
+    width: 75%;
+    margin: auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
-.assessment-test .header .pageNo-Timer{
+@media only screen and (max-width: 650px) {
+    .assessment-test h1{
+        width: 100%;
+        border-radius: 0%;
+    }
+    .assessment-test .pageNo-Timer{
+        display: flex;
+        justify-content: space-between;
+        color: #346BFF;
+        margin: 5px 0;   
+    }
+}
+@media only screen and (max-width: 600px) {
+    .questionWithOption{
+        height: auto;
+        box-shadow: none;
+    }
+    .assessment-test .pageNo-Timer{
+        display: flex;
+        justify-content: space-between;
+        color: #346BFF;
+        margin: 5px 0;
+        
+    }
+}
+@media only screen and (max-width: 600px) {
+    .assessment-test .pageNo-Timer{
+        justify-content: space-between;
+        color: #346BFF;        
+    }
+}
+
+.assessment-test .pageNo-Timer{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    color: #346BFF;
+    margin: 5px 0;
+    
 }
 /* .question-form{
     position: relative;
@@ -52,13 +95,13 @@
 }
 .questionWithOption{
     display: grid;
-    width: auto;
+    width: 100%;
     padding: 20px;
-    margin-top: 30px;
+    margin: 10px;
     -webkit-box-shadow: 3px 3px 5px 4px rgba(153,137,153,1);
     -moz-box-shadow: 3px 3px 5px 4px rgba(153,137,153,1);
     box-shadow: 3px 3px 5px 4px rgba(153,137,153,1);
-    height: 700px;
+    min-height: 90.5vh;
     position: relative;
     font-family: 'Inter Tight', sans-serif;
     font-weight: 100;
@@ -102,4 +145,12 @@
     justify-content: flex-end;
     margin: 5px 10px;
     
+}
+.quesInfo{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-transform: uppercase;
+    margin: 10px;
+    color: #448ACA;
 }

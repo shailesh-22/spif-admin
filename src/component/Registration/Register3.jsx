@@ -1,19 +1,17 @@
 import {
   CardContent,
   Card,
-  Box,
   Grid,
   TextField,
   Typography,
   FormControlLabel,
-  Checkbox,
   Button,
 } from "@material-ui/core";
-import React, { Fragment } from "react";
+import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormLabel from "@mui/material/FormLabel";
@@ -65,26 +63,26 @@ const Register3 = () => {
       });
       history.push("/terms_conditions");  
   };
-  const reset = { margin: "20px 5px", background: "#00AD53", color: "white" };
-  const submit = { background: "#346BFF", color: "white" };
+  const reset = { margin: "20px 5px", background: "#00AD53", color: "white",};
+  const submit = { background: "#346BFF", color: "white", margin: "20px 5px" };
 
   return (
     <div>
         <div>
             <Header3/>
         </div>
-    <div>
+    <div style={{marginTop:"64px"}}>
       <Typography
         gutterbutton
         variant="h4"
         align="center"
-        style={{ background: "#62C2CF", maxWidth: 1000, margin: "0 auto" }}
+        style={{ background: "#62C2CF", maxWidth:"100%", margin: "0 auto" }}
       >
         User Profile Details
       </Typography>
       <Card
         style={{ maxWidth: 1000, margin: "0 auto", padding: "0 auto" }}
-        elevation={10}
+        elevation={16}
       >
         <CardContent>
           <Typography gutterbutton variant="h5">
@@ -390,7 +388,7 @@ const Register3 = () => {
                 </Typography>
               </Grid> */}
 
-              <Grid xs={12} align="center" item>
+              <Grid xs={12} align="center" style={{display:"flex" , justifyContent  :"center"}} >
                 <Button
                   style={reset}
                   type="reset"
