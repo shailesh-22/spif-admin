@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom'
 import { Popper, Typography } from '@material-ui/core'
 import QuestionHeader from './QuestionHeader';
 import Timer from './Timer';
+import './Question1.css'
 
 
-const Questions = ({ questions, loading, currentPage, indeOfFirstQues }) => {
+const Question1 = ({ questions, loading, currentPage, indeOfFirstQues }) => {
 
   const [answers, setAnswers] = useState("");
 
@@ -185,4 +186,4 @@ const Questions = ({ questions, loading, currentPage, indeOfFirstQues }) => {
   )
 }
 
-export default Questions
+export default Question1
