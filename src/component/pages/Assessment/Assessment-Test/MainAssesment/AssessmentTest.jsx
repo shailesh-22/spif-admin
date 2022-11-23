@@ -67,7 +67,8 @@ const AssessmentTest = () => {
             questions={currentQueston} 
             loading={loading} 
             currentPage={currentPage}
-            indeOfFirstQues={ indeOfFirstQues } 
+            indeOfFirstQues={ indeOfFirstQues }
+            totalQuestions={questions.length}
           />
 
           <Pagination
