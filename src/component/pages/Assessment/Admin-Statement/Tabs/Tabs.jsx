@@ -14,9 +14,22 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Switch, FormControlLabel } from "@material-ui/core";
 import { useHistory, useParams } from "react-router-dom";
+import axios from "axios";
 
 
 const Tabs = ({ questions }) => {
+
+    let {sStatementID} = useParams();
+
+    const api_url = "http://localhost:3004/questions"
+
+    const deleteQuestion = async (sStatementID) => {
+        try {
+             return await axios.delete(`${api_url}/${sStatementID}`)
+        } catch (error) {
+            console.log('error while calling delete user api', error.message);
+        }
+    }
 
 const history = useHistory();
 
@@ -73,7 +86,6 @@ const history = useHistory();
     const [list, setList] = useState(questions);
 
     const reorder = (list, startIndex, endIndex) => {
-
         const result = Array.from(list);
         const [removed] = result.splice(startIndex, 1);
 
@@ -105,26 +117,23 @@ const history = useHistory();
      },
       body:JSON.stringify(list)
     })
-
+    
     .then(()=>{ history.push('/dashboard') })
  
    }  
 
-    let {id} = useParams();
-
-
-
-   let handleDeleteHole = ()=>{
-
    
+
+
+
+   let handleDeleteHole = async (sStatementID)=>{
 
     // fetch(`http://localhost:3004/questions/${currentTab}` , {method:"DELETE"})
     //  .then(()=>{ history.push("/dashboard")});
     //  alert("successfully deleted")
-
-
-     
-    console.log();
+    
+     await deleteQuestion(sStatementID);
+    console.log(sStatementID);
 
 
    }
@@ -310,7 +319,7 @@ const history = useHistory();
                                     }
                                     <div className="tab-body-btns">
                                         <button className="btn btn-primary" onClick={()=>{handleUpdate()}} >UPDATE</button>
-                                        <button className="btn btn-primary" onClick={()=>{handleDeleteHole()}} >DELELTE</button>
+                                        <button className="btn btn-primary" onClick={()=>{handleDeleteHole(questions.sStatementID)}} >DELELTE</button>
                                     </div>
                                 </div>
                             }

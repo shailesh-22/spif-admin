@@ -76,18 +76,13 @@ const Register3 = () => {
         gutterbutton
         variant="h4"
         align="center"
-        style={{ background: "#62C2CF", maxWidth:"100%", margin: "0 auto" }}
+        style={{ background: "#62C2CF", maxWidth:"1000px", margin: "0 auto" }}
       >
         User Profile Details
       </Typography>
       <Card
-<<<<<<< HEAD
-        style={{ maxWidth: 1000, margin: "5px auto", padding: "0 auto" }}
-        elevation={10}
-=======
         style={{ maxWidth: 1000, margin: "0 auto", padding: "0 auto" }}
         elevation={16}
->>>>>>> c8dfec92070a89cb785de4429a6864e910396878
       >
         <CardContent>
           <Typography gutterbutton variant="h5">
