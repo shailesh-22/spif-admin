@@ -19,13 +19,13 @@ import axios from "axios";
 
 const Tabs = ({ questions }) => {
 
-    let {sStatementID} = useParams();
+    let {id} = useParams();
 
     const api_url = "http://localhost:3004/questions"
 
-    const deleteQuestion = async (sStatementID) => {
+    const deleteQuestion = async (id) => {
         try {
-             return await axios.delete(`${api_url}/${sStatementID}`)
+             return await axios.delete(`${api_url}/${id}`)
         } catch (error) {
             console.log('error while calling delete user api', error.message);
         }
@@ -123,14 +123,14 @@ const history = useHistory();
    }  
 
 
-   let handleDeleteHole = async (sStatementID)=>{
+   let handleDeleteHole = async (id)=>{
 
     // fetch(`http://localhost:3004/questions/${currentTab}` , {method:"DELETE"})
     //  .then(()=>{ history.push("/dashboard")});
     //  alert("successfully deleted")
     
-     await deleteQuestion(sStatementID);
-    console.log(sStatementID);
+     await deleteQuestion(id);
+    console.log(id);
 
 
    }
@@ -316,7 +316,7 @@ const history = useHistory();
                                     }
                                     <div className="tab-body-btns">
                                         <button className="btn btn-primary" onClick={()=>{handleUpdate()}} >UPDATE</button>
-                                        <button className="btn btn-primary" onClick={()=>{handleDeleteHole(questions.sStatementID)}} >DELELTE</button>
+                                        <button className="btn btn-primary" onClick={()=>{handleDeleteHole(questions.sStatementID.id)}} >DELELTE</button>
                                     </div>
                                 </div>
                             }
@@ -329,12 +329,6 @@ const history = useHistory();
 };
 
 export default Tabs;
-
-
-
-
-
-
 
 
 
