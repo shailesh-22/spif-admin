@@ -7,7 +7,7 @@ import Timer from './Timer';
 import './Question1.css'
 
 
-const Question1 = ({ questions, loading, currentPage, indeOfFirstQues }) => {
+const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQuestions }) => {
 
   const [answers, setAnswers] = useState("");
 
@@ -43,7 +43,7 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues }) => {
       <div>
 
         <div className='quesInfo'>
-          <h4>  Slide {indeOfFirstQues + 1} of {questions.length}  </h4>
+          <h4>  Slide {indeOfFirstQues + 1} of {totalQuestions}  </h4>
           <Timer />
         </div>
 
@@ -121,7 +121,7 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues }) => {
                         return (
                           <div className="question-options" key={option.id}>
 
-                            <label className='p-3 question-label' htmlFor={option.id} >
+                            <label className='p-1 question-label' htmlFor={option.id} >
                               <input type="radio"
                                 className={ `singleOption  ${ selected && handleSelect(option) }` }
                                 id={option.id} checked={option.selected}
