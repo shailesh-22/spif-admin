@@ -97,7 +97,7 @@ const Register3 = () => {
             >
               Personal info :
             </Typography>
-            <Grid container spacing={4}>
+            <Grid container spacing={3}>
               <Grid item xs={12} sm={4}>
                 <TextField
                   required
