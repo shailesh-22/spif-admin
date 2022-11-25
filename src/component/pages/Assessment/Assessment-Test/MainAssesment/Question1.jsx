@@ -120,7 +120,7 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
 
                         return (
                           <div className="question-options" key={option.id}>
-
+                          
                             <label className='p-1 question-label' htmlFor={option.id} >
                               <input type="radio"
                                 className={ `singleOption  ${ selected && handleSelect(option) }` }
@@ -157,11 +157,11 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
                               </div>
                               <hr />
                               <Typography variant='h6' className='option-popper' > {option.isPrompt} </Typography>
-                              <div className='popper-btn'>
+                                <div className='popper-btn'>
 
-                                <button onClick={handleClose} className="btn btn-primary" >OK</button>
+                                  <button onClick={handleClose} className="btn btn-primary" >OK</button>
 
-                              </div>
+                                </div>
                             </Popper>
                           </div>
                         )
