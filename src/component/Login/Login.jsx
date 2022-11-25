@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
+import swal from "sweetalert";
 
 
 const Login = () => {
@@ -19,7 +20,12 @@ const Login = () => {
             
             const { data: res } = await axios.post(url, data);
             localStorage.setItem("token", JSON.stringify(res.data));
-            alert("Login success")
+            swal({
+                title: "Done!",
+                text: "Login Successfull !",
+                icon: "success",
+                button: "Ok",
+              });
             window.location = "/dashboard";   
 
         } catch (error) {
@@ -29,7 +35,12 @@ const Login = () => {
                 error.response.status <= 500
             ) {
                 setError(error.response.data.message);
-                alert("Incorrect username or password")
+                swal({
+                    title: "Invalid !",
+                    text: "Username or password !",
+                    icon: "error",
+                    button: "Ok",
+                  });
             }
         }
     };

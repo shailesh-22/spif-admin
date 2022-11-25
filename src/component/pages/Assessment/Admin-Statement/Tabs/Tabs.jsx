@@ -14,21 +14,21 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Switch, FormControlLabel } from "@material-ui/core";
 import { useHistory, useParams } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import swal from "sweetalert";
 
 const Tabs = ({ questions }) => {
-  let { id } = useParams();
 
-  const api_url = `http://localhost:3004/questions/`;
 
-  const deleteQuestion = async (id) => {
-    try {
-      return await axios.delete(`${api_url}/${id}`);
-    } catch (error) {
-      console.log("error while calling delete user api", error.message);
-    }
-  };
+  // const api_url = `http://localhost:3004/questions/`;
+
+  // const deleteQuestion = async (id) => {
+  //   try {
+  //     return await axios.delete(`${api_url}/${id}`);
+  //   } catch (error) {
+  //     console.log("error while calling delete user api", error.message);
+  //   }
+  // };
 
   const history = useHistory();
 
@@ -61,7 +61,7 @@ const Tabs = ({ questions }) => {
     setTextField(addOption);
   };
 
-  const handleDelete = (i) => {
+  const handleDelete = (index,i) => {
     const delVal = [...textField];
     delVal.splice(i, 1);
     setTextField(delVal);
@@ -103,21 +103,25 @@ const Tabs = ({ questions }) => {
 
   const handleUpdate = () => {
 
-    const getitem = localStorage.getItem("items");
-    
-    fetch(`http://localhost:3004/questions/${getitem}`, {
-      method: "PUT",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(list),
-    }).then(() => {
-      history.push("/dashboard");
-    });
-    localStorage.removeItem("items");
-  };
+    // const updateValue = [...textField]
 
+    // const getitem = localStorage.getItem("items");
+
+  //   fetch(`http://localhost:3004/questions/${getitem}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(),
+  //   }).then(() => {
+  //     history.push("/dashboard");
+  //   });
+  //   localStorage.removeItem("items");
+  
+       console.log();
+  };
+     
 
   let handleDeleteHole = async () => {
 
@@ -131,6 +135,7 @@ const Tabs = ({ questions }) => {
       },
     }).then(() => {
       history.push("/dashboard");
+      
     });
     swal({
       title: "Done!",
@@ -261,6 +266,7 @@ const Tabs = ({ questions }) => {
                           {tab.options.map((option, i) => (
                             <TableRow
                               key={i}
+
                               sx={{
                                 "&:last-child td, &:last-child th": {
                                   border: 0,

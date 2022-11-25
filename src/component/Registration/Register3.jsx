@@ -210,7 +210,7 @@ const Register3 = () => {
                 <Controller
                       control={control}
                        name="date_of_birth"
-                      defaultValue="false"
+                     
                       inputRef={register()}
                       render={({ field: { onChange } }) => (
                         <TextField

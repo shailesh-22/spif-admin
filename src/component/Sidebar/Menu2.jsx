@@ -19,7 +19,7 @@ import "../Sidebar/menu.css";
 
 const Menu2 = () => {
   const marginIcon = { margin: "0 2px" };
-  const background = { background: "#00AD53"};
+  // const background = { background: "#346BFF"};
   const subMarginIcon = { margin: "0 5px" };
 
   return (
@@ -53,9 +53,9 @@ const Menu2 = () => {
         </Link>     
 
 
-              <Accordion style={background}>
+              <Accordion >
                 <Link to="/dashboard">
-                  <li className="nav-item">
+                  <li className="nav-item mt-3">
                     <div className="nav-link">
                       <DashboardIcon />
                       <p>
@@ -67,7 +67,7 @@ const Menu2 = () => {
               </Accordion>
 
               <li className="nav-item">
-                <Accordion style={background}>
+                <Accordion >
                   {/* Dropdown heading */}
 
                   <div className="nav-link py-0 px-0 m-1" id="settings">
@@ -117,7 +117,7 @@ const Menu2 = () => {
                 </Accordion>
               </li>
 
-              <Accordion style={background}>
+              <Accordion >
                 <Link to="/register3">
                   <li className="nav-item">
                     <div className="nav-link m-1">
@@ -131,7 +131,7 @@ const Menu2 = () => {
               </Accordion>
 
               <li className="nav-item">
-                <Accordion style={background}>
+                <Accordion >
                   {/* Dropdown heading */}
                   <div className="nav-link py-0 px-0 m-1" id="settings">
                     <AccordionSummary
@@ -159,7 +159,7 @@ const Menu2 = () => {
                 </Accordion>
               </li>
 
-              <Accordion style={background}>
+              <Accordion >
                 <Link to="/reports">
                   <li className="nav-item">
                     <div className="nav-link m-1">

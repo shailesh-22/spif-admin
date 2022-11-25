@@ -4,6 +4,7 @@ import Menu2 from '../../Sidebar/Menu2'
 
 
 
+
 const Dasboard = () => {
 
   return (
@@ -36,9 +37,12 @@ const Dasboard = () => {
 
           <div className="container-fluid">
             <div className="row mb-2">
+            
               <div className="col-sm-6">
                 <h1 className="m-0 text-dark">Dash</h1>
-              </div>{/* /.col */}
+              </div>
+             
+              {/* /.col */}
               <div className="col-sm-6">
                 <ol className="breadcrumb float-sm-right">
                   <li className="breadcrumb-item"><div>Home</div></li>
