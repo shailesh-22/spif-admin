@@ -119,8 +119,7 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
                         // }
 
                         return (
-                          <div className="question-options" key={option.id}>
-                          
+                          <div className="question-options" key={option.id}>                          
                             <label className='p-1 question-label' htmlFor={option.id} >
                               <input type="radio"
                                 className={ `singleOption  ${ selected && handleSelect(option) }` }
