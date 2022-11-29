@@ -15,39 +15,7 @@ import { useHistory } from 'react-router-dom';
 
 const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
 
-     let history = useHistory();
-
-    let[ sDescription, setDescription ] = useState("");
-    let[ sText  ] = useState(null);
-    let[ sImage  ] = useState(null);
-    let[ sVideo  ] = useState(null);
-
-    let handleSubmit = (e)=>{
-
-        e.preventDefault();
-
-        let newStatement = { sDescription, sText, sImage, sVideo  };
-
-        var duplicate = questions.some((m)=>{return m.sDescription === sDescription}) ;
-
-        if(duplicate===false)
-        {
-            fetch("http://localhost:3004/questions",
-             {  method:"POST",
-                headers:{"Content-Type" : "application/json"},
-                body:JSON.stringify(newStatement)
-            })
-            .then(()=>{history.push("/admin-statement")})
-        }
-        else{
-            alert("Statement Already Exist, Please add new Statement")
-        }
-
-        console.log( newStatement );
-    }
-
-//----------------------------------------------------------------------
-
+    let history = useHistory();
 
     let [checked, setChecked] = useState(false)
 
@@ -55,19 +23,62 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
         setChecked(event.target.checked)
     }
 
-//------------------------------------------------------------
 
-    let [textField, setTextField] = useState([])
+    let [textField, setTextField] = useState([{ text:'', isAnswer:checked  , isPrompt:'' }])
 
-    const handleAdd = () => {
-        const abc = [...textField, []];
-        setTextField(abc);
+    let [ sStatementID ] = useState("");
+    let [sDescription, setDescription] = useState("");
+    let [sText] = useState(null);
+    let [sImage] = useState(null);
+    let [sVideo] = useState(null);
+    let [options] = useState( [textField] );
+
+    let handleSubmit = () => {
+
+
+        let newStatement = { sStatementID, sDescription, sText, sImage, sVideo, options };
+
+        console.log(newStatement);
+
+        // var duplicate = questions.some((m)=>{return m.sDescription === sDescription}) ;
+
+        // if(duplicate===false)
+        // {
+
+        fetch(`http://localhost:3004/questions`, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newStatement),
+        }).then(() => {
+            history.push("/admin-statement");
+        })
+        //}
+        // else{
+        //     alert("Statement Already Exist, Please add new Statement")
+        // }
+
+
+        // console.log("Hello");
     }
 
-    const handleChange = (onChangeValue, i) => {
-        const inputData = [...textField];
-        inputData[i] = onChangeValue.target.value;
-        setTextField(inputData)
+    //---------------------------------------------------------------
+    
+
+    const handleAdd = () => {
+        setTextField( [ ...textField, { text:'', isAnswer:checked  , isPrompt:'' } ] );
+    }
+
+    const handleChange = (e,i) => {
+        const { optionName, value } = e.target ;
+        const list = [ ...textField ]
+        list[i][optionName] = value ;
+        setTextField( list )
+        // const inputData = [...textField];
+        // inputData[i] = onChangeValue.target.value;
+        // setTextField(inputData)
     }
 
     const handleDelete = (i) => {
@@ -76,7 +87,7 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
         setTextField(delVal)
     }
 
-//----------------------------------------------------------
+    //----------------------------------------------------------
 
     return (
         <div className='questionWithAns'>
@@ -84,11 +95,11 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
                 <h5> Statement </h5>
                 <TextareaAutosize
                     maxRows={4}
-                    value={ sDescription }
+                    value={sDescription}
                     aria-label="maximum height"
                     placeholder='Enter Your Statement'
                     style={{ width: '100%', height: "150px", padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
-                    onChange={ (e)=>{ setDescription( e.target.value ) } }
+                    onChange={(e) => { setDescription(e.target.value) }}
                 />
             </div>
             <hr />
@@ -117,6 +128,7 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
                                                 aria-label="maximum height"
                                                 defaultValue={data}
                                                 style={{ width: '100%', fontSize: 17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
+                                                onChange={ (e)=>{ handleChange( e,i ) } }
                                             />
                                         </TableCell>
                                         <TableCell align="center" style={{ fontSize: 17 }}>
@@ -134,11 +146,13 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
                                                 aria-label="maximum height"
                                                 defaultValue={data}
                                                 style={{ width: '100%', fontSize: 17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
+                                                onChange={ (e)=>{ handleChange( e,i ) } }
                                             />
 
                                         </TableCell>
                                         <TableCell align="center">
-                                            <button style={{ height: "50px", width:"50px", borderRadius:"10px" }} onClick={() => { handleDelete(i) }} >
+                                            <button style={{ height: "50px", width: "50px", borderRadius: "10px" }} 
+                                                    onClick={() => { handleDelete(i) }} >
                                                 <DeleteIcon />
                                             </button>
                                         </TableCell>
@@ -147,7 +161,7 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
                             }
                         </TableBody>
                         <div style={{ margin: " 20px " }}>
-                            <Button className=' btn btn-outline-success' style={{textAlign:"center", width: "auto", height: "40px" }}
+                            <Button className=' btn btn-outline-success' style={{ textAlign: "center", width: "auto", height: "40px" }}
                                 onClick={() => handleAdd()}
                             >
                                 Add Option

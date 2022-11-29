@@ -115,12 +115,12 @@ const Tabs = ({ questions }) => {
       },
       body: JSON.stringify(...textField),
     }).then(() => {
-      history.push("/dashboard");
+      history.push("/admin-statement");
     });
     
   //   localStorage.removeItem("items");
   
-       console.log();
+       console.log( textField );
   };
      
 
@@ -168,7 +168,7 @@ const Tabs = ({ questions }) => {
                         {(provider, snapshot) => {
                           return (
                             <div
-                              ref={provider.innerRef}
+                                ref={provider.innerRef}
                               {...provider.draggableProps}
                               {...provider.dragHandleProps}
                               className="draggable-tab"
