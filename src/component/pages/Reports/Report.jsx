@@ -10,7 +10,7 @@ const Report = () => {
     <Header/>
    <Menu2/>
        <div className="content-wrapper">
-        <h1>This is a Report page</h1>
+        <h1>Report page</h1>
     </div>
  </div>
   )

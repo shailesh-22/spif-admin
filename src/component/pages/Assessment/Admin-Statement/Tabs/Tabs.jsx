@@ -105,18 +105,19 @@ const Tabs = ({ questions }) => {
 
     // const updateValue = [...textField]
 
-    // const getitem = localStorage.getItem("items");
+    const getitem = localStorage.getItem("items");
 
-  //   fetch(`http://localhost:3004/questions/${getitem}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(),
-  //   }).then(() => {
-  //     history.push("/dashboard");
-  //   });
+    fetch(`http://localhost:3004/questions/${getitem}`, {
+      method: "PUT",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(...textField),
+    }).then(() => {
+      history.push("/dashboard");
+    });
+    
   //   localStorage.removeItem("items");
   
        console.log();

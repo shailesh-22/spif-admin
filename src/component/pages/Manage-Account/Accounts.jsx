@@ -8,7 +8,7 @@ const Accounts = () => {
       <Header/>
       <Menu2/>
     <div className="content-wrapper">
-        <h1>This is an Account page</h1>
+        <h1>Account page</h1>
         </div>
     </div>
   )

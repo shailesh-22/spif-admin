@@ -35,6 +35,7 @@ const Register3 = () => {
     state: Yup.string().required("State name is required"),
     country: Yup.string().required("Country name is required"),
     pincode: Yup.number().typeError("Pincode is required"),
+    
     number: Yup.number()
       .typeError("number is required")
       .min(10, "minimum value 10."),

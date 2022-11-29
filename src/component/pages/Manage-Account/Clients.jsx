@@ -8,7 +8,7 @@ const Clients = () => {
         <Header/>
         <Menu2/>
      <div className="content-wrapper">
-        <h1>This is a Clients Page</h1>
+        <h1>Clients Page</h1>
     </div>
 
     </div>
