@@ -35,6 +35,7 @@ const Register3 = () => {
     state: Yup.string().required("State name is required"),
     country: Yup.string().required("Country name is required"),
     pincode: Yup.number().typeError("Pincode is required"),
+    
     number: Yup.number()
       .typeError("number is required")
       .min(10, "minimum value 10."),
@@ -76,7 +77,7 @@ const Register3 = () => {
         gutterbutton
         variant="h4"
         align="center"
-        style={{ background: "#62C2CF", maxWidth:"100%", margin: "0 auto" }}
+        style={{ background: "#62C2CF", maxWidth:"1000px", margin: "0 auto" }}
       >
         User Profile Details
       </Typography>
@@ -97,7 +98,7 @@ const Register3 = () => {
             >
               Personal info :
             </Typography>
-            <Grid container spacing={4}>
+            <Grid container spacing={3}>
               <Grid item xs={12} sm={4}>
                 <TextField
                   required
@@ -210,7 +211,7 @@ const Register3 = () => {
                 <Controller
                       control={control}
                        name="date_of_birth"
-                      defaultValue="false"
+                     
                       inputRef={register()}
                       render={({ field: { onChange } }) => (
                         <TextField

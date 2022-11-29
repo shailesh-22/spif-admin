@@ -110,7 +110,7 @@ const Register = () => {
   const submit = { background: "#346BFF", color:"white"}
 
   return (
-    <div >
+    <div className="card-header"  >
       {/* <Header2 /> */}
       <Header3/>
       <div>

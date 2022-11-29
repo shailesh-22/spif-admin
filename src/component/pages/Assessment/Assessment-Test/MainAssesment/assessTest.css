@@ -17,8 +17,7 @@
     color: aliceblue;
     padding: 10px 0;
     height: 100px;
-    position: relative;
-    
+    position: relative;   
 }
 .assessment-test h1{
     background-color: #346BFF;
@@ -52,8 +51,6 @@
         display: flex;
         justify-content: space-between;
         color: #346BFF;
-        margin: 5px 0;
-        
     }
 }
 @media only screen and (max-width: 600px) {
@@ -67,8 +64,6 @@
     display: flex;
     justify-content: space-evenly;
     color: #346BFF;
-    margin: 5px 0;
-    
 }
 /* .question-form{
     position: relative;
@@ -95,7 +90,7 @@
     margin-top: 10px; */
 }
 .question-options input{
-    
+    margin-bottom: 0px !important;
     margin-right: 10px;
     width: 20px !important;
     height: 20px !important;

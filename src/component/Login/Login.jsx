@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
+import swal from "sweetalert";
 
 
 const Login = () => {
@@ -15,13 +16,17 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = "http://103.160.153.38:8020/accounts/auth/";
+            const url = "https://wheel.limeneal.com:8020/accounts/auth/";
             
             const { data: res } = await axios.post(url, data);
             localStorage.setItem("token", JSON.stringify(res.data));
-            alert("Login success")
-            window.location = "/dashboard";
-            
+            swal({
+                title: "Done!",
+                text: "Login Successfull !",
+                icon: "success",
+                button: "Ok",
+              });
+            window.location = "/dashboard";   
 
         } catch (error) {
             if (
@@ -30,7 +35,12 @@ const Login = () => {
                 error.response.status <= 500
             ) {
                 setError(error.response.data.message);
-                alert("Incorrect username or password")
+                swal({
+                    title: "Invalid !",
+                    text: "Username or password !",
+                    icon: "error",
+                    button: "Ok",
+                  });
             }
         }
     };
