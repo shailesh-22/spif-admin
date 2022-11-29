@@ -40,7 +40,7 @@
       "media": false,
       "order": 1
     },
-    {
+    { 
       "id": "STID00000002",
       "sStatementID": "STID00000002",
       "sDescription": "If you intercepted a suspected suicidal communication (clue, suspicious statement or threat), which of the following questions should be avoided?",
@@ -616,9 +616,9 @@
       "order": 16
     },
     {
-      "id": "STID00000018",
-      "sStatementID": "STID00000018",
-      "sDescription": "What are the protective factors in the above scenario?",
+      "id": "STID00000017",
+      "sStatementID": "STID00000017",
+      "sDescription": "What are the risk factors in the above scenario?",
       "sText": null,
       "sImage": null,
       "sVideo": null,
@@ -626,37 +626,63 @@
         {
           "id": 11,
           "text": "He drinks alcohol",
-          "value": 6,
+          "value": 10,
           "isAnswer": true
         },
         {
           "id": 22,
-          "text": "He’s working more",
-          "value": 5,
+          "text": "His alcohol consumption has increased",
+          "value": 9,
           "isAnswer": false,
           "isPrompt": "Warning signs are usually verbal, behavioural or emotional signs that indicate a person may be distressed. Risk factors are usually things in a person’s environment, usually out of their control, that make them vulnerable."
         },
         {
           "id": 33,
-          "text": "He’s a primary caregiver",
+          "text": "His wife is ill",
+          "value": 8,
+          "isAnswer": true
+        },
+        {
+          "id": 44,
+          "text": "His boss is hard on him about his performance",
+          "value": 7,
+          "isAnswer": true
+        },
+        {
+          "id": 55,
+          "text": "Financial issues are weighing on him",
+          "value": 6,
+          "isAnswer": true
+        },
+        {
+          "id": 66,
+          "text": "His verbal cues indicate that he’s lost hope ",
+          "value": 5,
+          "isAnswer": false,
+          "isPrompt": "Warning signs are usually verbal, behavioural or emotional signs that indicate a person may be distressed. Risk factors are usually things in a person’s environment, usually out of their control, that make them vulnerable."
+        },
+        {
+          "id": 77,
+          "text": "He has withdrawn socially ",
           "value": 4,
           "isAnswer": false,
           "isPrompt": "Warning signs are usually verbal, behavioural or emotional signs that indicate a person may be distressed. Risk factors are usually things in a person’s environment, usually out of their control, that make them vulnerable."
         },
         {
-          "id": 44,
-          "text": "He has sources of social support ",
+          "id": 88,
+          "text": "He’s unable to sleep at night",
           "value": 3,
-          "isAnswer": true
+          "isAnswer": false
         },
         {
-          "id": 55,
-          "text": "Access to mental health care",
+          "id": 99,
+          "text": "He’s facing marriage problems ",
           "value": 2,
-          "isAnswer": true
+          "isAnswer": true,
+          "isPrompt": "Warning signs are usually verbal, behavioural or emotional signs that indicate a person may be distressed. Risk factors are usually things in a person’s environment, usually out of their control, that make them vulnerable."
         },
         {
-          "id": 66,
+          "id": 110,
           "text": "All of the above",
           "value": 1,
           "isAnswer": false,
@@ -665,7 +691,61 @@
       ],
       "sInactive": false,
       "media": false,
-      "order": 18
+      "order": 17
+    },
+    
+{
+  "id": "STID00000018",
+  "sStatementID": "STID00000018",
+  "sDescription": "What are the protective factors in the above scenario?",
+  "sText": null,
+  "sImage": null,
+  "sVideo": null,
+  "options": [
+    {
+      "id": 11,
+      "text": "He drinks alcohol",
+      "value": 6,
+      "isAnswer": true
+    },
+    {
+      "id": 22,
+      "text": "He’s working more",
+      "value": 5,
+      "isAnswer": false,
+      "isPrompt": "Warning signs are usually verbal, behavioural or emotional signs that indicate a person may be distressed. Risk factors are usually things in a person’s environment, usually out of their control, that make them vulnerable."
+    },
+    {
+      "id": 33,
+      "text": "He’s a primary caregiver",
+      "value": 4,
+      "isAnswer": false,
+      "isPrompt": "Warning signs are usually verbal, behavioural or emotional signs that indicate a person may be distressed. Risk factors are usually things in a person’s environment, usually out of their control, that make them vulnerable."
+    },
+    {
+      "id": 44,
+      "text": "He has sources of social support ",
+      "value": 3,
+      "isAnswer": true
+    },
+    {
+      "id": 55,
+      "text": "Access to mental health care",
+      "value": 2,
+      "isAnswer": true
+    },
+    {
+      "id": 66,
+      "text": "All of the above",
+      "value": 1,
+      "isAnswer": false,
+      "isPrompt": "Warning signs are usually verbal, behavioural or emotional signs that indicate a person may be distressed. Risk factors are usually things in a person’s environment, usually out of their control, that make them vulnerable."
     }
+  ],
+  "sInactive": false,
+  "media": false,
+  "order": 18
+}
+
   ]
 }
