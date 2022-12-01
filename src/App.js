@@ -1,5 +1,6 @@
 
 import './App.css';
+import React from 'react'
 import { BrowserRouter as Router , NavLink, Route , Switch } from 'react-router-dom'
 import Accounts from './component/pages/Manage-Account/Accounts';
 import Statements from './component/pages/Settings/Statements';

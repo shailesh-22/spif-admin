@@ -8,7 +8,7 @@ const ImportExport = () => {
     <Header/>
     <Menu2/>
      <div className="content-wrapper">
-      <h1>This is an Import-Export page</h1>
+      <h1>Import-Export page</h1>
     </div>
 
    </div>

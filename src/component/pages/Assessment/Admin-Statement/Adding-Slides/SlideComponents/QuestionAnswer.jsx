@@ -1,6 +1,6 @@
 import React from 'react'
 import TextareaAutosize from '@mui/material/TextareaAutosize';
-import { Button } from '@material-ui/core'
+import { Button } from '@mui/material'
 import { useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Table from '@mui/material/Table';
@@ -10,7 +10,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Switch, FormControlLabel } from '@material-ui/core'
+import { Switch, FormControlLabel } from '@mui/material'
 import { useHistory } from 'react-router-dom';
 
 const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {

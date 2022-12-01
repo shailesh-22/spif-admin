@@ -1,6 +1,6 @@
 import React from "react";
 import "./adminStatement.css";
-import { Button } from "@material-ui/core";
+import { Button } from '@mui/material'
 import { useState } from "react";
 import useFetch from "../../Custom Hook/useFetch";
 import CircularProgress from "@mui/material/CircularProgress";

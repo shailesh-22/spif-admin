@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button, TextareaAutosize } from '@material-ui/core'
+import { Button, TextareaAutosize } from '@mui/material'
 
 const OnlyVideo = ({ setOpen, setOpenQA, setTitle }) => {
     return (

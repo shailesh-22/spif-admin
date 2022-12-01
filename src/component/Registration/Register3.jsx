@@ -6,7 +6,7 @@ import {
   Typography,
   FormControlLabel,
   Button,
-} from "@material-ui/core";
+} from '@mui/material';
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -105,6 +105,7 @@ const Register3 = () => {
                   id="firstName"
                   name="firstName"
                   label="Full Name"
+                  variant="standard"
                   fullWidth
                   margin="dense"
                   {...register("firstName")}
@@ -121,6 +122,7 @@ const Register3 = () => {
                   id="lastName"
                   name="lastName"
                   label="Last Name"
+                  variant="standard"
                   fullWidth
                   margin="dense"
                   {...register("lastName")}
@@ -137,6 +139,7 @@ const Register3 = () => {
                   id="email"
                   name="email"
                   label="Email"
+                  variant="standard"
                   fullWidth
                   margin="dense"
                   {...register("email")}
@@ -153,6 +156,7 @@ const Register3 = () => {
                   id="number"
                   name="number"
                   label="Phone Number"
+                  variant="standard"
                   type="number"
                   fullWidth
                   margin="dense"
@@ -218,6 +222,7 @@ const Register3 = () => {
                         id="date"
                         label="Date-of-Birth"
                         type="date"
+                        variant="standard"
                         defaultValue="2017-05-24"
                         required
                         sx={{ width: 220 }}
@@ -281,6 +286,7 @@ const Register3 = () => {
                   id="street"
                   name="street"
                   label="Street"
+                  variant="standard"
                   fullWidth
                   margin="dense"
                   {...register("street")}
@@ -296,6 +302,7 @@ const Register3 = () => {
                   required
                   id="city"
                   name="city"
+                  variant="standard"
                   label="City"
                   fullWidth
                   margin="dense"
@@ -312,6 +319,7 @@ const Register3 = () => {
                   required
                   id="state"
                   name="state"
+                  variant="standard"
                   label="State"
                   fullWidth
                   margin="dense"
@@ -328,6 +336,7 @@ const Register3 = () => {
                   required
                   id="country"
                   name="country"
+                  variant="standard"
                   label="Country"
                   fullWidth
                   margin="dense"
@@ -345,6 +354,7 @@ const Register3 = () => {
                   id="pincode"
                   name="pincode"
                   label="pincode"
+                  variant="standard"
                   type="number"
                   fullWidth
                   margin="dense"
