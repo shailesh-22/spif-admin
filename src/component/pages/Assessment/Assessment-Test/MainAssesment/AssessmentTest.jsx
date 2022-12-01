@@ -1,7 +1,7 @@
 import React from "react";
-// import axios from "axios";
+import axios from "axios";
 import { useState } from "react";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import './assessTest.css'
 import Pagination from "../PaginationFile/Pagination";
 import useFetch from "../../Custom Hook/useFetch";
@@ -10,15 +10,14 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Header3 from "../../../../Sidebar/Header3";
 import Question1 from "./Question1";
 
-
 const AssessmentTest = () => {
 
-  // const url = `http://103.160.153.38:8020/limens/get_statements_LMS/`
+  // const url = `http://103.160.153.38:8020/limens/statements_view/`
 
-  // const[questions,setQuestions] = useState(null);
-  // const[loading,setLoading] = useState(false);
+  const[questions,setQuestions] = useState([]);
+  const[loading,setLoading] = useState(false);
 
-  let{data:questions, loading}  = useFetch("http://localhost:3004/questions")
+  // let{data:questions, loading}  = useFetch("http://localhost:3004/questions")
 
   const [currentPage, setCurrentPage] = useState(1);
   const [questionPerPage] = useState(1);
@@ -26,12 +25,7 @@ const AssessmentTest = () => {
   // useEffect(()=>{
   //   const fetchQuestions = async () =>{
   //     setLoading(true);
-  //     const res = await axios.post(url,{
-  //       "uUserID": "2",
-  //       "sType": "TID00000003",
-  //       "uExamID": "EXAMID00000116",
-  //       "uSetNo": 3
-  //     });
+  //     const res = await axios.post(url);
   //     setQuestions(res.data);
   //     setLoading(false);
   //   }
@@ -39,7 +33,19 @@ const AssessmentTest = () => {
   //   fetchQuestions();
   // },[]);
 
-  if(!questions) return <CircularProgress size="5rem" style={{ display:"flex", margin:"auto" }}/>
+  useEffect(()=>{
+        setLoading(true);
+
+        axios.get('http://103.160.153.38:8020/limens/statements_view/')
+        .then( res =>{
+          setQuestions( res.data);
+          setLoading(false)
+        } )
+
+    },[]);
+
+
+  if(!questions) return <CircularProgress size="10rem" style={{ display:"flex", margin:"auto", height:"98.5vh" }}/>
 
   //Get Current Question
 
@@ -48,9 +54,7 @@ const AssessmentTest = () => {
   const currentQueston = questions.slice(indeOfFirstQues, indeOfLastQues);
 
   //--------------------------------------------------------------------------------------
-
-
-
+    console.log( currentQueston );
   return (
     <div>
       <Header3 />
