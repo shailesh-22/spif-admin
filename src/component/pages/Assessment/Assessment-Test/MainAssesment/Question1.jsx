@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 // import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Popper, Typography } from '@material-ui/core'
+import { Popper, Typography } from '@mui/material'
 import QuestionHeader from './QuestionHeader';
 import Timer from './Timer';
 import './Question1.css'

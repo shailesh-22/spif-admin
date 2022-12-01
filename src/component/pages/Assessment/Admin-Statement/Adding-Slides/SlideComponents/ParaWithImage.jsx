@@ -1,6 +1,6 @@
 import React from 'react'
 import TextareaAutosize from '@mui/material/TextareaAutosize';
-import { Button} from '@material-ui/core'
+import { Button} from '@mui/material'
 
 const ParaWithImage = ({ setOpen, setOpenQA, setTitle }) => {
     return (

@@ -3,7 +3,7 @@ import './rules.css';
 import { Link} from 'react-router-dom';
 import { useState } from 'react';
 import Header3 from '../../../../Sidebar/Header3';
-import { Paper } from '@material-ui/core';
+import { Paper } from '@mui/material'
 
 const TermsConditions = () => {
 
