@@ -47,15 +47,19 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
           <Timer />
         </div>
 
+
         <form className='px-3 question-form' >
           {
             questions.map((question, i) => {
+
+              console.log( question.sDescription );
+              
               return (
                 <div key={question.sStatementID} className='d-flex question'>
                   <div className='body px-3'>
-                    <h3 className='w-100'>{question.order}. {question.sDescription}</h3>
+                    <h3 className='w-100'>{question.sDescription}</h3>
                     {
-                      question.options.length === null &&
+                      question.sOptions.length === null &&
                       <div className='multi-q-details'>
                         <h3 className='w-100'>{question.sDescription1}</h3>
                         <p>{question.sText}</p>
@@ -64,7 +68,7 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
                       </div>
                     }
                     {
-                      question.options.map((option) => {
+                      question.sOptions.map((option) => {
 
                         const handleSelect = (i) =>{
                           if( selected === i && option.isAnswer === true ){
@@ -119,7 +123,8 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
                         // }
 
                         return (
-                          <div className="question-options" key={option.id}>                          
+                          <div className="question-options" key={option.id}>
+                          
                             <label className='p-1 question-label' htmlFor={option.id} >
                               <input type="radio"
                                 className={ `singleOption  ${ selected && handleSelect(option) }` }
@@ -130,7 +135,7 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
                                 onClick={openPopover}
                                 disabled= { selected }
                               />
-                              {option.text}
+                              {option}
                             </label>
 
 
