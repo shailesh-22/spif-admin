@@ -40,8 +40,8 @@ const Menu2 = () => {
         <Link to="/dashboard" >
         <li className="nav-item" style={{marginBottom:"7px"}}>
        <div
-            className="nav-link"
-            style={{ marginBottom: "0px" , backgroundColor:"white", }}
+            className="nav-link" id="logo"
+            style={{ marginBottom: "0px"}}
           >
        <img
               src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png"

@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./tabs.css";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Button } from "@material-ui/core";
+import { Button } from '@mui/material'
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -12,7 +12,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Switch, FormControlLabel } from "@material-ui/core";
+import { Switch, FormControlLabel } from '@mui/material'
 import { useHistory, useParams } from "react-router-dom";
 // import axios from "axios";
 import swal from "sweetalert";
