@@ -73,7 +73,7 @@ const Login = () => {
                         />
                         {error && <div className={styles.error_msg}>{error}</div>}
                         <button type="submit" className={styles.green_btn}>
-                            Sing In
+                            Sign In
                         </button>
                     </form>
                 </div>
@@ -82,7 +82,7 @@ const Login = () => {
                     <h1>New Here ?</h1>
                     <Link to="/signup">
                         <button type="button" className={styles.white_btn}>
-                            Sing Up
+                            Sign Up
                         </button>
                     </Link>
                 </div>
