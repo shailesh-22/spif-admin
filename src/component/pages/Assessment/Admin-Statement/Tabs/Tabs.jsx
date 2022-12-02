@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import "./tabs.css";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
@@ -14,8 +14,9 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Switch, FormControlLabel } from '@mui/material'
 import { useHistory, useParams } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 import swal from "sweetalert";
+
 
 const Tabs = ({ questions }) => {
 
@@ -105,7 +106,7 @@ const Tabs = ({ questions }) => {
 
     // const updateValue = [...textField]
 
-    const getitem = localStorage.getItem("items");
+    // const getitem = localStorage.getItem("items");
 
     // fetch(`http://localhost:3004/questions/${getitem}`, {
     //   method: "PUT",
@@ -124,31 +125,62 @@ const Tabs = ({ questions }) => {
   };
      
 
-  let handleDeleteHole = async () => {
+  // let handleDeleteHole = async () => {
 
-    const getitem = localStorage.getItem("items");
+  //   const getitem = localStorage.getItem("items");
 
-    fetch(`http://localhost:3004/questions/${getitem}`, {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    }).then(() => {
-      history.push("/dashboard");
+  //   fetch(`http://103.160.153.38:8020/limens/statements_view/${getitem}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //   }).then(() => {
+  //     history.push("/dashboard");
       
-    });
-    swal({
-      title: "Done!",
-      text: `Deleted Successfully`,
-      icon: "success",
-      button: "Ok",
-    });
-     console.log(getitem);
-    localStorage.removeItem("items");
+  //   });
+  //   swal({
+  //     title: "Done!",
+  //     text: `Deleted Successfully`,
+  //     icon: "success",
+  //     button: "Ok",
+  //   });
+  //    console.log(getitem);
+  //   localStorage.removeItem("items");
+  // };
+
+    //   let handleDeleteHole = async () => {
+
+    //   const getitem = localStorage.getItem("items");
+  
+    //   fetch(`http://103.160.153.38:8020/limens/statements_view/${getitem}`, {
+    //     method: "DELETE",
+    //     headers: {
+    //       Accept: "application/json",
+    //       "Content-Type": "application/json",
+    //     },
+    //   }).then(() => {
+    //     history.push("/dashboard");
+        
+    //   });
+    //   swal({
+    //     title: "Done!",
+    //     text: `Deleted Successfully`,
+    //     icon: "success",
+    //     button: "Ok",
+    //   });
+    //    console.log(getitem);
+    //   localStorage.removeItem("items");
+    // };
+  
+  const handleDeleteHole = async (id) => {
+
+  console.log(id);
+    // await axios.delete(`http://103.160.153.38:8020/limens/statements_view/${id}`) 
+    // history.push('/dashboard')
+  }
 
 
-  };
 
   return (
     <div className="tabTypeQuestion">
