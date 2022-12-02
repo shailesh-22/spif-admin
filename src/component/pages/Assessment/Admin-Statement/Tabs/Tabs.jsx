@@ -37,7 +37,7 @@ const Tabs = ({ questions }) => {
   let [checked, setChecked] = useState(false);
 
   let handleAnswer = (event) => {
-    // if ( questions.options.isAnswer ) {
+    // if ( questions.sOptions.isAnswer ) {
     //     setChecked(true)
     // } else {
     //     setChecked( false )
@@ -107,16 +107,16 @@ const Tabs = ({ questions }) => {
 
     const getitem = localStorage.getItem("items");
 
-    fetch(`http://localhost:3004/questions/${getitem}`, {
-      method: "PUT",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(...textField),
-    }).then(() => {
-      history.push("/admin-statement");
-    });
+    // fetch(`http://localhost:3004/questions/${getitem}`, {
+    //   method: "PUT",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(...textField),
+    // }).then(() => {
+    //   history.push("/admin-statement");
+    // });
     
   //   localStorage.removeItem("items");
   
@@ -229,7 +229,7 @@ const Tabs = ({ questions }) => {
                   />
                 </div>
                 <hr />
-                {tab.options.length !== 0 && (
+                {tab.sOptions.length !== 0 && (
                   <div>
                     <h5> Option Details </h5>
                     <TableContainer component={Paper}>
@@ -264,7 +264,7 @@ const Tabs = ({ questions }) => {
                           </TableRow>
                         </TableHead>
                         <TableBody>
-                          {tab.options.map((option, i) => (
+                          {tab.sOptions.map((option, i) => (
                             <TableRow
                               key={i}
 
