@@ -51,8 +51,6 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
         <form className='px-3 question-form' >
           {
             questions.map((question, i) => {
-
-              console.log( question.sDescription );
               
               return (
                 <div key={question.sStatementID} className='d-flex question'>
@@ -68,7 +66,7 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
                       </div>
                     }
                     {
-                      question.sOptions.map((option) => {
+                      question.sOptions.map((option,i) => {
 
                         const handleSelect = (i) =>{
                           if( selected === i && option.isAnswer === true ){
@@ -123,19 +121,19 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
                         // }
 
                         return (
-                          <div className="question-options" key={option.id}>
+                          <div className="question-options" key={i}>
                           
                             <label className='p-1 question-label' htmlFor={option.id} >
                               <input type="radio"
                                 className={ `singleOption  ${ selected && handleSelect(option) }` }
-                                id={option.id} checked={option.selected}
+                                id={option} checked={option.selected}
                                 name={question.sStatementID}
-                                value={option.text}
+                                value={option}
                                 onChange={(e) => { setAnswers(e.target.value); }}
                                 onClick={openPopover}
                                 disabled= { selected }
                               />
-                              {option}
+                              {option.text}
                             </label>
 
 

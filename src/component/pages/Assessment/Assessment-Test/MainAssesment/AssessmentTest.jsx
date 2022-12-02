@@ -54,7 +54,6 @@ const AssessmentTest = () => {
   const currentQueston = questions.slice(indeOfFirstQues, indeOfLastQues);
 
   //--------------------------------------------------------------------------------------
-    console.log( currentQueston );
   return (
     <div>
       <Header3 />
