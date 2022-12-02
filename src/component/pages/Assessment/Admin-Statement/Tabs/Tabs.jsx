@@ -107,16 +107,16 @@ const Tabs = ({ questions }) => {
 
     const getitem = localStorage.getItem("items");
 
-    fetch(`http://localhost:3004/questions/${getitem}`, {
-      method: "PUT",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(...textField),
-    }).then(() => {
-      history.push("/admin-statement");
-    });
+    // fetch(`http://localhost:3004/questions/${getitem}`, {
+    //   method: "PUT",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(...textField),
+    // }).then(() => {
+    //   history.push("/admin-statement");
+    // });
     
   //   localStorage.removeItem("items");
   
