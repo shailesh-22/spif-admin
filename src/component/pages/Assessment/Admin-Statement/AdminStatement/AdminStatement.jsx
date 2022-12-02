@@ -11,7 +11,8 @@ import Menu2 from "../../../../Sidebar/Menu2";
 
 const AdminStatement = () => {
 
-  let { data: questions } = useFetch("http://localhost:3004/questions");
+
+  let { data: questions } = useFetch("http://103.160.153.38:8020/limens/statements_view/");
 
   const [open, setOpen] = useState(false);
 
