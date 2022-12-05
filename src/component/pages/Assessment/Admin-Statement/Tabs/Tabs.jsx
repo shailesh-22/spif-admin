@@ -43,16 +43,20 @@ const Tabs = ({ questions }) => {
     // } else {
     //     setChecked( false )
     // }
-
+    
     setChecked(event.target.checked);
   };
 
   let handleTabClick = (e) => {
-    setCurrentTab(e.target.id);
 
-    console.log(e.target.id);
+    setCurrentTab(e.target.id);
+ 
+ let selectedId =  e.target.id
+
+     console.log(selectedId);
 
     localStorage.setItem("items", e.target.id);
+
   };
 
   let [textField, setTextField] = useState([]);
@@ -120,8 +124,7 @@ const Tabs = ({ questions }) => {
     // });
     
   //   localStorage.removeItem("items");
-  
-       console.log( textField );
+       console.log(textField);
   };
      
 
@@ -149,36 +152,37 @@ const Tabs = ({ questions }) => {
   //   localStorage.removeItem("items");
   // };
 
-    //   let handleDeleteHole = async () => {
+      let handleDeleteHole = async () => {
 
-    //   const getitem = localStorage.getItem("items");
-  
-    //   fetch(`http://103.160.153.38:8020/limens/statements_view/${getitem}`, {
-    //     method: "DELETE",
-    //     headers: {
-    //       Accept: "application/json",
-    //       "Content-Type": "application/json",
-    //     },
-    //   }).then(() => {
-    //     history.push("/dashboard");
+      const getitem = localStorage.getItem("items");
+    
+      fetch(`http://103.160.153.38:8020/limens/statements_view/${getitem}`, {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }).then(() => {
+        history.push("/dashboard");
         
-    //   });
-    //   swal({
-    //     title: "Done!",
-    //     text: `Deleted Successfully`,
-    //     icon: "success",
-    //     button: "Ok",
-    //   });
-    //    console.log(getitem);
-    //   localStorage.removeItem("items");
-    // };
+      });
+      swal({
+        title: "Done!",
+        text: `Deleted Successfully`,
+        icon: "success",
+        button: "Ok",
+      });
+       console.log(getitem);
+      localStorage.removeItem("items");
+    };
   
-  const handleDeleteHole = async (id) => {
+  // const handleDeleteHole = async (id) => {
 
-  console.log(id);
-    // await axios.delete(`http://103.160.153.38:8020/limens/statements_view/${id}`) 
-    // history.push('/dashboard')
-  }
+  // console.log(id);
+
+  //   await axios.delete(`http://103.160.153.38:8020/limens/statements_view/${id}`) 
+  //   history.push('/dashboard')
+  // }
 
 
 

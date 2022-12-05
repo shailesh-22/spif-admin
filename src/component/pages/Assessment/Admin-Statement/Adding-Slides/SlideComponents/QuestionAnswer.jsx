@@ -24,19 +24,19 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
     }
 
 
-    let [textField, setTextField] = useState([{ text:'', isAnswer:checked  , isPrompt:'' }])
+    let [textField, setTextField] = useState([{ text:"", isAnswer:checked  , isPrompt:"", value: 0 }])
 
-    let [ sStatementID ] = useState("");
+    // let [ sStatementID ] = useState("");
     let [sDescription, setDescription] = useState("");
     let [sText] = useState(null);
     let [sImage] = useState(null);
     let [sVideo] = useState(null);
-    let [options] = useState( [textField] );
+    let [sOptions] = useState([textField]);
+    let [sMedia] = useState(null)
 
     let handleSubmit = () => {
 
-
-        let newStatement = { sStatementID, sDescription, sText, sImage, sVideo, options };
+        let newStatement = { sDescription, sMedia , sText, sImage, sVideo, sOptions };
 
         console.log(newStatement);
 
@@ -45,7 +45,7 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
         // if(duplicate===false)
         // {
 
-        fetch(`http://localhost:3004/questions`, {
+        fetch(`http://103.160.153.38:8020/limens/statements_view/`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -66,20 +66,24 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
 
     //---------------------------------------------------------------
     
-
-    const handleAdd = () => {
-        setTextField( [ ...textField, { text:'', isAnswer:checked  , isPrompt:'' } ] );
-    }
-
     const handleChange = (e,i) => {
         const { optionName, value } = e.target ;
         const list = [ ...textField ]
         list[i][optionName] = value ;
-        setTextField( list )
+        setTextField(list)
+        console.log(list);
+        
         // const inputData = [...textField];
         // inputData[i] = onChangeValue.target.value;
         // setTextField(inputData)
     }
+
+    const handleAdd = () => {
+        setTextField( [ ...textField, { text:'', isAnswer:checked  , isPrompt:''} ] );
+       
+    }
+
+   
 
     const handleDelete = (i) => {
         const delVal = [...textField];
@@ -91,7 +95,7 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
 
     return (
         <div className='questionWithAns'>
-            <div className='para-stmt' >
+            <div className='para-stmt'>
                 <h5> Statement </h5>
                 <TextareaAutosize
                     maxRows={4}
