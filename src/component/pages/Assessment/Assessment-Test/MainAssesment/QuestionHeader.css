@@ -14,3 +14,8 @@
     width: 100%;
     background-color: #D6E9D7 ;
 }
+@media ( max-width:614px ) {
+    .question-header .title{
+        font-size: 3vh;
+    }
+}
