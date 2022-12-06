@@ -92,7 +92,6 @@ const Tabs = ({ questions }) => {
     const [removed] = result.splice(startIndex, 1);
 
     result.splice(endIndex, 0, removed);
-
     return result;
   };
 
@@ -112,7 +111,7 @@ const Tabs = ({ questions }) => {
 
     // const getitem = localStorage.getItem("items");
 
-    // fetch(`http://localhost:3004/questions/${getitem}`, {
+    // fetch(`http://103.160.153.38:8020/limens/statements_view/${getitem}/`, {
     //   method: "PUT",
     //   headers: {
     //     Accept: "application/json",
@@ -123,8 +122,8 @@ const Tabs = ({ questions }) => {
     //   history.push("/admin-statement");
     // });
     
-  //   localStorage.removeItem("items");
-       console.log(textField);
+    // localStorage.removeItem("items");
+       console.log();
   };
      
 
@@ -156,7 +155,7 @@ const Tabs = ({ questions }) => {
 
       const getitem = localStorage.getItem("items");
     
-      fetch(`http://103.160.153.38:8020/limens/statements_view/${getitem}`, {
+      fetch(`http://103.160.153.38:8020/limens/statements_view/${getitem}/`, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
