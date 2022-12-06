@@ -44,7 +44,7 @@
     text-align: start;
     opacity: 0.8;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     color: rgb(43, 40, 40);
     background-color: #daecdd;
     border-radius: 10px;
@@ -55,7 +55,8 @@
 .question h3{
     margin: 15px 0;
     text-align: center;
-    width: 100%;
+    width: 98.5vw;
+    font-size: 25px;
 }
 .question-options{
     display: flex;
@@ -73,8 +74,8 @@
 .question-options input{
     margin-bottom: 0px !important;
     margin-right: 10px;
-    width: 20px !important;
-    height: 20px !important;
+    width: 17px !important;
+    height: 17px !important;
 }
 .questionWithOption{
     display: grid;
@@ -92,7 +93,7 @@
 .question-label{
     opacity: 0.7;
     width: auto;
-    font-size: 25px;
+    font-size: 20px;
     margin: 0;
 }
 .question-form{
@@ -100,8 +101,8 @@
 }
 .question-form .btn{
     position: absolute ;
-    width: 200px;
-    font-size: x-large;
+    width: 150px;
+    font-size: 20px;
     right: 30px;
     bottom: 30px;
     /* display: flex;
@@ -136,6 +137,9 @@
     text-transform: uppercase;
     margin: 10px;
     color: #448ACA;
+}
+.quesInfo h4{
+    font-size: 20px;
 }
 .popper{
     background-color: white;
