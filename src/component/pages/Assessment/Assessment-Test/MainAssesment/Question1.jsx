@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 // import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Popper, Typography } from '@mui/material'
+import { Box, Popper, Typography } from '@mui/material'
 import QuestionHeader from './QuestionHeader';
 import Timer from './Timer';
 import './Question1.css'
@@ -54,8 +54,9 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
               
               return (
                 <div key={question.sStatementID} className='d-flex question'>
-                  <div className='body px-3'>
+                  <div className='body  px-3'>
                     <h3 className='w-100'>{question.sDescription}</h3>
+                    <hr />
                     {
                       question.sOptions.length === null &&
                       <div className='multi-q-details'>
@@ -136,23 +137,17 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
                               {option.text}
                             </label>
 
+                            {/* <Box>
+                              { option.isPrompt }
+                            </Box> */}
+
 
                             {/* When user click the wrong Answer(input)-->The Popup will display */}
 
                             <Popper
-                              style={{
-                                backgroundColor: "white",
-                                borderRadius: "10px",
-                                width: "600px",
-                                color: "black",
-                                fontWeight: "bolder",
-                                marginLeft: "250px",
-                                marginTop: "2px",
-                                boxShadow: "3px 2px 1px 1px rgba(0,0,0,0.25), -3px 2px 1px 1px rgba(0,0,0,0.25)",
-                                padding: "10px",
-                              }}
                               open={open}
                               anchorEl={anchor}
+                              className='popper'
                             >
                               <div className='option-popper-title'>
                                 <Typography variant='h5'  >  The Reason for wrong answer </Typography>
