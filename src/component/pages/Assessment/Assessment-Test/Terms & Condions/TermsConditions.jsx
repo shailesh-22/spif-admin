@@ -22,16 +22,16 @@ const TermsConditions = () => {
       <div>
         <Header3/>
       </div>
-      <div className='terms_condition' style={{marginTop:"62px"}}>
+      <div className='terms_condition' style={{marginTop:"70px"}}>
         <div className='test-rules'>
-          <h2>Welcome To Our Online Assesment</h2>
+          <h3>Welcome To Our Online Assesment</h3>
 
-          <h4>This Test will contains 10 questions.</h4>
-        <Paper elevation={16}>
+          <h5>This Test will contains 10 questions.</h5>
+        <Paper elevation={20}>
           <div className='test-rule-list'>
             
 
-            <h4>Rules:</h4>
+            <h5>Rules:</h5>
 
             <ol>
                 <li>Every Questions gives you some points</li>
@@ -44,7 +44,7 @@ const TermsConditions = () => {
                 <li>Revie button shos the Answered and Not Answered Question</li>
             </ol>
 
-            <h2>All the Best!!</h2>
+            <h3>All the Best!!</h3>
 
             <div className='tc-btn'>
               <Link to='/assessment-test'>

@@ -21,22 +21,25 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
 
     let handleAnswer = (event) => {
         setChecked(event.target.checked)
+        setAnswer(event.checked.target)
     }
 
 
-    let [textField, setTextField] = useState([{ text:"", isAnswer:checked  , isPrompt:"", value: 0 }])
-
+    
     // let [ sStatementID ] = useState("");
     let [sDescription, setDescription] = useState("");
-    let [sText] = useState(null);
+    let [text, setText] = useState("");
+    let [isAnswer, setAnswer] = useState(false);
+    let [isPrompt, setPrompt] = useState("");
+    let [textField, setTextField] = useState([{ text, isAnswer, isPrompt, value: 0 }])
     let [sImage] = useState(null);
     let [sVideo] = useState(null);
-    let [sOptions] = useState([textField]);
+    let [sOptions] = useState(textField);
     let [sMedia] = useState(null)
 
     let handleSubmit = () => {
 
-        let newStatement = { sDescription, sMedia , sText, sImage, sVideo, sOptions };
+        let newStatement = { sDescription, sMedia , sImage, sVideo, sOptions };
 
         console.log(newStatement);
 
@@ -66,20 +69,20 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
 
     //---------------------------------------------------------------
     
-    const handleChange = (e,i) => {
-        const { optionName, value } = e.target ;
-        const list = [ ...textField ]
-        list[i][optionName] = value ;
-        setTextField(list)
-        console.log(list);
+    // const handleChange = (e,i) => {
+    //     const { optionName, value } = e.target ;
+    //     const list = [ ...textField ]
+    //     list[i][optionName] = value ;
+    //     setTextField(list)
+    //     console.log(list);
         
-        // const inputData = [...textField];
-        // inputData[i] = onChangeValue.target.value;
-        // setTextField(inputData)
-    }
+    //     // const inputData = [...textField];
+    //     // inputData[i] = onChangeValue.target.value;
+    //     // setTextField(inputData)
+    // }
 
     const handleAdd = () => {
-        setTextField( [ ...textField, { text:'', isAnswer:checked  , isPrompt:''} ] );
+        setTextField( [ ...textField, { text, isAnswer, isPrompt, value: 0 } ] );
        
     }
 
@@ -130,9 +133,9 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
                                             <TextareaAutosize
                                                 maxRows={4}
                                                 aria-label="maximum height"
-                                                defaultValue={data}
+                                                value={text}
                                                 style={{ width: '100%', fontSize: 17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
-                                                onChange={ (e)=>{ handleChange( e,i ) } }
+                                                onChange={(e) => { setText(e.target.value) }}
                                             />
                                         </TableCell>
                                         <TableCell align="center" style={{ fontSize: 17 }}>
@@ -148,9 +151,9 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
                                             <TextareaAutosize
                                                 maxRows={4}
                                                 aria-label="maximum height"
-                                                defaultValue={data}
+                                                value={ isPrompt }
                                                 style={{ width: '100%', fontSize: 17, padding: "10px", outline: "none", border: "1px solid rgba(55, 59, 59, 0.2)", borderRadius: "5px" }}
-                                                onChange={ (e)=>{ handleChange( e,i ) } }
+                                                onChange={(e) => { setPrompt(e.target.value) }}
                                             />
 
                                         </TableCell>
