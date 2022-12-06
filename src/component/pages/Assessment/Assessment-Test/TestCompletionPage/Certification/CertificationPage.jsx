@@ -23,7 +23,7 @@ const CertificationPage = () => {
                 <div className='certificate-body'>
                     <div className='certificate'>
                         <figure>
-                            <img id='certificate' width='100%' height="700px" src="Creative Photography Participation Certificate Template-1.jpeg" alt="avatar" />
+                            <img id='certificate' width='100%' height="500vh" src="Creative Photography Participation Certificate Template-1.jpeg" alt="avatar" />
                         </figure>
                     </div>
                     <div className='certificate-btn'>

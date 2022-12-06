@@ -10,7 +10,7 @@ const TestResult = () => {
       <div className="card test-card" >
         <div className="card-body">
           <div className='card-header'>
-            <h3> Test Has Been Completed Successfully </h3>
+            <h5> Test Has Been Completed Successfully </h5>
           </div>
           <div className='card-result'>
             <p className="card-text"> Correct Anwsers : 12 </p>
@@ -20,7 +20,7 @@ const TestResult = () => {
           </div>
           <hr />
           <div className='card-feedback'>
-            <h4>Feedback</h4>
+            <h6>Feedback</h6>
             <p>You've experienced how clean and professional your tests will look with SPIF </p>
           </div>
           <hr />
