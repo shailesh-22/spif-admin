@@ -167,7 +167,7 @@ const Tabs = ({ questions }) => {
       });
       swal({
         title: "Done!",
-        text: `Deleted Successfully`,
+        text: `Added Successfully`,
         icon: "success",
         button: "Ok",
       });

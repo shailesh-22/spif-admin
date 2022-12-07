@@ -150,10 +150,10 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
                               className='popper'
                             >
                               <div className='option-popper-title'>
-                                <Typography variant='h5'  >  The Reason for wrong answer </Typography>
+                                <Typography >  The Reason for wrong answer </Typography>
                               </div>
                               <hr />
-                              <Typography variant='h6' className='option-popper' > {option.isPrompt} </Typography>
+                              <Typography className='option-popper' > {option.isPrompt} </Typography>
                                 <div className='popper-btn'>
 
                                   <button onClick={handleClose} className="btn btn-primary" >OK</button>
