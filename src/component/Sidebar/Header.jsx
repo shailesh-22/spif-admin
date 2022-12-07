@@ -47,13 +47,20 @@ const Header = () => {
           <MenuIcon style={{color:"white"}}/>
           </div>
       </li>
-      {/* <li className=" nav-item d-flex align-item-center ">
-        
-            <img src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png" alt="logo" width={105}  />
-      
-      </li> */}
+     
     </ul>
-   
+
+    {/* <div
+            className="nav-link" id="logo"
+            style={{ marginBottom: "0px"}}
+          >
+       <img
+              src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png"
+              alt="logo"
+              style={{ width: "150px",borderRadius:"15px"}}
+            />
+          </div> 
+    */}
     {/* Right navbar links */}
     <ul className="navbar-nav ml-auto">
       
