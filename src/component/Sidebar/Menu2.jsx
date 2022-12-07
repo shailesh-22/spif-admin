@@ -43,11 +43,11 @@ const Menu2 = () => {
             className="nav-link" id="logo"
             style={{ marginBottom: "0px"}}
           >
-       <img
+      <p> <img
               src="https://www.spif.in/wp-content/uploads/2021/08/new-logo3.png"
               alt="logo"
               style={{ width: "138px" }}
-            />
+            /></p>
           </div> 
           </li>
         </Link>     

@@ -16,9 +16,21 @@ import { Switch, FormControlLabel } from '@mui/material'
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
+import FormDialog from './Dialog'
 
 
 const Tabs = ({ questions }) => {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+    localStorage.getItem("items")
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
 
   // const api_url = `http://localhost:3004/questions/`;
@@ -77,6 +89,7 @@ const Tabs = ({ questions }) => {
     const inputData = [...textField];
     inputData[i] = onChangeValue.target.value;
     setTextField(inputData);
+    localStorage.setItem("onChangeValue", onChangeValue.target.value)
   };
 
   //   const handleDelete = (i) => {
@@ -105,9 +118,11 @@ const Tabs = ({ questions }) => {
     setList(reorder(list, sourceIndex, destinationIndex));
   };
 
+ 
+
   const handleUpdate = () => {
 
-    // const updateValue = [...textField]
+    // const updateValue = {sDescription}
 
     // const getitem = localStorage.getItem("items");
 
@@ -117,7 +132,7 @@ const Tabs = ({ questions }) => {
     //     Accept: "application/json",
     //     "Content-Type": "application/json",
     //   },
-    //   body: JSON.stringify(...textField),
+    //   body: JSON.stringify(  ),
     // }).then(() => {
     //   history.push("/admin-statement");
     // });
@@ -153,7 +168,11 @@ const Tabs = ({ questions }) => {
 
       let handleDeleteHole = async () => {
 
-      const getitem = localStorage.getItem("items");
+      const confirm = window.confirm("Are you sure, you want to delete this Statement?")
+      console.log(confirm)
+       if (confirm) 
+       {
+        const getitem = localStorage.getItem("items");
     
       fetch(`http://103.160.153.38:8020/limens/statements_view/${getitem}/`, {
         method: "DELETE",
@@ -162,7 +181,7 @@ const Tabs = ({ questions }) => {
           "Content-Type": "application/json",
         },
       }).then(() => {
-        history.push("/dashboard");
+        window.location.reload();
         
       });
       swal({
@@ -173,6 +192,8 @@ const Tabs = ({ questions }) => {
       });
        console.log(getitem);
       localStorage.removeItem("items");
+       }
+      
     };
   
   // const handleDeleteHole = async (id) => {
@@ -261,6 +282,7 @@ const Tabs = ({ questions }) => {
                       border: "1px solid rgba(55, 59, 59, 0.2)",
                       borderRadius: "5px",
                     }}
+                    
                   />
                 </div>
                 <hr />
@@ -276,7 +298,7 @@ const Tabs = ({ questions }) => {
                               sx={{ fontSize: 20, color: "#007A3E" }}
                             >
                               {" "}
-                              Options{" "}
+                              Options{""}
                             </TableCell>
                             <TableCell
                               align="center"
@@ -457,19 +479,20 @@ const Tabs = ({ questions }) => {
                 <div className="tab-body-btns">
                   <button
                     className="btn btn-primary"
-                    onClick={() => {
-                      handleUpdate();
-                    }}
+                    // onClick={() => {
+                    //   handleUpdate();
+                    // }}
+                    onClick={()=> {handleClickOpen()}}
                   >
                     UPDATE
                   </button>
                   <button
-                    className="btn btn-primary"
+                    className="btn btn-danger"
                     onClick={() => {
                       handleDeleteHole();
                     }}
                   >
-                    DELELTE
+                    DELETE
                   </button>
                 </div>
               </div>
@@ -477,6 +500,7 @@ const Tabs = ({ questions }) => {
           </div>
         ))}
       </div>
+      <FormDialog open={open} handleClose={handleClose} previousQuestion={(questions)}/> 
     </div>
   );
 };
