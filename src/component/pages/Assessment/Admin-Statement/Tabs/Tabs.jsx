@@ -21,6 +21,11 @@ import swal from "sweetalert";
 const Tabs = ({ questions }) => {
 
 
+
+
+
+
+
   // const api_url = `http://localhost:3004/questions/`;
 
   // const deleteQuestion = async (id) => {
@@ -77,6 +82,7 @@ const Tabs = ({ questions }) => {
     const inputData = [...textField];
     inputData[i] = onChangeValue.target.value;
     setTextField(inputData);
+    localStorage.setItem("onChangeValue", onChangeValue.target.value)
   };
 
   //   const handleDelete = (i) => {
@@ -105,9 +111,13 @@ const Tabs = ({ questions }) => {
     setList(reorder(list, sourceIndex, destinationIndex));
   };
 
+ 
+
   const handleUpdate = () => {
 
-    // const updateValue = [...textField]
+
+
+    // const updateValue = {sDescription}
 
     // const getitem = localStorage.getItem("items");
 
@@ -117,7 +127,7 @@ const Tabs = ({ questions }) => {
     //     Accept: "application/json",
     //     "Content-Type": "application/json",
     //   },
-    //   body: JSON.stringify(...textField),
+    //   body: JSON.stringify(  ),
     // }).then(() => {
     //   history.push("/admin-statement");
     // });
@@ -162,7 +172,7 @@ const Tabs = ({ questions }) => {
           "Content-Type": "application/json",
         },
       }).then(() => {
-        history.push("/dashboard");
+        window.location.reload();
         
       });
       swal({
@@ -261,6 +271,7 @@ const Tabs = ({ questions }) => {
                       border: "1px solid rgba(55, 59, 59, 0.2)",
                       borderRadius: "5px",
                     }}
+                    
                   />
                 </div>
                 <hr />
