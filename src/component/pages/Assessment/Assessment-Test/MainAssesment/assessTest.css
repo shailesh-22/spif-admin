@@ -54,7 +54,6 @@
 
 .question h3{
     margin: 15px 0;
-    text-align: center;
     width: 98.5vw;
     font-size: 25px;
 }
@@ -144,10 +143,13 @@
 .popper{
     background-color: white;
     box-shadow: 3px 2px 1px 1px rgba(0,0,0,0.25), -3px 2px 1px 1px rgba(0,0,0,0.25) ;
-    width: 600px;
+    width: 400px;
     color: black;
     padding: 20px;
     border-radius: 10px;
+}
+.option-popper{
+    font-size: 15px;
 }
 @media ( max-width:614px ) {
     .question{

@@ -12,6 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Switch, FormControlLabel } from '@mui/material'
 import { useHistory } from 'react-router-dom';
+import swal from 'sweetalert'
 
 const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
 
@@ -56,7 +57,13 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
             },
             body: JSON.stringify(newStatement),
         }).then(() => {
-            history.push("/admin-statement");
+            swal({
+                title: "Done!",
+                text: `Added Successfully`,
+                icon: "success",
+                button: "Ok",
+              });
+            window.location.reload();
         })
         //}
         // else{
@@ -82,11 +89,8 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
     // }
 
     const handleAdd = () => {
-        setTextField( [ ...textField, { text, isAnswer, isPrompt, value: 0 } ] );
-       
+        setTextField( [ ...textField, { text, isAnswer, isPrompt, value: 0 } ] );       
     }
-
-   
 
     const handleDelete = (i) => {
         const delVal = [...textField];
@@ -111,7 +115,7 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
             </div>
             <hr />
             <div>
-                <h5> Option Details </h5>
+                <h5> Option Details { text } { isAnswer } { isPrompt } </h5>
                 <TableContainer component={Paper}>
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead >

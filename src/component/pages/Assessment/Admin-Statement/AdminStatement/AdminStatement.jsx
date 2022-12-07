@@ -34,8 +34,8 @@ const AdminStatement = () => {
   if (!questions)
     return (
       <CircularProgress
-        size="5rem"
-        style={{ display: "flex", margin: "auto" }}
+        size="7rem"
+        style={{ display: "flex", margin: "auto", height:"98.5vh" }}
       />
     );
 
