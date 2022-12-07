@@ -24,7 +24,7 @@
     color: aliceblue;
     padding: 10px 0;
     text-align: center;
-    font-weight: bolder;
+    /* font-weight: bolder; */
     width: 75%;
     margin: auto;
     border-bottom-left-radius: 20px;
@@ -56,6 +56,8 @@
     margin: 15px 0;
     width: 98.5vw;
     font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
 }
 .question-options{
     display: flex;
@@ -86,14 +88,13 @@
     box-shadow: 3px 3px 5px 4px rgba(153,137,153,1);
     min-height: 90.5vh;
     position: relative;
-    font-family: 'Inter Tight', sans-serif;
-    font-weight: 100;
 }
 .question-label{
-    opacity: 0.7;
     width: auto;
+    font-weight: lighter;
     font-size: 20px;
     margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .question-form{
     width: auto;
@@ -136,6 +137,11 @@
     text-transform: uppercase;
     margin: 10px;
     color: #448ACA;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.timer h4{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 .quesInfo h4{
     font-size: 20px;
@@ -150,8 +156,9 @@
 }
 .option-popper{
     font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-@media ( max-width:614px ) {
+@media ( max-width:700px ) {
     .question{
         width: 100%;
         border: none;
@@ -187,9 +194,13 @@
     .popper{
         background-color: white;
         box-shadow: 3px 2px 1px 1px rgba(0,0,0,0.25), -3px 2px 1px 1px rgba(0,0,0,0.25) ;
-        width: 200px;
+        width: 300px;
         color: black;
         padding: 20px;
         border-radius: 10px;
     }
-}
+    .option-popper{
+        font-size: 2px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+}    

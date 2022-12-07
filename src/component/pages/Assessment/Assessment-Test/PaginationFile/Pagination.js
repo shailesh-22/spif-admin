@@ -15,8 +15,9 @@ const Pagination = ( {questionPerPage, totalQuestions, setCurrentPage, currentPa
   return (
         <div className='pagination'>
             
-            { currentPage === pageNumber[0] ? null :
-                <button id='previous-btn' onClick={( ()=>{ setCurrentPage(currentPage-1); })}  >
+            { 
+                // currentPage === pageNumber[0] ? null :
+                <button id='previous-btn' onClick={( ()=>{ setCurrentPage(currentPage-1); })} disabled={ currentPage === pageNumber[0] }  >
                     Previous
                 </button>
             }
@@ -30,8 +31,9 @@ const Pagination = ( {questionPerPage, totalQuestions, setCurrentPage, currentPa
                     
                 ))
             } */}
-            { currentPage === pageNumber.length? null :
-                <button id='next-btn' onClick={( ()=>{ setCurrentPage(currentPage+1) })} >
+            { 
+                // currentPage === pageNumber.length? null :
+                <button id='next-btn' onClick={( ()=>{ setCurrentPage(currentPage+1) })} disabled={ currentPage === pageNumber.length } >
                     Next
                 </button>
             }

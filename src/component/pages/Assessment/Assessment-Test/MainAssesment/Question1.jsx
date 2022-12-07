@@ -4,10 +4,18 @@ import { Link } from 'react-router-dom'
 import { Box, Popper, Typography } from '@mui/material'
 import QuestionHeader from './QuestionHeader';
 import Timer from './Timer';
+import CircularProgress from "@mui/material/CircularProgress";
 import './Question1.css'
 
 
-const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQuestions }) => {
+const Question1 = ({ questions, loading, questionPerPage, currentPage, setCurrentPage, indeOfFirstQues, totalQuestions }) => {
+
+  const pageNumber = [];
+
+    for (let i = 1; i <= Math.ceil(totalQuestions/questionPerPage); i++) 
+    {
+        pageNumber.push(i);       
+    }
 
   const [answers, setAnswers] = useState("");
 
@@ -32,7 +40,10 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
 
 
   if (loading) {
-    return <h2>Loading...</h2>
+    return <CircularProgress
+    size="7rem"
+    style={{ display: "flex", margin: "auto", height:"98.5vh" }}
+    />
   }
 
   return (
@@ -136,7 +147,6 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
                               />
                               {option.text}
                             </label>
-
                             {/* <Box>
                               { option.isPrompt }
                             </Box> */}
@@ -147,7 +157,7 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
                             <Popper
                               open={open}
                               anchorEl={anchor}
-                              className='popper'
+                              className='popper'                              
                             >
                               <div className='option-popper-title'>
                                 <Typography >  The Reason for wrong answer </Typography>
@@ -159,6 +169,7 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
                                   <button onClick={handleClose} className="btn btn-primary" >OK</button>
 
                                 </div>
+
                             </Popper>
                           </div>
                         )
@@ -169,13 +180,34 @@ const Question1 = ({ questions, loading, currentPage, indeOfFirstQues, totalQues
               )
             })
           }
+          {/* <div className='pagination'>
+            
+            { currentPage === pageNumber[0] ? null :
+                <button id='previous-btn' onClick={( ()=>{ setCurrentPage(currentPage-1); })}  >
+                    Previous
+                </button>
+            }
+            {/* {
+                pageNumber.map((number,index)=>(
+                    <div>
+                        <button key={index} onClick={()=> setCurrentPage(number)} className={ number == currentPage ? 'active' : ''} >
+                            {number}
+                        </button>
+                    </div>
+                    
+                ))
+            } */}
+            {/* { currentPage === pageNumber.length? null :
+                <button id='next-btn' onClick={( ()=>{ setCurrentPage(currentPage+1) })} >
+                    Next
+                </button>
+            }
+        </div> */}
 
-          {
-
-            <Link to='/test-result'>
-              <button type="submit" class="btn btn-primary">Submit Test</button>
-            </Link>
-
+          { currentPage === pageNumber.length? 
+              (<Link to='/test-result'>
+                <button type="submit" class="btn btn-primary">Submit Test</button>
+              </Link>) : null
           }
         </form>
       </div>

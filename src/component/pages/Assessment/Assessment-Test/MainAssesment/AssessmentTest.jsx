@@ -42,7 +42,7 @@ const AssessmentTest = () => {
           setLoading(false)
         } )
 
-    },[]);
+    },[questionPerPage]);
 
 
   if(!questions) return <CircularProgress size="10rem" style={{ display:"flex", margin:"auto", height:"98.5vh" }}/>
@@ -70,8 +70,10 @@ const AssessmentTest = () => {
             questions={currentQueston} 
             loading={loading} 
             currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
             indeOfFirstQues={ indeOfFirstQues }
             totalQuestions={questions.length}
+            questionPerPage={questionPerPage}
           />
 
           <Pagination
