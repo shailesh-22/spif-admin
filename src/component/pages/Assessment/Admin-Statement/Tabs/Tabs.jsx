@@ -25,7 +25,6 @@ const Tabs = ({ questions }) => {
 
   const handleClickOpen = () => {
     setOpen(true);
-    localStorage.getItem("items")
   };
 
   const handleClose = () => {
@@ -62,11 +61,6 @@ const Tabs = ({ questions }) => {
   let handleTabClick = (e) => {
 
     setCurrentTab(e.target.id);
- 
- let selectedId =  e.target.id
-
-     console.log(selectedId);
-
     localStorage.setItem("items", e.target.id);
 
   };
@@ -120,7 +114,7 @@ const Tabs = ({ questions }) => {
 
  
 
-  const handleUpdate = () => {
+  // const handleUpdate = () => {
 
     // const updateValue = {sDescription}
 
@@ -138,8 +132,8 @@ const Tabs = ({ questions }) => {
     // });
     
     // localStorage.removeItem("items");
-       console.log();
-  };
+  //      console.log();
+  // };
      
 
   // let handleDeleteHole = async () => {
@@ -186,13 +180,13 @@ const Tabs = ({ questions }) => {
       });
       swal({
         title: "Done!",
-        text: `Added Successfully`,
+        text: `Deleted Successfully`,
         icon: "success",
         button: "Ok",
       });
        console.log(getitem);
       localStorage.removeItem("items");
-       }
+    }
       
     };
   
