@@ -19,7 +19,7 @@ const Login = () => {
             const url = "http://103.160.153.38:8020/accounts/auth/";
             
             const { data: res } = await axios.post(url, data);
-            localStorage.setItem("token", JSON.stringify(res.data));
+            localStorage.setItem("token", JSON.stringify(res));
             swal({
                 title: "Done!",
                 text: "Login Successfull !",
