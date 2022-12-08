@@ -122,8 +122,7 @@ function App() {
 
     </Switch>
 
-        {/* <Dashboard/>
-        <Footer/> */}
+       
 
       </div>
     </Router>

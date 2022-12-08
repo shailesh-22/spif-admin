@@ -10,16 +10,15 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import useFetch from '../../Custom Hook/useFetch';
 
-export default function AlertDialog({open,handleClose}) {
+export default function AlertDialog({previousQuestion,open,handleClose}) {
 
-  const getValue = localStorage.getItem("items")
 
   // let{ questions: data } = useFetch(`http://103.160.153.38:8020/limens/statements_view/${getValue}/`)
 
  
 
-  const [sDescription, setsDescription] = useState(getValue.sDescription);
-  const [sOptions, setsOptions] = useState(getValue.sOptions);
+  const [sDescription, setsDescription] = useState(previousQuestion.sDescription);
+  const [sOptions, setsOptions] = useState(previousQuestion.sOptions);
 
 
   let history = useHistory();
@@ -65,7 +64,6 @@ export default function AlertDialog({open,handleClose}) {
   }
   return (
     <div>
-     
       <Dialog
         open={open}
         onClose={handleClose}
