@@ -82,11 +82,11 @@ const Register3 = () => {
         User Profile Details
       </Typography>
       <Card
-        style={{ maxWidth: 1000, margin: "0 auto", padding: "0 auto" }}
-        elevation={16}
+        style={{ maxWidth:1000, margin: "0 auto", padding: "0 auto",backgroundColor:"#DCEEF1"}}
+        elevation={10}
       >
         <CardContent>
-          <Typography gutterbutton variant="h5">
+          <Typography gutterbutton variant="h6">
             Fill out your Basic details
           </Typography>
           <form>
