@@ -187,7 +187,7 @@ const Tabs = ({ questions }) => {
        console.log(getitem);
       localStorage.removeItem("items");
     }
-      
+     
     };
   
   // const handleDeleteHole = async (id) => {
