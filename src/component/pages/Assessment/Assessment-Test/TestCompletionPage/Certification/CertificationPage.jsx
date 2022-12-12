@@ -13,7 +13,7 @@ const CertificationPage = () => {
     //    Then have to import "saveAs" funtion from file-saver
 
     const downloadImage = () => {
-        saveAs('image_url', 'Creative Photography Participation Certificate Template-1.jpeg'); // Put your image url here.
+        saveAs('image_url', 'Creative Photography Participation Certificate Template-1.jpeg'); // Display your image url here.
         navigate.push('/dashboard')
     }
 

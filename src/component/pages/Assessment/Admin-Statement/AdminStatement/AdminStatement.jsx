@@ -18,7 +18,7 @@ const AdminStatement = () => {
 
   const [openQA, setOpenQA] = useState(true);
 
-  const [title, setTitle] = useState("Statement Manager");
+  const [title, setTitle] = useState("Statement");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -48,11 +48,6 @@ const AdminStatement = () => {
 
       <div className="content-wrapper admin-statement p-4">
         <div className="row">
-          <div className="header p-3">
-            <h1 style={{ fontWeight: "bolder", letterSpacing: "1px" }}>
-              STATEMENTS
-            </h1>
-          </div>
           <div className=" p-3 question-container">
             <div className="adding-part">
               <h3
