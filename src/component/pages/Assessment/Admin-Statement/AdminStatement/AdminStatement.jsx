@@ -73,7 +73,7 @@ const AdminStatement = () => {
                   }}
                   onClick={handleClickOpen}
                 >
-                  ADD SLIDES
+                  ADD SLIDE
                 </Button>
               )}
             </div>
