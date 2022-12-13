@@ -11,7 +11,6 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useHistory } from "react-router-dom";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormLabel from "@mui/material/FormLabel";
@@ -20,13 +19,21 @@ import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl";
-import swal from "sweetalert";
-import Header3 from "../Sidebar/Header3";
 
+import Header3 from "../Sidebar/Header3";
+import FormDialog from './Dialog'
 
 const Register3 = () => {
   
-  const history = useHistory();
+  const [open, setOpen] = React.useState(false);
+
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const validationSchema = Yup.object().shape({
     // acceptTerms: Yup.bool().oneOf([true], "Accept Terms is required"),
@@ -35,13 +42,16 @@ const Register3 = () => {
     state: Yup.string().required("State name is required"),
     country: Yup.string().required("Country name is required"),
     pincode: Yup.number().typeError("Pincode is required"),
-    
+    profession: Yup.string().required("Profession is required"),
+    date_of_birth: Yup.date().required("Date of birth is required"),
+    gender:Yup.string().required("gender is required"),
     number: Yup.number()
       .typeError("number is required")
       .min(10, "minimum value 10."),
     email: Yup.string().required("Email is required").email("Email is invalid"),
     lastName: Yup.string().required("Last name is required"),
     firstName: Yup.string().required("First name is required"),
+
   });
 
   const {
@@ -56,13 +66,8 @@ const Register3 = () => {
   const onSubmit = (data) => {
 
     console.log(JSON.stringify(data, null, 2));
-      swal({
-        title: "Done!",
-        text: "Profile created successfully!",
-        icon: "success",
-        button: "Ok",
-      });
-      history.push("/terms_conditions");  
+    setOpen(true);  
+     
   };
   const reset = { margin: "20px 5px", background: "#00AD53", color: "white",};
   const submit = { background: "#346BFF", color: "white", margin: "20px 5px" };
@@ -178,6 +183,10 @@ const Register3 = () => {
                       control={control}
                       inputRef={register()}
                       name="gender"
+                      required
+                     id="gender"
+                      {...register("gender")}
+                  error={errors.gender ? true : false}
                       render={({ field: { onChange } }) => ( 
                        <RadioGroup
                         row
@@ -201,7 +210,11 @@ const Register3 = () => {
                           control={<Radio />}
                           label="Other"
                         />
-                      </RadioGroup>  
+                          <Typography variant="inherit" color="textSecondary">
+                  {errors.gender?.message}
+                </Typography>
+                      </RadioGroup> 
+                       
                       )}
                     />
 
@@ -215,6 +228,8 @@ const Register3 = () => {
                 <Controller
                       control={control}
                        name="date_of_birth"
+                       {...register("date_of_birth")}
+                       error={errors.date_of_birth ? true : false}
                      
                       inputRef={register()}
                       render={({ field: { onChange } }) => (
@@ -234,7 +249,10 @@ const Register3 = () => {
                       />
                       )}
                     />
-
+                     
+                     <Typography variant="inherit" color="textSecondary">
+                  {errors.date_of_birth?.message}
+                </Typography>
 
        
                 </Stack>
@@ -250,6 +268,8 @@ const Register3 = () => {
                       control={control}
                       name="profession"
                       defaultValue=""
+                      {...register("profession")}
+                      error={errors.profession ? true : false}
                       inputRef={register()}
                       render={({ field: { onChange } }) => (
                          
@@ -263,10 +283,14 @@ const Register3 = () => {
                     <MenuItem value="Student">Student</MenuItem>
                     <MenuItem value="Parent">Parent</MenuItem>
                     <MenuItem value="Others">Others</MenuItem>
-                  </Select>     
+                  </Select> 
+                      
                       )}
                     />
-                  
+                  <Typography variant="inherit" color="textSecondary">
+                  {errors.profession?.message}
+                </Typography>
+
                 </FormControl>
               </Grid>
             </Grid>
@@ -412,6 +436,7 @@ const Register3 = () => {
                   variant="contained"
                   color="primary"
                   style={submit}
+                  // onClick={()=> {handleClickOpen()}}
                   onClick={handleSubmit(onSubmit)}
                 >
                   Submit
@@ -422,6 +447,7 @@ const Register3 = () => {
         </CardContent>
       </Card>
     </div>
+    <FormDialog open={open} handleClose={handleClose}/> 
     </div>
   );
 };
