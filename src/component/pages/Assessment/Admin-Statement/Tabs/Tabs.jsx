@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useState } from "react";
 import "./tabs.css";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
@@ -13,23 +12,14 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Switch, FormControlLabel } from '@mui/material'
-import { useHistory, useParams } from "react-router-dom";
-import axios from "axios";
+// import { useHistory, useParams } from "react-router-dom";
+// import axios from "axios";
 import swal from "sweetalert";
-import FormDialog from './Dialog'
+
 
 
 const Tabs = ({ questions }) => {
 
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
 
   // const api_url = `http://localhost:3004/questions/`;
@@ -42,7 +32,7 @@ const Tabs = ({ questions }) => {
   //   }
   // };
 
-  const history = useHistory();
+  // const history = useHistory();
 
   let [currentTab, setCurrentTab] = useState("1");
 
@@ -475,8 +465,8 @@ const Tabs = ({ questions }) => {
                     className="btn btn-primary"
                     // onClick={() => {
                     //   handleUpdate();
-                    // }}
-                    onClick={()=> {handleClickOpen()}}
+                    // }
+                   
                   >
                     UPDATE
                   </button>
@@ -494,7 +484,7 @@ const Tabs = ({ questions }) => {
           </div>
         ))}
       </div>
-      <FormDialog open={open} handleClose={handleClose} previousQuestion={(questions)}/> 
+   
     </div>
   );
 };

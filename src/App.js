@@ -18,6 +18,7 @@ import TestResult from './component/pages/Assessment/Assessment-Test/TestComplet
 import AssessmentTest from './component/pages/Assessment/Assessment-Test/MainAssesment/AssessmentTest'
 import TermsConditions from './component/pages/Assessment/Assessment-Test/Terms & Condions/TermsConditions'
 import CertificationPage from './component/pages/Assessment/Assessment-Test/TestCompletionPage/Certification/CertificationPage'
+import Drawers from './component/Sidebar/Drawers';
 
 
 
@@ -103,6 +104,10 @@ function App() {
 
           <Route path="/certification-page">
             <CertificationPage/>
+          </Route>
+
+          <Route>
+            <Drawers/>
           </Route>
 
           

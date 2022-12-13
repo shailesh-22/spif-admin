@@ -15,7 +15,7 @@ import { useHistory } from "react-router-dom";
 import { Formik } from 'formik';
 // import { ClassNames } from '@emotion/react';
 import swal from 'sweetalert';
-import '../Registration/register.css'
+
 
 import { addUser } from './api'
 import Header3 from '../Sidebar/Header3';
