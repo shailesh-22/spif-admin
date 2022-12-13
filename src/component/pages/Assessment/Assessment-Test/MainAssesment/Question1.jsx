@@ -162,13 +162,16 @@ const Question1 = ({ questions, loading, questionPerPage, currentPage, setCurren
                               <div className='option-popper-title'>
                                 <Typography >  The Reason for wrong answer </Typography>
                               </div>
+
                               <hr />
+
                               <Typography className='option-popper' > {option.isPrompt} </Typography>
-                                <div className='popper-btn'>
 
-                                  <button onClick={handleClose} className="btn btn-primary" >OK</button>
+                              <div className='popper-btn'>
 
-                                </div>
+                                <button onClick={handleClose} className="btn btn-primary" >OK</button>
+
+                              </div>
 
                             </Popper>
                           </div>
@@ -203,7 +206,7 @@ const Question1 = ({ questions, loading, questionPerPage, currentPage, setCurren
                 </button>
             }
         </div> */}
-
+        
           { currentPage === pageNumber.length? 
               (<Link to='/test-result'>
                 <button type="submit" class="btn btn-primary">Submit Test</button>
