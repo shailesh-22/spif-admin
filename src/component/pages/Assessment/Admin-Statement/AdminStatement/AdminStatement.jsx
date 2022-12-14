@@ -35,7 +35,7 @@ const AdminStatement = () => {
     return (
       <CircularProgress
         size="7rem"
-        style={{ display: "flex", margin: "auto", height:"98.5vh" }}
+        style={{ display: "flex", margin: "auto", height: "98.5vh" }}
       />
     );
 
@@ -43,10 +43,10 @@ const AdminStatement = () => {
     <div>
       <div className="admin_sidebar">
         <Header />
-        <Menu2 className="menu"/>
+        <Menu2 className="menu" />
       </div>
 
-      <div className="content-wrapper admin-statement p-4">
+      <div className="content-wrapper admin-statement px-4">
         <div className="row">
           <div className=" p-3 question-container">
             <div className="adding-part">
@@ -60,22 +60,42 @@ const AdminStatement = () => {
                 {title}
               </h3>
 
-              {openQA && (
-                <Button
-                  style={{
-                    width: "250px",
-                    height: "40px",
-                    backgroundColor: "#346BFF",
-                    color: "white",
-                    fontWeight: "800",
-                    letterSpacing: "1px",
-                    fontSize: "17px",
-                  }}
-                  onClick={handleClickOpen}
-                >
-                  ADD SLIDE
-                </Button>
-              )}
+              <div className="button-part">
+
+                {openQA && (
+                  <Button
+                    style={{
+                      width: "250px",
+                      height: "40px",
+                      // backgroundColor: "#346BFF",
+                      color: "#346BFF",
+                      fontWeight: "800",
+                      letterSpacing: "0.5px",
+                      fontSize: "15px",
+                    }}
+                  // onClick={handleClickOpen}
+                  >
+                    Change Slide Order &#8593; &#8595;
+                  </Button>
+                )}
+
+                {openQA && (
+                  <Button
+                    style={{
+                      width: "250px",
+                      height: "40px",
+                      backgroundColor: "#346BFF",
+                      color: "white",
+                      fontWeight: "800",
+                      letterSpacing: "1px",
+                      fontSize: "17px",
+                    }}
+                    onClick={handleClickOpen}
+                  >
+                    ADD SLIDE
+                  </Button>
+                )}
+              </div>
             </div>
 
             {/* <div>
@@ -88,7 +108,7 @@ const AdminStatement = () => {
                         </div> */}
 
             {/* <CustomPaginationActionsTable questions={questions} totalQuestions={questions.length} /> */}
-            
+
             {open && (
               <AddSLides
                 questions={questions}
@@ -97,7 +117,7 @@ const AdminStatement = () => {
                 setTitle={setTitle}
               />
             )}
-            {openQA && <AdminQuestionDetails questions={questions} />}  
+            {openQA && <AdminQuestionDetails questions={questions} />}
           </div>
         </div>
       </div>

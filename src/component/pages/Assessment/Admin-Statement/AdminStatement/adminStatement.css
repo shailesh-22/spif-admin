@@ -4,7 +4,7 @@
 }
 .admin-statement{
     background: linear-gradient(to right, rgb(240, 235, 235), rgb(247, 244, 244));
-    padding: 20px;
+    padding: 10px;
     font-family: 'Times New Roman', Times, serif;
     width: auto ;
 }
@@ -22,7 +22,7 @@
     -webkit-box-shadow: 4px 3px 7px 3px rgba(181,172,181,1);
     -moz-box-shadow: 4px 3px 7px 3px rgba(181,172,181,1);
     box-shadow: 4px 3px 7px 3px rgba(181,172,181,1);
-    margin: 20px 0;
+    margin: 5px 0;
     padding: 20px;
     gap: 30px;
 }
@@ -54,4 +54,8 @@
     padding-left: 13px !important;
     padding-right: 0px;
     display: flex !important;
+}
+.button-part{
+    display: flex;
+    justify-content: space-between;
 }
