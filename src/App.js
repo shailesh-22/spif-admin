@@ -27,6 +27,7 @@ function App() {
 
   const user = localStorage.getItem("token");
 
+
   return (
     <Router>
 
@@ -53,8 +54,8 @@ function App() {
             <Register3/>
           </Route>
 
-          <Route path="/dashboard">
-            <Dashboard/>
+        <Route path="/dashboard">
+           <Dashboard/>
           </Route>
 
           <Route path="/accounts">
@@ -74,7 +75,7 @@ function App() {
             <AdminStatement/>
           </Route>
 
-          <Route path="/dashboard">
+        <Route path="/dashboard">
             <Dashboard/>
           </Route>
 

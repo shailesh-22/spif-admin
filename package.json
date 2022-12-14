@@ -44,12 +44,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "resolve":"npx npm-force-resolutions"
+    "resolve": "npx npm-force-resolutions"
   },
-  "resolutions" :{ "nth-check": "2.0.0",
-   "sweetalert": "2.1.1",
-   "sweetalert2": "11.4.8"
-   },
+  "resolutions": {
+    "nth-check": "2.0.0",
+    "sweetalert": "2.1.1",
+    "sweetalert2": "11.4.8"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
