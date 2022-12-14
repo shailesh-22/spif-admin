@@ -45,9 +45,7 @@ const Register3 = () => {
     profession: Yup.string().required("Profession is required"),
     date_of_birth: Yup.date().required("Date of birth is required"),
     gender:Yup.string().required("gender is required"),
-    number: Yup.number()
-      .typeError("number is required")
-      .min(10, "minimum value 10."),
+    number: Yup.number().typeError("number is required").min(10, 'Min value 10.'),
     email: Yup.string().required("Email is required").email("Email is invalid"),
     lastName: Yup.string().required("Last name is required"),
     firstName: Yup.string().required("First name is required"),
@@ -80,7 +78,7 @@ const Register3 = () => {
     <div style={{marginTop:"64px"}}>
       <Typography
         gutterbutton
-        variant="h4"
+        variant="h5"
         align="center"
         style={{ background: "#62C2CF", maxWidth:"1000px", margin: "0 auto" }}
       >
@@ -91,20 +89,20 @@ const Register3 = () => {
         elevation={10}
       >
         <CardContent>
-          <Typography gutterbutton variant="h6">
+          <Typography gutterbutton variant="h7">
             Fill out your Basic details
           </Typography>
           <form>
             <Typography
               variant="body2"
               align="left"
-              style={{ padding: "20px 0px" }}
+              style={{ padding: "3px 0px 0px" }}
               gutterbutton
             >
               Personal info :
             </Typography>
             <Grid container spacing={3}>
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} sm={3}>
                 <TextField
                   required
                   id="firstName"
@@ -121,7 +119,7 @@ const Register3 = () => {
                 </Typography>
               </Grid>
 
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} sm={3}>
                 <TextField
                   required
                   id="lastName"
@@ -138,7 +136,7 @@ const Register3 = () => {
                 </Typography>
               </Grid>
 
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} sm={3}>
                 <TextField
                   required
                   id="email"
@@ -155,7 +153,7 @@ const Register3 = () => {
                 </Typography>
               </Grid>
 
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} sm={3}>
                 <TextField
                   required
                   id="number"
@@ -173,7 +171,7 @@ const Register3 = () => {
                 </Typography>
               </Grid>
 
-              <Grid xs={12} sm={4} item>
+              <Grid xs={12} sm={3} item>
                 <FormLabel id="demo-row-radio-buttons-group-label">
                   Gender
                 </FormLabel>
@@ -194,34 +192,39 @@ const Register3 = () => {
                         required
                         
                         onChange={(e) => onChange(e.target.value)}
+                        
                       >
                         <FormControlLabel
                           value="female"
-                          control={<Radio />}
+                          control={<Radio style={{}}/>}
                           label="Female"
+                          style={{marginLeft:"0px", marginRight:"0px", marginBottom:"0px", marginTop:"0px", padding:"0px"}}
                         />
                         <FormControlLabel
                           value="male"
                           control={<Radio />}
                           label="Male"
+                          style={{marginLeft:"0px", marginRight:"0px", marginBottom:"0px", marginTop:"0px", padding:"0px"}}
                         />
                         <FormControlLabel
                           value="other"
                           control={<Radio />}
                           label="Other"
+                          style={{marginLeft:"0px", marginRight:"0px", marginBottom:"0px", marginTop:"0px", padding:"0px"}}
                         />
-                          <Typography variant="inherit" color="textSecondary">
-                  {errors.gender?.message}
-                </Typography>
+                    
                       </RadioGroup> 
                        
                       )}
+                      
                     />
-
+                     <Typography variant="inherit" color="textSecondary">
+                    {errors.gender?.message}
+                </Typography>
                
               </Grid>
 
-              <Grid xs={12} sm={4} item>
+              <Grid xs={12} sm={3} item>
                 <Stack component="form" noValidate spacing={3}>
                 
 
@@ -258,7 +261,7 @@ const Register3 = () => {
                 </Stack>
               </Grid>
 
-              <Grid xs={12} sm={4} item>
+              <Grid xs={12} sm={3} item>
                 <FormControl fullWidth required variant="standard">
                   <InputLabel id="demo-simple-select-label">
                     Profession
@@ -298,13 +301,13 @@ const Register3 = () => {
             <Typography
               variant="body2"
               gutterbutton
-              style={{ padding: "30px 0px" }}
+              style={{ padding: "7px 0px 0px" }}
             >
               Address :
             </Typography>
 
-            <Grid container spacing={4}>
-              <Grid item xs={12} sm={4}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} sm={3}>
                 <TextField
                   required
                   id="street"
@@ -321,7 +324,7 @@ const Register3 = () => {
                 </Typography>
               </Grid>
 
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} sm={3}>
                 <TextField
                   required
                   id="city"
@@ -338,7 +341,7 @@ const Register3 = () => {
                 </Typography>
               </Grid>
 
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} sm={3}>
                 <TextField
                   required
                   id="state"
@@ -355,7 +358,7 @@ const Register3 = () => {
                 </Typography>
               </Grid>
 
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} sm={3}>
                 <TextField
                   required
                   id="country"
@@ -372,7 +375,7 @@ const Register3 = () => {
                 </Typography>
               </Grid>
 
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} sm={3}>
                 <TextField
                   required
                   id="pincode"
