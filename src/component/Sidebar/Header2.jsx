@@ -55,9 +55,7 @@ const Header2 = () => {
               </a>
 
             </div>
-            
-           
-
+          
           </li>
           <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" role="button">
@@ -68,11 +66,6 @@ const Header2 = () => {
         </ul>
       </nav>
     </div>
-
-
-
-
-
 
   )
 }
