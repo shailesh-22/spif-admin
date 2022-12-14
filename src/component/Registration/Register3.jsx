@@ -251,13 +251,11 @@ const Register3 = () => {
                         
                       />
                       )}
+                      
                     />
-                     
-                     <Typography variant="inherit" color="textSecondary">
+                    <Typography variant="inherit" color="textSecondary" style={{marginTop:"0px"}}>
                   {errors.date_of_birth?.message}
-                </Typography>
-
-       
+                </Typography>    
                 </Stack>
               </Grid>
 
