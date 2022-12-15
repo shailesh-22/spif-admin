@@ -44,7 +44,7 @@ const Tabs = ({ questions }) => {
     // } else {
     //     setChecked( false )
     // }
-    
+
     setChecked(event.target.checked);
   };
 
@@ -62,7 +62,7 @@ const Tabs = ({ questions }) => {
     setTextField(addOption);
   };
 
-  const handleDelete = (index,i) => {
+  const handleDelete = (index, i) => {
     const delVal = [...textField];
     delVal.splice(i, 1);
     setTextField(delVal);
@@ -102,29 +102,29 @@ const Tabs = ({ questions }) => {
     setList(reorder(list, sourceIndex, destinationIndex));
   };
 
- 
+
 
   // const handleUpdate = () => {
 
-    // const updateValue = {sDescription}
+  // const updateValue = {sDescription}
 
-    // const getitem = localStorage.getItem("items");
+  // const getitem = localStorage.getItem("items");
 
-    // fetch(`http://103.160.153.38:8020/limens/statements_view/${getitem}/`, {
-    //   method: "PUT",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(  ),
-    // }).then(() => {
-    //   history.push("/admin-statement");
-    // });
-    
-    // localStorage.removeItem("items");
+  // fetch(`http://103.160.153.38:8020/limens/statements_view/${getitem}/`, {
+  //   method: "PUT",
+  //   headers: {
+  //     Accept: "application/json",
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(  ),
+  // }).then(() => {
+  //   history.push("/admin-statement");
+  // });
+
+  // localStorage.removeItem("items");
   //      console.log();
   // };
-     
+
 
   // let handleDeleteHole = async () => {
 
@@ -138,7 +138,7 @@ const Tabs = ({ questions }) => {
   //     },
   //   }).then(() => {
   //     history.push("/dashboard");
-      
+
   //   });
   //   swal({
   //     title: "Done!",
@@ -150,14 +150,13 @@ const Tabs = ({ questions }) => {
   //   localStorage.removeItem("items");
   // };
 
-      let handleDeleteHole = async () => {
+  let handleDeleteHole = async () => {
 
-      const confirm = window.confirm("Are you sure, you want to delete this Statement?")
-      console.log(confirm)
-       if (confirm) 
-       {
-        const getitem = localStorage.getItem("items");
-    
+    const confirm = window.confirm("Are you sure, you want to delete this Statement?")
+    console.log(confirm)
+    if (confirm) {
+      const getitem = localStorage.getItem("items");
+
       fetch(`http://103.160.153.38:8020/limens/statements_view/${getitem}/`, {
         method: "DELETE",
         headers: {
@@ -166,7 +165,7 @@ const Tabs = ({ questions }) => {
         },
       }).then(() => {
         window.location.reload();
-        
+
       });
       swal({
         title: "Done!",
@@ -174,12 +173,12 @@ const Tabs = ({ questions }) => {
         icon: "success",
         button: "Ok",
       });
-       console.log(getitem);
+      console.log(getitem);
       localStorage.removeItem("items");
     }
-     
-    };
-  
+
+  };
+
   // const handleDeleteHole = async (id) => {
 
   // console.log(id);
@@ -193,7 +192,7 @@ const Tabs = ({ questions }) => {
   return (
     <div className="tabTypeQuestion">
       <div className="tab">
-        <DragDropContext onDragEnd={onEnd}>
+        {/* <DragDropContext onDragEnd={onEnd}>
           <Droppable droppableId="12345" direction="horizontal">
             {(provider, snapshot) => {
               return (
@@ -232,19 +231,24 @@ const Tabs = ({ questions }) => {
               );
             }}
           </Droppable>
-        </DragDropContext>
+        </DragDropContext> */}
 
-        {/* {
-                    questions.map((tab, i) =>
-                        <button
-                            key={i} id={tab.sStatementID}
-                            disabled={currentTab === `${tab.sStatementID}`}
-                            onClick={handleTabClick}
-                        >
-                            Slide <span> {i + 1} </span>
-                        </button>
-                    )
-                } */}
+        {
+          questions.map((tab, i) => {
+            return (
+              <div className="draggable-tab">
+                <button
+                  key={i} 
+                  id={tab.sStatementID}
+                  // disabled={currentTab === `${tab.sStatementID}`}
+                  onClick={handleTabClick}
+                >
+                  Slide <span> {i + 1} </span>
+                </button>
+              </div>
+            )
+          })
+        }
       </div>
       <div className="content">
         {questions.map((tab, i) => (
@@ -266,7 +270,7 @@ const Tabs = ({ questions }) => {
                       border: "1px solid rgba(55, 59, 59, 0.2)",
                       borderRadius: "5px",
                     }}
-                    
+
                   />
                 </div>
                 <hr />
@@ -463,10 +467,10 @@ const Tabs = ({ questions }) => {
                 <div className="tab-body-btns">
                   <button
                     className="btn btn-primary"
-                    // onClick={() => {
-                    //   handleUpdate();
-                    // }
-                   
+                  // onClick={() => {
+                  //   handleUpdate();
+                  // }
+
                   >
                     UPDATE
                   </button>
@@ -484,7 +488,7 @@ const Tabs = ({ questions }) => {
           </div>
         ))}
       </div>
-   
+
     </div>
   );
 };
