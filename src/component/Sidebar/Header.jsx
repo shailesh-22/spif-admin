@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import LogoutIcon from '@mui/icons-material/Logout'
 import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from 'react-router-dom';
 
 const settings = ['Logout'];
 
@@ -30,11 +31,14 @@ const Header = () => {
     setAnchorElUser(null);
   };
   
-       
-      const handleLogout = ()=>{
-        localStorage.removeItem("token");
-        window.location('./login');
-    }
+
+  let navigate = useNavigate();
+
+  const handleLogout = ()=>{
+    localStorage.removeItem("token");
+    window.location.reload();
+}
+
        
     return (
       <div>
@@ -44,7 +48,7 @@ const Header = () => {
       <li className="nav-item ">
         <div className="nav-link " data-widget="pushmenu" >
           {/* <i className="fas fa-bars" /> */}
-          <MenuIcon style={{color:"white"}}/>
+          <MenuIcon style={{color:"white", cursor:"pointer"}}/>
           </div>
       </li>
      

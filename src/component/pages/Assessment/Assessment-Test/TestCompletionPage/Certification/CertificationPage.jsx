@@ -1,12 +1,12 @@
 import React from 'react'
 import Tooltip from '@mui/material/Tooltip';
 import { saveAs } from 'file-saver'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './certification.css'
 
 const CertificationPage = () => {
 
-    let navigate = useHistory();
+    let navigate = useNavigate();
 
     //    To Download image ----Have to install package
     //           npm install file-saver --save
@@ -14,7 +14,7 @@ const CertificationPage = () => {
 
     const downloadImage = () => {
         saveAs('image_url', 'Creative Photography Participation Certificate Template-1.jpeg'); // Display your image url here.
-        navigate.push('/dashboard')
+        navigate('/dashboard')
     }
 
 

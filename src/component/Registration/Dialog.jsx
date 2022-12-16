@@ -5,11 +5,11 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { TextField } from '@mui/material';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import swal from "sweetalert";
 export default function AlertDialog({open,handleClose}) {
 
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const hamdleUpdate = ()=> {
     
@@ -19,7 +19,7 @@ export default function AlertDialog({open,handleClose}) {
       icon: "success",
       button: "Ok",
     });
-    history.push('/terms_conditions')
+    navigate('/terms_conditions')
   
   }
   return (
@@ -35,9 +35,8 @@ export default function AlertDialog({open,handleClose}) {
         </DialogTitle>
         <DialogContent>
          <form >
-            <div style={{ textAlign:"center"}} >
-               <TextField  type="number" /> 
-           
+            <div style={{ textAlign:"center"}}>
+               <TextField  type="number" />         
             </div>
            
          </form>
