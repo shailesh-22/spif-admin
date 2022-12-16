@@ -18,7 +18,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import { useHistory, withRouter } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -69,8 +69,8 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 
 const Drawers = props => {
-    // const { history } = props;
-    const history = useHistory()
+    // const { navigate } = props;
+    const navigate = useNavigate() 
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
   
@@ -85,10 +85,11 @@ const Drawers = props => {
     const itemsList = [
       {
           text: 'Inbox',
+          onclick:()=>{navigate("/")}
       }, 
       {
           text: "Starred",
-          onClick:() => history.push('/report')
+          onClick:() => navigate('/reports')
 
       }, 
       {
@@ -204,4 +205,4 @@ const Drawers = props => {
       </Box>
     );}
 
-export default withRouter(Drawers)
+export default Drawers;

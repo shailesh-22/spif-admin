@@ -19,9 +19,7 @@ import TestResult from './component/pages/Assessment/Assessment-Test/TestComplet
 import AssessmentTest from './component/pages/Assessment/Assessment-Test/MainAssesment/AssessmentTest'
 import TermsConditions from './component/pages/Assessment/Assessment-Test/Terms & Condions/TermsConditions'
 import CertificationPage from './component/pages/Assessment/Assessment-Test/TestCompletionPage/Certification/CertificationPage'
-
-
-
+import Drawers from './component/Sidebar/Drawers';
 
 
 function App() {
@@ -48,6 +46,7 @@ function App() {
         <Route path="/test-result" element={<Protected>  <TestResult/> </Protected>} />
         <Route path="/certification-page" element={<Protected>  <CertificationPage/> </Protected>} />
         <Route path="/menu2" element={<Protected>   <Menu2/> </Protected>} />
+        <Route path="/drawer" element={<Protected>  <Drawers/> </Protected>} />
       </Routes>
       </BrowserRouter>
     </div>      
