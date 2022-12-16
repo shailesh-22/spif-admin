@@ -19,8 +19,9 @@ function Header3() {
 
   const handleLogout = ()=>{
     localStorage.removeItem("token");
-    window.location('./login');
+    window.location.reload();
 }
+
   
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 

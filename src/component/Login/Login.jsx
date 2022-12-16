@@ -14,7 +14,7 @@ const Login = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
         try {
             const url = "http://103.160.153.38:8020/accounts/auth/";
             
