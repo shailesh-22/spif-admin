@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-const draggableComp = ({ questions }) => {
+const DraggableComp = ({ questions }) => {
 
     const [list, setList] = useState(questions)
 
@@ -58,6 +58,7 @@ const draggableComp = ({ questions }) => {
                                                                     background: "gray",
                                                                     margin: "10px 0"
                                                                 }}
+                                            
                                                             >
                                                                 {question.sDescription}
                                                             </div>
@@ -79,4 +80,4 @@ const draggableComp = ({ questions }) => {
     )
 }
 
-export default draggableComp
+export default DraggableComp
