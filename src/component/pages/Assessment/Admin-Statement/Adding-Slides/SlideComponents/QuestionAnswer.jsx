@@ -11,12 +11,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Switch, FormControlLabel } from '@mui/material'
-import { useHistory } from 'react-router-dom';
+
 import swal from 'sweetalert'
 
 const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
 
-    let history = useHistory();
+   
 
     let [checked, setChecked] = useState(false)
 

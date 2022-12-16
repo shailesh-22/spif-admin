@@ -220,7 +220,7 @@ const Register3 = () => {
                     />
                      <Typography variant="inherit" color="textSecondary">
                     {errors.gender?.message}
-                </Typography>
+                     </Typography>
                
               </Grid>
 
