@@ -8,6 +8,8 @@ import AdminQuestionDetails from "./AdminQuestionDetails";
 import AddSLides from "../Adding-Slides/AddSLides";
 import Header from "../../../../Sidebar/Header";
 import Menu2 from "../../../../Sidebar/Menu2";
+// import DraggableComp from "../Sample Dragging Code/draggable";
+import SortingSlides from "../Sample Dragging Code/SortingSlides";
 
 const AdminStatement = () => {
 
@@ -18,6 +20,10 @@ const AdminStatement = () => {
 
   const [openQA, setOpenQA] = useState(true);
 
+  const [openDD, setOpenDD] = useState( false );
+
+  const [ trapDD, setTrapDD ] = useState( true);
+
   const [title, setTitle] = useState("Statement");
 
   const handleClickOpen = () => {
@@ -25,6 +31,20 @@ const AdminStatement = () => {
     setOpenQA(false);
     setTitle("Slide Manager");
   };
+
+  const handleDragDrop = () => {
+    setOpen(false);
+    setOpenQA(true);
+    setOpenDD(true);
+    setTrapDD(false);
+  };
+
+  const handleBack = () =>{
+    setOpenDD(false);
+    setOpenQA(true);
+    setOpen(false);
+    setTrapDD(true);
+  }
 
   // const handleClose = () => {
   //     setOpen(false);
@@ -73,7 +93,7 @@ const AdminStatement = () => {
                       letterSpacing: "0.5px",
                       fontSize: "15px",
                     }}
-                  // onClick={handleClickOpen}
+                  onClick={handleDragDrop}
                   >
                     Change Slide Order &#8593; &#8595;
                   </Button>
@@ -117,7 +137,9 @@ const AdminStatement = () => {
                 setTitle={setTitle}
               />
             )}
-            {openQA && <AdminQuestionDetails questions={questions} />}
+            {openQA && trapDD && <AdminQuestionDetails questions={questions} />}
+
+            { openDD && <SortingSlides questions = { questions } handleBack={handleBack} />  }
           </div>
         </div>
       </div>
