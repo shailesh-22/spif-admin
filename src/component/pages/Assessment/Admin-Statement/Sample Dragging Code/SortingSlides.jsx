@@ -9,8 +9,8 @@ const SortingSlides = ({ questions, handleBack }) => {
     let [slides, setSlides] = useState(questions)
 
     //save reference for dragItem and dragOverItem
-    const dragItem = React.useRef < import('react-hook-form').IsAny > (null)
-    const dragOverItem = React.useRef < import('react-hook-form').IsAny > (null)
+    let dragItem = useRef<Number> (null)
+    let dragOverItem = useRef<Number> (null)
 
 
     //handle drag sorting
@@ -19,14 +19,14 @@ const SortingSlides = ({ questions, handleBack }) => {
         let _slideItems = [...slides]
 
         //remove and save the dragged item
-        const draggedItemContent = _slideItems.splice(dragItem.current, 1)[0]
+        let draggedItemContent = _slideItems.splice(dragItem, 1)[0]
 
         //switch the position
-        _slideItems.splice(dragOverItem.current, 0, draggedItemContent)
+        _slideItems.splice(dragOverItem, 0, draggedItemContent)
 
         //reset the position ref
-        dragItem.current = null
-        dragOverItem.current = null
+        dragItem = null
+        dragOverItem = null
 
         //update the actual array
         setSlides(_slideItems)
@@ -48,8 +48,8 @@ const SortingSlides = ({ questions, handleBack }) => {
                                     cursor: "move"
                                 }}
                                 draggable
-                                onDragStart={(e) => dragItem.current = index}
-                                onDragEnter={(e) => dragOverItem.current = index}
+                                onDragStart={(e) => dragItem = index}
+                                onDragEnter={(e) => dragOverItem = index}
                                 onDragEnd={handleSort}
                                 onDragOver={(e) => e.preventDefault()}
                             >
