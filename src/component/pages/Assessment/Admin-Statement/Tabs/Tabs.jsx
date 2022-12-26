@@ -3,7 +3,6 @@ import "./tabs.css";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button } from '@mui/material'
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -34,9 +33,11 @@ const Tabs = ({ questions }) => {
 
   // const history = useHistory();
 
-  let [currentTab, setCurrentTab] = useState("1");
+  let [currentTab, setCurrentTab] = useState("");
 
   let [checked, setChecked] = useState(false);
+
+  let[ optionValue, setOptionValue ] = useState("1")
 
   let handleAnswer = (event) => {
     // if ( questions.sOptions.isAnswer ) {
@@ -47,6 +48,10 @@ const Tabs = ({ questions }) => {
 
     setChecked(event.target.checked);
   };
+
+  let handleOption = (e)=>{
+    setOptionValue(e.target.id)
+  }
 
   let handleTabClick = (e) => {
 
@@ -82,25 +87,25 @@ const Tabs = ({ questions }) => {
   //     setTextField(delVal);
   //   };
 
-  const [list, setList] = useState(questions);
+  // const [list, setList] = useState(questions);
 
-  const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
+  // const reorder = (list, startIndex, endIndex) => {
+  //   const result = Array.from(list);
+  //   const [removed] = result.splice(startIndex, 1);
 
-    result.splice(endIndex, 0, removed);
-    return result;
-  };
+  //   result.splice(endIndex, 0, removed);
+  //   return result;
+  // };
 
-  const onEnd = (result) => {
-    // console.log(result);
+  // const onEnd = (result) => {
+  //   // console.log(result);
 
-    let sourceIndex = result.source.index;
+  //   let sourceIndex = result.source.index;
 
-    let destinationIndex = result.destination.index;
+  //   let destinationIndex = result.destination.index;
 
-    setList(reorder(list, sourceIndex, destinationIndex));
-  };
+  //   setList(reorder(list, sourceIndex, destinationIndex));
+  // };
 
 
 
@@ -192,47 +197,6 @@ const Tabs = ({ questions }) => {
   return (
     <div className="tabTypeQuestion">
       <div className="tab">
-        {/* <DragDropContext onDragEnd={onEnd}>
-          <Droppable droppableId="12345" direction="horizontal">
-            {(provider, snapshot) => {
-              return (
-                <div ref={provider.innerRef}>
-                  {list.map((question, index) => {
-                    return (
-                      <Draggable
-                        draggableId={question.sStatementID}
-                        key={question.sStatementID}
-                        index={index}
-                      >
-                        {(provider, snapshot) => {
-                          return (
-                            <div
-                                ref={provider.innerRef}
-                              {...provider.draggableProps}
-                              {...provider.dragHandleProps}
-                              className="draggable-tab"
-                            >
-                              <button
-                                key={index}
-                                id={question.sStatementID}
-                                // disabled={currentTab === `${question.sStatementID}`}
-                                onClick={handleTabClick}
-                              >
-                                Slide <span> {index + 1} </span>
-                              </button>
-                            </div>
-                          );
-                        }}
-                      </Draggable>
-                    );
-                  })}
-                  {provider.placeholder}
-                </div>
-              );
-            }}
-          </Droppable>
-        </DragDropContext> */}
-
         {
           questions.map((tab, i) => {
             return (
@@ -250,6 +214,30 @@ const Tabs = ({ questions }) => {
           })
         }
       </div>
+
+      <select className='col-12 select-slides' >
+      {
+          questions.map((tab, i) => {
+            return (
+                <option key={i}
+                        id={tab.sStatementID}
+                        value={tab.sStatementID}
+                        onChange={handleOption}
+                        onSelect={handleTabClick}
+                >
+                  <button
+                    key={i} 
+                    id={tab.sStatementID}
+                    // disabled={currentTab === `${tab.sStatementID}`}
+                    onClick={handleTabClick}
+                  >
+                    Slide <span> {i + 1} </span>
+                  </button>
+                </option>
+            )
+          })
+        }
+      </select>
       <div className="content">
         {questions.map((tab, i) => (
           <div key={i}>
@@ -274,7 +262,7 @@ const Tabs = ({ questions }) => {
                   />
                 </div>
                 <hr />
-                {tab.sOptions.length !== 0 && (
+                { tab.sOptions.length !== 0 && (
                   <div>
                     <h5> Option Details </h5>
                     <TableContainer component={Paper}>
@@ -464,6 +452,12 @@ const Tabs = ({ questions }) => {
                     </TableContainer>
                   </div>
                 )}
+                { tab.sMedia !== null && (
+                    <div>
+                        <img src={tab.sMedia} alt="New" />
+                    </div>
+                  )
+                }
                 <div className="tab-body-btns">
                   <button
                     className="btn btn-primary"

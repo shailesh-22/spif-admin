@@ -11,11 +11,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Switch, FormControlLabel } from '@mui/material'
-
 import swal from 'sweetalert'
 
 const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
-
    
 
     let [checked, setChecked] = useState(false)
@@ -24,8 +22,6 @@ const QuestionAnswer = ({ questions, setOpen, setOpenQA, setTitle }) => {
         setChecked(event.target.checked)
         setAnswer(event.checked.target)
     }
-
-
     
     // let [ sStatementID ] = useState("");
     let [sDescription, setDescription] = useState("");

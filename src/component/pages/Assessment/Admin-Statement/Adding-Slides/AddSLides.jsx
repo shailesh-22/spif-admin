@@ -34,19 +34,16 @@ const AddSLides = ({questions, setOpen, setOpenQA, setTitle }) => {
         switch (dropDownVal) 
         {
             case 1: return  <QuestionAnswer questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
-                break;
             case 2: return  <OnlyParagraph questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
-                break;
+                
             case 3: return  <ParaWithImage questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
-                break;
+                
             case 4: return  <OnlyImage questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
-                break;
+                
             case 5: return  <OnlyVideo questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
-                break;
-            case 6: return  <OnlyAudio questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;
-                break;       
+                
+            case 6: return  <OnlyAudio questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ;     
             default: return <QuestionAnswer questions={questions} setOpen={setOpen} setOpenQA={setOpenQA} setTitle={setTitle} /> ; 
-                break;
         }
     }
 
