@@ -9,9 +9,8 @@ const SortingSlides = ({ questions, handleBack }) => {
     let [slides, setSlides] = useState(questions)
 
     //save reference for dragItem and dragOverItem
-    let dragItem = useRef<Number> (null)
-    let dragOverItem = useRef<Number> (null)
-
+    let dragItem = useRef < Number > (null)
+    let dragOverItem = useRef < Number > (null)
 
     //handle drag sorting
     const handleSort = () => {
@@ -29,7 +28,16 @@ const SortingSlides = ({ questions, handleBack }) => {
         dragOverItem = null
 
         //update the actual array
-        setSlides(_slideItems)
+        setSlides(_slideItems);
+
+        // fetch("http://103.160.153.38:8020/limens/statements_view/", {
+        //     method: "PUT",
+        //     headers: {
+        //     Accept: "application/json",
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(slides),
+        // })
     }
 
 
@@ -69,7 +77,7 @@ const SortingSlides = ({ questions, handleBack }) => {
                     letterSpacing: "0.5px",
                     fontSize: "15px"
                 }}
-                onClick={ handleBack }
+                onClick={handleBack}
             >
                 Back to Manager &#8592;
             </Button>
