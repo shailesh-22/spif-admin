@@ -43,6 +43,8 @@
 .slide-summary .select-slides{
     color: #00ad53;
     background-color: #62C2CF ;
+    text-align: center;
+    letter-spacing: 0.2em;
 }
 .file-input-img, .file-input-vdo{
     border: #00ad53 1px dotted;
