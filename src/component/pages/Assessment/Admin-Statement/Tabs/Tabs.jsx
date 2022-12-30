@@ -198,7 +198,7 @@ const Tabs = ({ questions }) => {
     <div className="tabTypeQuestion">
       <div className="tab">
         {
-          questions.map((tab, i) => {
+         questions && questions.map((tab, i) => {
             return (
               <div className="draggable-tab">
                 <button
@@ -215,9 +215,9 @@ const Tabs = ({ questions }) => {
         }
       </div>
 
-      <select className='col-12 select-slides' >
+      <select className='col-12 select-slides'  >
       {
-          questions.map((tab, i) => {
+        questions &&  questions.map((tab, i) => {
             return (
                 <option key={i}
                         id={tab.sStatementID}
@@ -239,7 +239,7 @@ const Tabs = ({ questions }) => {
         }
       </select>
       <div className="content">
-        {questions.map((tab, i) => (
+        { questions &&  questions.map((tab, i) => (
           <div key={i}>
             {currentTab === `${tab.sStatementID}` && (
               <div>
