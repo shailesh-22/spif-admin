@@ -1,6 +1,5 @@
 import React from 'react'
 import TextareaAutosize from '@mui/material/TextareaAutosize';
-import { Button} from '@mui/material'
 import swal from 'sweetalert'
 import { useState } from 'react';
 
@@ -23,8 +22,7 @@ const ParaWithImage = ({ setOpen, setOpenQA, setTitle }) => {
                 Accept: "application/json",
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(newStatement),
-        }).then(() => {
+            body: JSON.stringify(newStatement),        }).then(() => {
             swal({
                 title: "Done!",
                 text: `Added Successfully`,
@@ -67,6 +65,9 @@ const ParaWithImage = ({ setOpen, setOpenQA, setTitle }) => {
             </div>
         </div>
     )
+
+
+    
 }
 
 export default ParaWithImage

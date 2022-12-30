@@ -25,7 +25,7 @@ const useFetch = (request) =>
             .then((data)=>{ setData(data); setLoading(false); })
             .catch((error)=>{setError(error.message); setLoading(false);})
 
-        },1000)
+        },100)
     },[])
 
     return {data,loading,error };
