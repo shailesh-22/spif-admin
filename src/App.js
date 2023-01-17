@@ -20,17 +20,19 @@ import AssessmentTest from './component/pages/Assessment/Assessment-Test/MainAss
 import TermsConditions from './component/pages/Assessment/Assessment-Test/Terms & Condions/TermsConditions'
 import CertificationPage from './component/pages/Assessment/Assessment-Test/TestCompletionPage/Certification/CertificationPage'
 import Drawers from './component/Sidebar/Drawers';
+import Home from './component/Home/Home';
 
 
 function App() {
-  
+  // const user = localStorage.removeItem("token")
   return (
 
     <div>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route exact path="/" element={  <Login />} />
         <Route path="/signup" element={ <Signup/>} />
+        <Route path="/home" element={<Protected> <Home/> </Protected>} />
         <Route path="/dashboard" element={<Protected  > <Dashboard /> </Protected>} />
         <Route path="/reports" element={<Protected> <Report /> </Protected>} />
         <Route path="/header" element={<Protected> <Header/> </Protected>} />
